@@ -23,8 +23,8 @@ body{
     line-height:1.5;
     overflow-x:hidden;
     transition:
-        background .7s ease,
-        color .7s ease;
+        background .8s ease,
+        color .8s ease;
 }
 
 a{
@@ -36,6 +36,10 @@ button,
 input{
     font:inherit;
 }
+
+/* =========================
+   HEADER
+========================= */
 
 header{
     position:sticky;
@@ -49,39 +53,49 @@ header{
     background:rgba(245,245,242,.88);
     backdrop-filter:blur(16px);
     border-bottom:1px solid #deded9;
+
     transition:
-        background .7s ease,
-        border .7s ease,
-        transform .8s cubic-bezier(.2,.8,.2,1),
-        filter .7s ease;
+        background .8s ease,
+        border .8s ease,
+        transform .9s cubic-bezier(.2,.8,.2,1),
+        filter .8s ease;
 }
 
 .logo{
     font-size:25px;
     font-weight:800;
     letter-spacing:-1px;
-    transition:transform .8s ease,color .7s ease;
+
+    transition:
+        transform .8s ease,
+        color .7s ease;
 }
 
 nav{
     display:flex;
     gap:28px;
+
     transition:
         transform .8s ease,
-        gap .7s ease;
+        gap .8s ease;
 }
 
 nav a{
     font-size:14px;
     color:#666;
+
     transition:
-        color .5s ease,
+        color .6s ease,
         transform .7s ease;
 }
 
 nav a:hover{
     color:#181818;
 }
+
+/* =========================
+   MAIN
+========================= */
 
 main{
     display:flex;
@@ -92,15 +106,20 @@ main{
 section{
     width:100%;
     position:relative;
+
     transition:
-        background .8s ease,
-        color .8s ease,
-        border-radius .8s ease,
-        transform 1s cubic-bezier(.2,.8,.2,1),
-        filter .8s ease,
-        box-shadow .8s ease,
-        padding .8s ease;
+        background .9s ease,
+        color .9s ease,
+        border-radius .9s ease,
+        transform 1.1s cubic-bezier(.2,.8,.2,1),
+        filter .9s ease,
+        box-shadow .9s ease,
+        padding .9s ease;
 }
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
     min-height:calc(100vh - 72px);
@@ -123,8 +142,9 @@ section{
     font-weight:700;
     letter-spacing:.08em;
     text-transform:uppercase;
+
     transition:
-        color .6s ease,
+        color .7s ease,
         transform .8s ease;
 }
 
@@ -134,10 +154,11 @@ section{
     line-height:.95;
     letter-spacing:-.065em;
     margin-bottom:30px;
+
     transition:
-        color .7s ease,
+        color .8s ease,
         transform 1s ease,
-        filter .7s ease;
+        filter .8s ease;
 }
 
 .hero p{
@@ -145,10 +166,15 @@ section{
     color:#707070;
     font-size:19px;
     margin-bottom:38px;
+
     transition:
-        color .7s ease,
+        color .8s ease,
         transform .8s ease;
 }
+
+/* =========================
+   SEARCH
+========================= */
 
 .search{
     display:flex;
@@ -157,12 +183,14 @@ section{
     background:#fff;
     border-radius:15px;
     overflow:hidden;
+
     box-shadow:0 8px 30px rgba(0,0,0,.04);
+
     transition:
-        background .7s ease,
-        border .7s ease,
-        box-shadow .8s ease,
-        transform .8s ease;
+        background .8s ease,
+        border .8s ease,
+        box-shadow .9s ease,
+        transform .9s ease;
 }
 
 .search input{
@@ -181,8 +209,9 @@ section{
     background:#181818;
     color:#fff;
     cursor:pointer;
+
     transition:
-        background .6s ease,
+        background .7s ease,
         transform .5s ease;
 }
 
@@ -196,6 +225,10 @@ section{
     color:#777;
     min-height:20px;
 }
+
+/* =========================
+   SECTIONS
+========================= */
 
 .content-section{
     padding:120px 6vw;
@@ -217,22 +250,29 @@ section{
     text-transform:uppercase;
     letter-spacing:.08em;
     margin-bottom:12px;
-    transition:color .6s ease;
+
+    transition:color .7s ease;
 }
 
 .section-title{
     font-size:clamp(34px,5vw,62px);
     letter-spacing:-.045em;
     line-height:1;
+
     transition:
-        color .7s ease,
+        color .8s ease,
         transform .8s ease;
 }
+
+/* =========================
+   CARDS
+========================= */
 
 .cards{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:20px;
+
     transition:
         transform 1s ease,
         gap .8s ease;
@@ -244,23 +284,26 @@ section{
     background:#fff;
     border:1px solid #deded9;
     border-radius:20px;
+
     display:flex;
     flex-direction:column;
     justify-content:space-between;
+
     transition:
-        background .8s ease,
-        color .8s ease,
-        border .8s ease,
-        transform 1s cubic-bezier(.2,.8,.2,1),
-        box-shadow .8s ease,
-        border-radius .8s ease,
-        filter .8s ease;
+        background .9s ease,
+        color .9s ease,
+        border .9s ease,
+        transform 1.1s cubic-bezier(.2,.8,.2,1),
+        box-shadow .9s ease,
+        border-radius .9s ease,
+        filter .9s ease;
 }
 
 .card-number{
     font-size:13px;
     color:#999;
-    transition:color .6s ease;
+
+    transition:color .7s ease;
 }
 
 .card h3{
@@ -268,16 +311,22 @@ section{
     line-height:1.05;
     letter-spacing:-.035em;
     margin:30px 0 12px;
+
     transition:
-        color .6s ease,
+        color .7s ease,
         transform .8s ease;
 }
 
 .card p{
     color:#777;
     font-size:15px;
-    transition:color .6s ease;
+
+    transition:color .7s ease;
 }
+
+/* =========================
+   TENDANCES
+========================= */
 
 .trends{
     background:#ecece8;
@@ -286,6 +335,10 @@ section{
 .trend-card{
     min-height:220px;
 }
+
+/* =========================
+   INFO
+========================= */
 
 .info{
     padding:110px 6vw;
@@ -298,12 +351,13 @@ section{
     border-radius:30px;
     background:#181818;
     color:#fff;
+
     transition:
-        background .8s ease,
-        color .8s ease,
-        transform 1s cubic-bezier(.2,.8,.2,1),
-        border-radius .8s ease,
-        box-shadow .8s ease;
+        background .9s ease,
+        color .9s ease,
+        transform 1.1s cubic-bezier(.2,.8,.2,1),
+        border-radius .9s ease,
+        box-shadow .9s ease;
 }
 
 .info-box h2{
@@ -311,242 +365,214 @@ section{
     letter-spacing:-.05em;
     line-height:1;
     margin-bottom:25px;
-    transition:color .7s ease;
+
+    transition:color .8s ease;
 }
 
 .info-box p{
     max-width:720px;
     color:#aaa;
-    transition:color .7s ease;
+
+    transition:color .8s ease;
 }
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
     padding:45px 6vw;
     border-top:1px solid #deded9;
     color:#888;
     font-size:13px;
+
     transition:
-        background .8s ease,
-        color .8s ease,
+        background .9s ease,
+        color .9s ease,
         transform 1s ease;
 }
 
 /* =========================================================
-   CHANGEMENTS DE COULEURS
-   ========================================================= */
+   COULEURS
+========================================================= */
 
 .gradient-soft-1{
-    background:linear-gradient(135deg,#fff 0%,#edf2ff 100%) !important;
+    background:linear-gradient(135deg,#fff,#edf2ff)!important;
 }
 
 .gradient-soft-2{
-    background:linear-gradient(135deg,#fff 0%,#fff0f6 100%) !important;
+    background:linear-gradient(135deg,#fff,#fff0f6)!important;
 }
 
 .gradient-soft-3{
-    background:linear-gradient(135deg,#fff 0%,#edfff5 100%) !important;
+    background:linear-gradient(135deg,#fff,#edfff5)!important;
 }
 
 .gradient-soft-4{
-    background:linear-gradient(135deg,#fff7e6 0%,#ffffff 50%,#edf7ff 100%) !important;
+    background:linear-gradient(135deg,#fff7e6,#fff,#edf7ff)!important;
 }
 
 .gradient-medium-1{
-    background:linear-gradient(135deg,#e9ddff,#dceeff,#fff0d7) !important;
+    background:linear-gradient(135deg,#e9ddff,#dceeff,#fff0d7)!important;
 }
 
 .gradient-medium-2{
-    background:linear-gradient(135deg,#dffcf1,#d9f1ff,#f4dcff) !important;
+    background:linear-gradient(135deg,#dffcf1,#d9f1ff,#f4dcff)!important;
 }
 
 .gradient-medium-3{
-    background:linear-gradient(120deg,#fff1c7,#ffd9e8,#dce5ff) !important;
+    background:linear-gradient(135deg,#fff1c7,#ffd9e8,#dce5ff)!important;
 }
 
 .gradient-medium-4{
-    background:linear-gradient(135deg,#d9f7ff,#e7d8ff,#ffdce8) !important;
+    background:linear-gradient(135deg,#d9f7ff,#e7d8ff,#ffdce8)!important;
 }
 
 .gradient-strong-1{
-    background:linear-gradient(135deg,#5ee7df,#b490ca) !important;
-    color:#111 !important;
+    background:linear-gradient(135deg,#5ee7df,#b490ca)!important;
+    color:#111!important;
 }
 
 .gradient-strong-2{
-    background:linear-gradient(135deg,#ffecd2,#fcb69f) !important;
-    color:#111 !important;
+    background:linear-gradient(135deg,#ffecd2,#fcb69f)!important;
+    color:#111!important;
 }
 
 .gradient-strong-3{
-    background:linear-gradient(135deg,#a8edea,#fed6e3) !important;
-    color:#111 !important;
+    background:linear-gradient(135deg,#a8edea,#fed6e3)!important;
+    color:#111!important;
 }
 
 .gradient-strong-4{
-    background:linear-gradient(135deg,#667eea,#764ba2) !important;
-    color:#fff !important;
+    background:linear-gradient(135deg,#667eea,#764ba2)!important;
+    color:#fff!important;
 }
 
 .gradient-strong-5{
-    background:linear-gradient(135deg,#f093fb,#f5576c) !important;
-    color:#fff !important;
+    background:linear-gradient(135deg,#f093fb,#f5576c)!important;
+    color:#fff!important;
 }
 
 .gradient-strong-6{
-    background:linear-gradient(135deg,#4facfe,#00f2fe) !important;
-    color:#07151c !important;
+    background:linear-gradient(135deg,#4facfe,#00f2fe)!important;
+    color:#07151c!important;
 }
 
 .gradient-strong-7{
-    background:linear-gradient(135deg,#43e97b,#38f9d7) !important;
-    color:#062015 !important;
+    background:linear-gradient(135deg,#43e97b,#38f9d7)!important;
+    color:#062015!important;
 }
 
-.gradient-wtf-1{
-    background:linear-gradient(
-        135deg,
-        #ff0080 0%,
-        #7928ca 25%,
-        #00d4ff 50%,
-        #00ff87 75%,
-        #ffe600 100%
-    ) !important;
-    color:#111 !important;
-}
-
-.gradient-wtf-2{
-    background:linear-gradient(
-        45deg,
-        #ff3cac,
-        #784ba0,
-        #2b86c5,
-        #00ff9d
-    ) !important;
-    color:#fff !important;
-}
-
-.gradient-wtf-3{
-    background:linear-gradient(
-        120deg,
-        #ff0000,
-        #ff8a00,
-        #ffe600,
-        #00ff00,
-        #00d9ff,
-        #4d00ff,
-        #ff00aa
-    ) !important;
-    color:#fff !important;
-}
-
-/* couleurs du texte */
+/* =========================
+   COULEURS TEXTE
+========================= */
 
 .text-red{
-    color:#e63946 !important;
+    color:#e63946!important;
 }
 
 .text-blue{
-    color:#2563eb !important;
+    color:#2563eb!important;
 }
 
 .text-purple{
-    color:#7c3aed !important;
+    color:#7c3aed!important;
 }
 
 .text-green{
-    color:#059669 !important;
+    color:#059669!important;
 }
 
 .text-orange{
-    color:#ea580c !important;
+    color:#ea580c!important;
 }
 
 .text-pink{
-    color:#db2777 !important;
+    color:#db2777!important;
 }
 
 .text-cyan{
-    color:#0891b2 !important;
+    color:#0891b2!important;
 }
 
 /* =========================================================
-   BLOCS QUI BOUGENT
-   ========================================================= */
+   MOUVEMENTS
+========================================================= */
 
 .move-right{
-    transform:translate3d(45px,10px,0) rotate(1.5deg) scale(1.02) !important;
+    transform:translate3d(45px,10px,0) rotate(1.5deg) scale(1.02)!important;
 }
 
 .move-left{
-    transform:translate3d(-45px,-8px,0) rotate(-1.5deg) scale(1.02) !important;
+    transform:translate3d(-45px,-8px,0) rotate(-1.5deg) scale(1.02)!important;
 }
 
 .move-up{
-    transform:translate3d(10px,-35px,0) rotate(1deg) !important;
+    transform:translate3d(10px,-35px,0) rotate(1deg)!important;
 }
 
 .move-down{
-    transform:translate3d(-10px,35px,0) rotate(-1deg) !important;
+    transform:translate3d(-10px,35px,0) rotate(-1deg)!important;
 }
 
 .move-big-right{
-    transform:translate3d(110px,0,0) rotate(4deg) scale(1.03) !important;
+    transform:translate3d(100px,0,0) rotate(4deg) scale(1.03)!important;
 }
 
 .move-big-left{
-    transform:translate3d(-110px,0,0) rotate(-4deg) scale(1.03) !important;
+    transform:translate3d(-100px,0,0) rotate(-4deg) scale(1.03)!important;
 }
 
 .float-weird{
-    transform:translate3d(25px,-45px,0) rotate(3deg) scale(1.04) !important;
+    transform:translate3d(25px,-45px,0) rotate(3deg) scale(1.04)!important;
 }
 
 .rotate-block{
-    transform:rotate(6deg) translate3d(20px,0,0) scale(1.02) !important;
+    transform:rotate(6deg) translate3d(20px,0,0) scale(1.02)!important;
 }
 
 .rotate-block-left{
-    transform:rotate(-6deg) translate3d(-20px,0,0) scale(1.02) !important;
+    transform:rotate(-6deg) translate3d(-20px,0,0) scale(1.02)!important;
 }
 
 /* =========================================================
-   FORMES / INVERSIONS
-   ========================================================= */
+   FORMES
+========================================================= */
 
 .round-more{
-    border-radius:55px !important;
+    border-radius:55px!important;
 }
 
 .round-less{
-    border-radius:3px !important;
+    border-radius:3px!important;
 }
 
 .flip-x{
-    transform:scaleX(-1) !important;
+    transform:scaleX(-1)!important;
 }
 
 .flip-y{
-    transform:rotateX(180deg) !important;
+    transform:rotateX(180deg)!important;
 }
 
 .flip-180{
-    transform:rotate(180deg) !important;
+    transform:rotate(180deg)!important;
 }
 
 .tilt{
-    transform:rotate(3deg) !important;
+    transform:rotate(3deg)!important;
 }
 
 .tilt-left{
-    transform:rotate(-3deg) !important;
+    transform:rotate(-3deg)!important;
 }
 
 /* =========================================================
-   ANIMATION DE TEXTE
-   ========================================================= */
+   TEXTE
+========================================================= */
 
 .text-changing{
-    animation:textChange .65s ease;
+    animation:textChange .7s ease;
 }
 
 @keyframes textChange{
@@ -555,11 +581,13 @@ footer{
         filter:blur(0);
         transform:translateY(0);
     }
+
     45%{
         opacity:0;
-        filter:blur(5px);
-        transform:translateY(-8px);
+        filter:blur(4px);
+        transform:translateY(-6px);
     }
+
     100%{
         opacity:1;
         filter:blur(0);
@@ -568,19 +596,19 @@ footer{
 }
 
 /* =========================================================
-   PHASE WTF
-   ========================================================= */
+   WTF FINAL
+========================================================= */
 
 body.wtf-final{
     background:
         repeating-linear-gradient(
             25deg,
-            #fff 0px,
+            #fff 0,
             #fff 20px,
             #f4d7ff 21px,
             #d8f7ff 42px,
             #fff0b8 63px
-        ) !important;
+        )!important;
 }
 
 body.wtf-final header{
@@ -592,9 +620,9 @@ body.wtf-final header{
             #00d4ff,
             #00ff88,
             #ffe600
-        ) !important;
-    border-color:#111 !important;
-    color:#111 !important;
+        )!important;
+
+    border-color:#111!important;
 }
 
 body.wtf-final nav{
@@ -603,17 +631,12 @@ body.wtf-final nav{
 }
 
 body.wtf-final nav a{
-    color:#111 !important;
+    color:#111!important;
     font-weight:800;
 }
 
 body.wtf-final .logo{
     transform:rotate(5deg) scale(1.2);
-}
-
-body.wtf-final .hero h1{
-    letter-spacing:.02em;
-    transform:rotate(-3deg) scale(1.04);
 }
 
 body.wtf-final .card{
@@ -633,27 +656,72 @@ body.wtf-final footer{
     color:#fff;
 }
 
+.gradient-wtf-1{
+    background:
+        linear-gradient(
+            135deg,
+            #ff0080,
+            #7928ca,
+            #00d4ff,
+            #00ff87,
+            #ffe600
+        )!important;
+
+    color:#111!important;
+}
+
+.gradient-wtf-2{
+    background:
+        linear-gradient(
+            45deg,
+            #ff3cac,
+            #784ba0,
+            #2b86c5,
+            #00ff9d
+        )!important;
+
+    color:#fff!important;
+}
+
+.gradient-wtf-3{
+    background:
+        linear-gradient(
+            120deg,
+            #ff0000,
+            #ff8a00,
+            #ffe600,
+            #00ff00,
+            #00d9ff,
+            #4d00ff,
+            #ff00aa
+        )!important;
+
+    color:#fff!important;
+}
+
 .wtf-pulse{
-    animation:wtfPulse 1.2s infinite alternate ease-in-out;
+    animation:wtfPulse 1.5s infinite alternate ease-in-out;
 }
 
 @keyframes wtfPulse{
     from{
         filter:hue-rotate(0deg);
     }
+
     to{
         filter:hue-rotate(100deg);
     }
 }
 
 .wtf-spin{
-    animation:wtfSpin 4s linear infinite;
+    animation:wtfSpin 5s linear infinite;
 }
 
 @keyframes wtfSpin{
     from{
         transform:rotate(0deg);
     }
+
     to{
         transform:rotate(360deg);
     }
@@ -661,9 +729,10 @@ body.wtf-final footer{
 
 /* =========================================================
    RESPONSIVE
-   ========================================================= */
+========================================================= */
 
 @media(max-width:800px){
+
     header{
         padding:0 20px;
     }
@@ -694,15 +763,16 @@ body.wtf-final footer{
     }
 
     .move-big-right{
-        transform:translate3d(35px,0,0) rotate(3deg) !important;
+        transform:translate3d(35px,0,0) rotate(3deg)!important;
     }
 
     .move-big-left{
-        transform:translate3d(-35px,0,0) rotate(-3deg) !important;
+        transform:translate3d(-35px,0,0) rotate(-3deg)!important;
     }
 }
 
 @media(max-width:560px){
+
     header{
         height:auto;
         min-height:65px;
@@ -734,7 +804,10 @@ body.wtf-final footer{
 <body>
 
 <header id="siteHeader">
-    <a href="#accueil" class="logo" id="logo">Daily</a>
+
+    <a href="#accueil" class="logo" id="logo">
+        Daily
+    </a>
 
     <nav id="navigation">
         <a href="#accueil">Accueil</a>
@@ -742,11 +815,18 @@ body.wtf-final footer{
         <a href="#tendances">Tendances</a>
         <a href="#apropos">À propos</a>
     </nav>
+
 </header>
+
 
 <main>
 
+<!-- =========================
+     ACCUEIL
+========================= -->
+
 <section class="hero" id="accueil">
+
     <div class="hero-inner">
 
         <div class="eyebrow" id="heroEyebrow">
@@ -763,139 +843,274 @@ body.wtf-final footer{
         </p>
 
         <div class="search" id="searchBox">
+
             <input
                 id="searchInput"
                 type="text"
                 placeholder="Rechercher un sujet..."
             >
+
             <button id="searchButton">
                 Rechercher
             </button>
+
         </div>
 
-        <div class="search-result" id="searchResult"></div>
+        <div
+            class="search-result"
+            id="searchResult"
+        ></div>
 
     </div>
+
 </section>
 
 
-<section class="content-section" id="decouvrir">
+<!-- =========================
+     DÉCOUVRIR
+========================= -->
+
+<section
+    class="content-section"
+    id="decouvrir"
+>
 
     <div class="section-inner">
 
         <div class="section-heading">
-            <div class="section-label" id="discoverLabel">
+
+            <div
+                class="section-label"
+                id="discoverLabel"
+            >
                 À découvrir
             </div>
 
-            <h2 class="section-title" id="discoverTitle">
+            <h2
+                class="section-title"
+                id="discoverTitle"
+            >
                 Des choses intéressantes.
             </h2>
+
         </div>
 
-        <div class="cards" id="cards">
 
-            <article class="card" id="card1">
-                <div class="card-number">01</div>
+        <div
+            class="cards"
+            id="cards"
+        >
+
+            <article
+                class="card"
+                id="card1"
+            >
+
+                <div class="card-number">
+                    01
+                </div>
 
                 <div>
-                    <h3>Les idées qui changent tout</h3>
+
+                    <h3>
+                        Les idées qui changent tout
+                    </h3>
+
                     <p>
                         Certaines petites idées peuvent modifier
                         complètement notre manière de voir les choses.
                     </p>
+
                 </div>
+
             </article>
 
-            <article class="card" id="card2">
-                <div class="card-number">02</div>
+
+            <article
+                class="card"
+                id="card2"
+            >
+
+                <div class="card-number">
+                    02
+                </div>
 
                 <div>
-                    <h3>Le monde autrement</h3>
+
+                    <h3>
+                        Le monde autrement
+                    </h3>
+
                     <p>
                         Des découvertes étonnantes et des sujets
                         qui méritent quelques minutes d'attention.
                     </p>
+
                 </div>
+
             </article>
 
-            <article class="card" id="card3">
-                <div class="card-number">03</div>
+
+            <article
+                class="card"
+                id="card3"
+            >
+
+                <div class="card-number">
+                    03
+                </div>
 
                 <div>
-                    <h3>Curiosités du quotidien</h3>
+
+                    <h3>
+                        Curiosités du quotidien
+                    </h3>
+
                     <p>
                         Les choses ordinaires cachent parfois
                         des détails beaucoup moins ordinaires.
                     </p>
+
                 </div>
+
             </article>
 
         </div>
+
     </div>
+
 </section>
 
 
-<section class="content-section trends" id="tendances">
+<!-- =========================
+     TENDANCES
+========================= -->
+
+<section
+    class="content-section trends"
+    id="tendances"
+>
 
     <div class="section-inner">
 
         <div class="section-heading">
-            <div class="section-label" id="trendLabel">
+
+            <div
+                class="section-label"
+                id="trendLabel"
+            >
                 Tendances
             </div>
 
-            <h2 class="section-title" id="trendTitle">
+            <h2
+                class="section-title"
+                id="trendTitle"
+            >
                 Ce qui attire l'attention.
             </h2>
+
         </div>
 
-        <div class="cards" id="trendCards">
 
-            <article class="card trend-card" id="trend1">
-                <div class="card-number">A</div>
+        <div
+            class="cards"
+            id="trendCards"
+        >
+
+            <article
+                class="card trend-card"
+                id="trend1"
+            >
+
+                <div class="card-number">
+                    A
+                </div>
 
                 <div>
-                    <h3>Technologies</h3>
+
+                    <h3>
+                        Technologies
+                    </h3>
+
                     <p>
                         Les nouveautés qui transforment progressivement
                         notre quotidien.
                     </p>
+
                 </div>
+
             </article>
 
-            <article class="card trend-card" id="trend2">
-                <div class="card-number">B</div>
+
+            <article
+                class="card trend-card"
+                id="trend2"
+            >
+
+                <div class="card-number">
+                    B
+                </div>
 
                 <div>
-                    <h3>Culture</h3>
+
+                    <h3>
+                        Culture
+                    </h3>
+
                     <p>
                         Des créations, des histoires et des idées
                         à découvrir.
                     </p>
+
                 </div>
+
             </article>
 
-            <article class="card trend-card" id="trend3">
-                <div class="card-number">C</div>
+
+            <article
+                class="card trend-card"
+                id="trend3"
+            >
+
+                <div class="card-number">
+                    C
+                </div>
 
                 <div>
-                    <h3>Curiosités</h3>
+
+                    <h3>
+                        Curiosités
+                    </h3>
+
                     <p>
                         Des faits étonnants qui donnent envie
                         d'en savoir davantage.
                     </p>
+
                 </div>
+
             </article>
 
         </div>
+
     </div>
+
 </section>
 
 
-<section class="info" id="apropos">
+<!-- =========================
+     À PROPOS
+========================= -->
 
-    <div class="info-box" id="infoBox">
+<section
+    class="info"
+    id="apropos"
+>
+
+    <div
+        class="info-box"
+        id="infoBox"
+    >
 
         <h2 id="infoTitle">
             Pourquoi Daily ?
@@ -908,249 +1123,179 @@ body.wtf-final footer{
         </p>
 
     </div>
+
 </section>
 
 </main>
 
 
 <footer id="footer">
+
     <div id="footerText">
         © 2026 Daily — Magazine & découvertes
     </div>
+
 </footer>
 
 
 <script>
 
 /* =========================================================
-   ÉTAT DU TROLL
-   ========================================================= */
+   ÉTAT
+========================================================= */
 
 const state = {
+
+    /*
+       Nombre total de mutations réellement effectuées.
+    */
     changes:0,
+
+    /*
+       Phase finale.
+    */
     finalWtf:false,
+
+    /*
+       Nombre de changements du titre.
+    */
     titleChanges:0,
-    burstRunning:false,
-    lastScroll:0
+
+    /*
+       Empêche deux déclenchements simultanés.
+    */
+    mutating:false,
+
+    /*
+       Empêche un élément de provoquer un changement
+       tant qu'il n'est pas revenu dans l'écran.
+    */
+    armed:new Set(),
+
+    /*
+       Sert à savoir quels éléments étaient visibles.
+    */
+    previousVisibility:new Map()
+
 };
 
 
 /* =========================================================
-   OUTILS
-   ========================================================= */
+   LISTE DES ÉLÉMENTS QUI PEUVENT DÉCLENCHER
+========================================================= */
 
-function isOffscreen(element){
+const trollTargets = [
 
-    if(!element) return false;
+    document.getElementById("mainTitle"),
+    document.getElementById("heroText"),
 
-    const r = element.getBoundingClientRect();
+    document.getElementById("discoverTitle"),
+    document.getElementById("discoverLabel"),
+
+    document.getElementById("trendTitle"),
+    document.getElementById("trendLabel"),
+
+    document.getElementById("card1"),
+    document.getElementById("card2"),
+    document.getElementById("card3"),
+
+    document.getElementById("trend1"),
+    document.getElementById("trend2"),
+    document.getElementById("trend3"),
+
+    document.getElementById("infoBox"),
+
+    document.getElementById("footer")
+
+].filter(Boolean);
+
+
+/* =========================================================
+   VISIBILITÉ
+========================================================= */
+
+function isVisible(element){
+
+    const rect =
+        element.getBoundingClientRect();
 
     return (
-        r.bottom < -30 ||
-        r.top > window.innerHeight + 30
+        rect.bottom > 20 &&
+        rect.top < window.innerHeight - 20
     );
 }
 
 
-function randomItem(array){
-    return array[Math.floor(Math.random() * array.length)];
+function isOffscreen(element){
+
+    return !isVisible(element);
 }
 
+
+/* =========================================================
+   RANDOM
+========================================================= */
+
+function randomItem(array){
+
+    return array[
+        Math.floor(
+            Math.random() * array.length
+        )
+    ];
+}
+
+
+/* =========================================================
+   COMPTEUR
+========================================================= */
 
 function addChange(){
 
     state.changes++;
 
+    /*
+       La progression est uniquement liée
+       aux changements effectués.
+    */
+
     if(
-        state.changes >= 34 &&
+        state.changes >= 36 &&
         !state.finalWtf
     ){
+
         launchFinalWTF();
+
     }
-}
-
-
-function addClass(element,className){
-
-    if(!element) return false;
-
-    if(!isOffscreen(element)) return false;
-
-    element.classList.add(className);
-
-    addChange();
-
-    return true;
-}
-
-
-function removeAfter(element,className,ms){
-
-    setTimeout(() => {
-
-        if(
-            element &&
-            !state.finalWtf
-        ){
-            element.classList.remove(className);
-        }
-
-    },ms);
-
 }
 
 
 /* =========================================================
-   TITRES
-   ========================================================= */
-
-const normalTitles = [
-    "Découvrez ce qui mérite votre attention.",
-    "Des choses qui méritent d'être découvertes.",
-    "Découvrez quelque chose de nouveau.",
-    "Ce qui mérite vraiment votre attention.",
-    "Un autre regard sur le quotidien.",
-    "Les idées à découvrir aujourd'hui.",
-    "Quelques découvertes intéressantes."
-];
-
-
-const strangeTitles = [
-    "Découvrez ce qui mérite votre attention.",
-    "Cette page semble légèrement différente.",
-    "Vous aviez déjà vu ce titre ?",
-    "Tout est parfaitement normal.",
-    "Il y avait probablement un autre titre.",
-    "Ne vous inquiétez pas pour le titre.",
-    "Cette phrase était ailleurs.",
-    "Le titre fonctionne normalement.",
-    "Quelque chose a changé.",
-    "Pourquoi ce titre est comme ça ?"
-];
-
-
-const wtfTitles = [
-    "Le titre est actuellement ailleurs.",
-    "03 / 01 / 04",
-    "Ceci était une section.",
-    "Pourquoi les titres ont-ils décidé ça ?",
-    "DAILY DAILY DAILY",
-    "Le titre n'a rien demandé.",
-    "Cette page connaît le chemin.",
-    "Attention au texte qui n'est plus ici.",
-    "Section principale secondaire principale.",
-    "Tout est exactement différent."
-];
-
-
-function mutateTitle(){
-
-    const title = document.getElementById("mainTitle");
-
-    if(!title) return;
-
-    if(!isOffscreen(title)) return;
-
-    let list = normalTitles;
-
-    if(state.changes >= 18){
-        list = strangeTitles;
-    }
-
-    if(state.finalWtf){
-        list = wtfTitles;
-    }
-
-    let newText = randomItem(list);
-
-    if(newText === title.textContent){
-        newText = randomItem(list);
-    }
-
-    title.classList.remove("text-changing");
-
-    void title.offsetWidth;
-
-    title.classList.add("text-changing");
-
-    title.textContent = newText;
-
-    state.titleChanges++;
-
-    addChange();
-}
-
-
-/* =========================================================
-   AUTRES TEXTES
-   ========================================================= */
-
-const strangeTexts = [
-    "Une découverte peut parfois apparaître exactement là où on ne l'attend pas.",
-    "Cette section était probablement dans un autre ordre.",
-    "Tout fonctionne comme prévu.",
-    "Il semble que quelque chose ait légèrement changé.",
-    "Cette information est parfaitement normale.",
-    "Vous pouvez continuer votre lecture.",
-    "Cette phrase était plus longue avant.",
-    "Rien de particulier à signaler."
-];
-
-
-function mutateText(){
-
-    const targets = [
-        document.getElementById("heroText"),
-        document.getElementById("discoverTitle"),
-        document.getElementById("trendTitle"),
-        document.getElementById("infoText"),
-        document.getElementById("infoTitle"),
-        document.getElementById("footerText")
-    ];
-
-    const available = targets.filter(
-        el => el && isOffscreen(el)
-    );
-
-    if(!available.length) return false;
-
-    const target = randomItem(available);
-
-    target.classList.remove("text-changing");
-
-    void target.offsetWidth;
-
-    target.classList.add("text-changing");
-
-    target.textContent = randomItem(strangeTexts);
-
-    addChange();
-
-    return true;
-}
-
-
-/* =========================================================
-   COULEURS / DÉGRADÉS
-   ========================================================= */
+   COULEURS
+========================================================= */
 
 const softGradients = [
+
     "gradient-soft-1",
     "gradient-soft-2",
     "gradient-soft-3",
     "gradient-soft-4"
+
 ];
 
 
 const mediumGradients = [
+
     "gradient-medium-1",
     "gradient-medium-2",
     "gradient-medium-3",
     "gradient-medium-4"
+
 ];
 
 
 const strongGradients = [
+
     "gradient-strong-1",
     "gradient-strong-2",
     "gradient-strong-3",
@@ -1158,81 +1303,64 @@ const strongGradients = [
     "gradient-strong-5",
     "gradient-strong-6",
     "gradient-strong-7"
+
 ];
 
 
-const wtfGradients = [
-    "gradient-wtf-1",
-    "gradient-wtf-2",
-    "gradient-wtf-3"
-];
+const gradientClasses = [
 
-
-const allGradientClasses = [
     ...softGradients,
     ...mediumGradients,
-    ...strongGradients,
-    ...wtfGradients
+    ...strongGradients
+
 ];
 
 
-function clearGradients(element){
+function clearGradientClasses(element){
 
-    allGradientClasses.forEach(
-        c => element.classList.remove(c)
+    gradientClasses.forEach(
+        className =>
+            element.classList.remove(className)
     );
+
 }
 
 
-function mutateGradient(){
+function mutateGradient(target){
 
-    const targets = [
-
-        document.getElementById("accueil"),
-        document.getElementById("decouvrir"),
-        document.getElementById("tendances"),
-        document.getElementById("apropos"),
-        document.getElementById("cards"),
-        document.getElementById("trendCards"),
-        document.getElementById("card1"),
-        document.getElementById("card2"),
-        document.getElementById("card3"),
-        document.getElementById("trend1"),
-        document.getElementById("trend2"),
-        document.getElementById("trend3"),
-        document.getElementById("infoBox"),
-        document.getElementById("searchBox"),
-        document.getElementById("footer"),
-        document.getElementById("siteHeader")
-
-    ].filter(Boolean);
+    if(
+        !target ||
+        !isOffscreen(target)
+    ){
+        return false;
+    }
 
 
-    const available = targets.filter(
-        el => isOffscreen(el)
-    );
-
-
-    if(!available.length) return false;
-
-
-    const target = randomItem(available);
-
-    clearGradients(target);
+    clearGradientClasses(target);
 
 
     let list = softGradients;
 
+
+    /*
+       Au début : couleurs presque normales.
+    */
+
     if(state.changes >= 7){
+
         list = mediumGradients;
+
     }
 
-    if(state.changes >= 14){
+
+    /*
+       Plus tard : vrais gros dégradés.
+    */
+
+    if(state.changes >= 17){
+
         list = strongGradients;
-    }
 
-    if(state.finalWtf){
-        list = wtfGradients;
     }
 
 
@@ -1240,6 +1368,7 @@ function mutateGradient(){
         randomItem(list)
     );
 
+
     addChange();
 
     return true;
@@ -1247,10 +1376,11 @@ function mutateGradient(){
 
 
 /* =========================================================
-   COULEURS DE TEXTE
-   ========================================================= */
+   COULEUR DE TEXTE
+========================================================= */
 
 const textColors = [
+
     "text-red",
     "text-blue",
     "text-purple",
@@ -1258,41 +1388,30 @@ const textColors = [
     "text-orange",
     "text-pink",
     "text-cyan"
+
 ];
 
 
-function mutateTextColor(){
+function mutateTextColor(target){
 
-    const targets = [
+    if(
+        !target ||
+        !isOffscreen(target)
+    ){
+        return false;
+    }
 
-        document.getElementById("mainTitle"),
-        document.getElementById("discoverTitle"),
-        document.getElementById("trendTitle"),
-        document.getElementById("infoTitle"),
-        document.getElementById("heroEyebrow"),
-        document.getElementById("discoverLabel"),
-        document.getElementById("trendLabel")
-
-    ].filter(Boolean);
-
-
-    const available = targets.filter(
-        el => isOffscreen(el)
-    );
-
-
-    if(!available.length) return false;
-
-
-    const target = randomItem(available);
 
     textColors.forEach(
-        c => target.classList.remove(c)
+        className =>
+            target.classList.remove(className)
     );
+
 
     target.classList.add(
         randomItem(textColors)
     );
+
 
     addChange();
 
@@ -1301,10 +1420,205 @@ function mutateTextColor(){
 
 
 /* =========================================================
-   MOUVEMENTS DE BLOCS
-   ========================================================= */
+   TITRE
+========================================================= */
+
+const normalTitles = [
+
+    "Découvrez ce qui mérite votre attention.",
+
+    "Des choses qui méritent d'être découvertes.",
+
+    "Découvrez quelque chose de nouveau.",
+
+    "Ce qui mérite vraiment votre attention.",
+
+    "Un autre regard sur le quotidien.",
+
+    "Les idées à découvrir aujourd'hui."
+
+];
+
+
+const strangeTitles = [
+
+    "Découvrez ce qui mérite votre attention.",
+
+    "Cette page semble légèrement différente.",
+
+    "Vous aviez déjà vu ce titre ?",
+
+    "Tout est parfaitement normal.",
+
+    "Il y avait probablement un autre titre.",
+
+    "Ne vous inquiétez pas pour le titre.",
+
+    "Cette phrase était ailleurs.",
+
+    "Le titre fonctionne normalement.",
+
+    "Quelque chose a changé."
+
+];
+
+
+const wtfTitles = [
+
+    "Le titre est actuellement ailleurs.",
+
+    "03 / 01 / 04",
+
+    "Ceci était une section.",
+
+    "Pourquoi les titres ont-ils décidé ça ?",
+
+    "DAILY DAILY DAILY",
+
+    "Le titre n'a rien demandé.",
+
+    "Cette page connaît le chemin.",
+
+    "Section principale secondaire principale."
+
+];
+
+
+function mutateTitle(){
+
+    const title =
+        document.getElementById("mainTitle");
+
+
+    if(
+        !title ||
+        !isOffscreen(title)
+    ){
+        return false;
+    }
+
+
+    let list = normalTitles;
+
+
+    if(state.changes >= 10){
+
+        list = strangeTitles;
+
+    }
+
+
+    if(state.finalWtf){
+
+        list = wtfTitles;
+
+    }
+
+
+    let newText =
+        randomItem(list);
+
+
+    if(newText === title.textContent){
+
+        newText =
+            randomItem(
+                list.filter(
+                    text =>
+                        text !== title.textContent
+                )
+            ) || newText;
+
+    }
+
+
+    title.classList.remove(
+        "text-changing"
+    );
+
+
+    void title.offsetWidth;
+
+
+    title.classList.add(
+        "text-changing"
+    );
+
+
+    title.textContent =
+        newText;
+
+
+    state.titleChanges++;
+
+    addChange();
+
+    return true;
+}
+
+
+/* =========================================================
+   TEXTE
+========================================================= */
+
+const strangeTexts = [
+
+    "Des idées, des découvertes et des sujets intéressants, réunis au même endroit.",
+
+    "Cette section semble avoir légèrement changé.",
+
+    "Tout fonctionne comme prévu.",
+
+    "Il semble que quelque chose ait changé.",
+
+    "Cette information est parfaitement normale.",
+
+    "Vous pouvez continuer votre lecture.",
+
+    "Cette phrase était différente avant."
+
+];
+
+
+function mutateText(target){
+
+    if(
+        !target ||
+        !isOffscreen(target)
+    ){
+        return false;
+    }
+
+
+    target.classList.remove(
+        "text-changing"
+    );
+
+
+    void target.offsetWidth;
+
+
+    target.classList.add(
+        "text-changing"
+    );
+
+
+    target.textContent =
+        randomItem(strangeTexts);
+
+
+    addChange();
+
+    return true;
+}
+
+
+/* =========================================================
+   MOUVEMENT
+========================================================= */
 
 const movementClasses = [
+
     "move-right",
     "move-left",
     "move-up",
@@ -1312,55 +1626,45 @@ const movementClasses = [
     "float-weird",
     "rotate-block",
     "rotate-block-left"
+
 ];
 
 
-function mutateBlock(){
+function mutateBlock(target){
 
-    const targets = [
-
-        document.getElementById("accueil"),
-        document.getElementById("decouvrir"),
-        document.getElementById("tendances"),
-        document.getElementById("apropos"),
-        document.getElementById("card1"),
-        document.getElementById("card2"),
-        document.getElementById("card3"),
-        document.getElementById("trend1"),
-        document.getElementById("trend2"),
-        document.getElementById("trend3"),
-        document.getElementById("infoBox"),
-        document.getElementById("searchBox"),
-        document.getElementById("footer")
-
-    ].filter(Boolean);
-
-
-    const available = targets.filter(
-        el => isOffscreen(el)
-    );
-
-
-    if(!available.length) return false;
-
-
-    const target = randomItem(available);
+    if(
+        !target ||
+        !isOffscreen(target)
+    ){
+        return false;
+    }
 
 
     movementClasses.forEach(
-        c => target.classList.remove(c)
+        className =>
+            target.classList.remove(className)
     );
 
 
     let list = movementClasses;
 
 
-    if(state.changes >= 18){
+    /*
+       Les gros mouvements n'arrivent
+       qu'assez tard.
+    */
+
+    if(state.changes >= 20){
+
         list = [
+
             ...movementClasses,
+
             "move-big-right",
             "move-big-left"
+
         ];
+
     }
 
 
@@ -1377,40 +1681,25 @@ function mutateBlock(){
 
 /* =========================================================
    FORMES
-   ========================================================= */
+========================================================= */
 
-function mutateShape(){
+function mutateShape(target){
 
-    const targets = [
-
-        document.getElementById("card1"),
-        document.getElementById("card2"),
-        document.getElementById("card3"),
-        document.getElementById("trend1"),
-        document.getElementById("trend2"),
-        document.getElementById("trend3"),
-        document.getElementById("infoBox"),
-        document.getElementById("searchBox")
-
-    ].filter(Boolean);
-
-
-    const available = targets.filter(
-        el => isOffscreen(el)
-    );
-
-
-    if(!available.length) return false;
-
-
-    const target = randomItem(available);
+    if(
+        !target ||
+        !isOffscreen(target)
+    ){
+        return false;
+    }
 
 
     const choices = [
+
         "round-more",
         "round-less",
         "tilt",
         "tilt-left"
+
     ];
 
 
@@ -1426,41 +1715,25 @@ function mutateShape(){
 
 
 /* =========================================================
-   RETOURNEMENT DE BLOCS
-   ========================================================= */
+   RETOURNEMENTS
+========================================================= */
 
-function mutateFlip(){
+function mutateFlip(target){
 
-    const targets = [
-
-        document.getElementById("card1"),
-        document.getElementById("card2"),
-        document.getElementById("card3"),
-        document.getElementById("trend1"),
-        document.getElementById("trend2"),
-        document.getElementById("trend3"),
-        document.getElementById("infoBox"),
-        document.getElementById("apropos"),
-        document.getElementById("tendances")
-
-    ].filter(Boolean);
-
-
-    const available = targets.filter(
-        el => isOffscreen(el)
-    );
-
-
-    if(!available.length) return false;
-
-
-    const target = randomItem(available);
+    if(
+        !target ||
+        !isOffscreen(target)
+    ){
+        return false;
+    }
 
 
     const choices = [
+
         "flip-x",
         "flip-y",
         "flip-180"
+
     ];
 
 
@@ -1477,35 +1750,36 @@ function mutateFlip(){
 
 /* =========================================================
    RÉORDONNEMENT DES CARTES
-   ========================================================= */
+========================================================= */
 
 function shuffleCards(container){
 
-    if(!container) return false;
-
-    if(!isOffscreen(container)) return false;
-
-
-    const children = [...container.children];
-
-    for(let i = children.length - 1; i > 0; i--){
-
-        const j = Math.floor(
-            Math.random() * (i + 1)
-        );
-
-        [
-            children[i],
-            children[j]
-        ] = [
-            children[j],
-            children[i]
-        ];
+    if(
+        !container ||
+        !isOffscreen(container)
+    ){
+        return false;
     }
 
 
-    children.forEach(
-        child => container.appendChild(child)
+    const children =
+        [...container.children];
+
+
+    if(children.length < 2){
+        return false;
+    }
+
+
+    const shuffled =
+        [...children].sort(
+            () => Math.random() - .5
+        );
+
+
+    shuffled.forEach(
+        child =>
+            container.appendChild(child)
     );
 
 
@@ -1518,17 +1792,24 @@ function shuffleCards(container){
 function mutateCardOrder(){
 
     const containers = [
+
         document.getElementById("cards"),
         document.getElementById("trendCards")
+
     ];
 
 
-    const available = containers.filter(
-        el => el && isOffscreen(el)
-    );
+    const available =
+        containers.filter(
+            container =>
+                container &&
+                isOffscreen(container)
+        );
 
 
-    if(!available.length) return false;
+    if(!available.length){
+        return false;
+    }
 
 
     return shuffleCards(
@@ -1539,72 +1820,97 @@ function mutateCardOrder(){
 
 /* =========================================================
    RÉORDONNEMENT DES SECTIONS
-   ========================================================= */
+========================================================= */
 
 function mutateSectionOrder(){
 
-    const main = document.querySelector("main");
+    /*
+       On ne commence à déplacer les sections
+       qu'après un bon moment.
+    */
 
-    if(!main) return false;
+    if(state.changes < 24){
+        return false;
+    }
+
+
+    const main =
+        document.querySelector("main");
+
+
+    if(!main){
+        return false;
+    }
 
 
     const sections = [
+
         document.getElementById("accueil"),
         document.getElementById("decouvrir"),
         document.getElementById("tendances"),
         document.getElementById("apropos")
+
     ].filter(Boolean);
 
 
-    let available = sections.filter(
-        el => isOffscreen(el)
-    );
-
-
     /*
-       Au début on laisse le Hero tranquille.
-       Plus tard, tout peut être déplacé.
+       On choisit uniquement des sections
+       actuellement hors écran.
     */
 
-    if(state.changes < 24){
-
-        available = available.filter(
-            el => el.id !== "accueil"
+    const hidden =
+        sections.filter(
+            section =>
+                isOffscreen(section)
         );
+
+
+    if(hidden.length < 2){
+        return false;
     }
 
 
-    if(available.length < 2) return false;
+    const a =
+        randomItem(hidden);
 
 
-    const a = randomItem(available);
-
-    let b = randomItem(available);
-
-    let safety = 0;
-
-    while(b === a && safety < 10){
-        b = randomItem(available);
-        safety++;
-    }
+    const others =
+        hidden.filter(
+            section =>
+                section !== a
+        );
 
 
-    if(a === b) return false;
+    const b =
+        randomItem(others);
 
 
-    const all = [...main.children];
+    const children =
+        [...main.children];
 
-    const indexA = all.indexOf(a);
-    const indexB = all.indexOf(b);
+
+    const indexA =
+        children.indexOf(a);
+
+
+    const indexB =
+        children.indexOf(b);
 
 
     if(indexA < indexB){
 
-        main.insertBefore(b,a);
+        main.insertBefore(
+            b,
+            a
+        );
 
     }else{
 
-        main.insertBefore(a,b);
+        main.insertBefore(
+            a,
+            b
+        );
+
     }
 
 
@@ -1616,25 +1922,36 @@ function mutateSectionOrder(){
 
 /* =========================================================
    NAVIGATION
-   ========================================================= */
+========================================================= */
 
 function mutateNavigation(){
 
-    const nav = document.getElementById("navigation");
-
-    if(!nav) return false;
-
-
-    if(!isOffscreen(nav)) return false;
+    if(state.changes < 27){
+        return false;
+    }
 
 
-    const links = [...nav.children];
+    const nav =
+        document.getElementById("navigation");
 
-    if(links.length < 2) return false;
+
+    if(!nav){
+        return false;
+    }
+
+
+    /*
+       Le header est normalement visible,
+       donc on ne fait ça que plus tard.
+    */
+
+    const links =
+        [...nav.children];
 
 
     links.reverse().forEach(
-        link => nav.appendChild(link)
+        link =>
+            nav.appendChild(link)
     );
 
 
@@ -1646,28 +1963,40 @@ function mutateNavigation(){
 
 /* =========================================================
    FOOTER
-   ========================================================= */
+========================================================= */
 
 function mutateFooter(){
 
-    const footer = document.getElementById("footer");
+    const footer =
+        document.getElementById("footer");
 
-    if(!footer || !isOffscreen(footer)){
+
+    if(
+        !footer ||
+        !isOffscreen(footer)
+    ){
         return false;
     }
 
 
     const texts = [
+
         "© 2026 Daily — Magazine & découvertes",
+
         "© 2026 Daily — Tout est normal.",
+
         "© 2026 Daily — Cette page était différente.",
+
         "© 2026 Daily — Fin de la page.",
-        "© 2026 Daily — Fin ?",
-        "© 2026 Daily — 04 / 01 / 03"
+
+        "© 2026 Daily — Fin ?"
+
     ];
 
 
-    footer.querySelector("#footerText").textContent =
+    document.getElementById(
+        "footerText"
+    ).textContent =
         randomItem(texts);
 
 
@@ -1678,318 +2007,406 @@ function mutateFooter(){
 
 
 /* =========================================================
-   WTF
-   ========================================================= */
+   CHOISIR UNE MUTATION
+========================================================= */
 
-function launchFinalWTF(){
+function mutateOne(target){
 
-    if(state.finalWtf) return;
-
-    state.finalWtf = true;
-
-
-    document.body.classList.add("wtf-final");
-
-
-    const main = document.querySelector("main");
-
-
-    /*
-       On réordonne absolument tout.
-    */
-
-    if(main){
-
-        const sections = [...main.children];
-
-        for(let i = sections.length - 1; i > 0; i--){
-
-            const j = Math.floor(
-                Math.random() * (i + 1)
-            );
-
-            [
-                sections[i],
-                sections[j]
-            ] = [
-                sections[j],
-                sections[i]
-            ];
-        }
-
-
-        sections.forEach(
-            section => main.appendChild(section)
-        );
+    if(
+        !target ||
+        !isOffscreen(target)
+    ){
+        return false;
     }
 
 
     /*
-       Gros changements visuels.
+       Le titre a une petite priorité,
+       surtout au début.
     */
 
-    document.querySelectorAll(".card").forEach(
-        card => {
+    if(
+        target.id === "mainTitle" &&
+        state.titleChanges < 4
+    ){
 
-            card.classList.add(
-                randomItem([
-                    "gradient-wtf-1",
-                    "gradient-wtf-2",
-                    "gradient-wtf-3"
-                ])
-            );
+        return mutateTitle();
 
-            if(Math.random() > .45){
-                card.classList.add("wtf-pulse");
-            }
+    }
 
-            if(Math.random() > .7){
-                card.classList.add("flip-x");
-            }
-        }
+
+    /*
+       Progression lente.
+    */
+
+    const possible = [];
+
+
+    /*
+       Couleur dès le début.
+    */
+
+    possible.push(
+        () => mutateGradient(target)
     );
 
 
     /*
-       Texte complètement WTF.
+       Texte assez tôt.
     */
 
-    document.getElementById("mainTitle").textContent =
-        randomItem(wtfTitles);
+    if(state.changes >= 3){
 
+        possible.push(
+            () => mutateText(target)
+        );
 
-    document.getElementById("discoverTitle").textContent =
-        randomItem([
-            "Section 03 / 01",
-            "Les choses qui étaient ici",
-            "Découvrir ce qui n'est plus là.",
-            "Pourquoi cette section ?"
-        ]);
-
-
-    document.getElementById("trendTitle").textContent =
-        randomItem([
-            "Tendances précédentes futures",
-            "A B C A C B",
-            "Ce qui attire l'attention ailleurs.",
-            "Tendance : probablement."
-        ]);
-
-
-    document.getElementById("infoTitle").textContent =
-        randomItem([
-            "Pourquoi Daily ?",
-            "Pourquoi cette section est ici ?",
-            "À propos de rien.",
-            "Informations non disponibles."
-        ]);
-
-
-    document.getElementById("infoText").textContent =
-        randomItem([
-            "Cette page fonctionne exactement comme prévu.",
-            "Les sections ont décidé de changer de place.",
-            "Il n'y a absolument aucune raison de chercher une logique.",
-            "Cette information était dans une autre section."
-        ]);
+    }
 
 
     /*
-       Mélange supplémentaire des cartes.
+       Couleurs de texte un peu plus tard.
     */
 
-    shuffleCards(document.getElementById("cards"));
-    shuffleCards(document.getElementById("trendCards"));
+    if(state.changes >= 5){
+
+        possible.push(
+            () => mutateTextColor(target)
+        );
+
+    }
 
 
     /*
-       Navigation inversée.
+       Mouvements après quelques changements.
     */
 
-    const nav = document.getElementById("navigation");
+    if(state.changes >= 10){
 
-    [...nav.children]
-        .reverse()
-        .forEach(
-            link => nav.appendChild(link)
+        possible.push(
+            () => mutateBlock(target)
+        );
+
+    }
+
+
+    /*
+       Formes.
+    */
+
+    if(state.changes >= 13){
+
+        possible.push(
+            () => mutateShape(target)
+        );
+
+    }
+
+
+    /*
+       Retournements beaucoup plus tard.
+    */
+
+    if(state.changes >= 20){
+
+        possible.push(
+            () => mutateFlip(target)
+        );
+
+    }
+
+
+    const action =
+        randomItem(possible);
+
+
+    return action();
+}
+
+
+/* =========================================================
+   NOUVEAU PASSAGE
+========================================================= */
+
+function handleNewlyHidden(hiddenTargets){
+
+    if(state.mutating){
+        return;
+    }
+
+
+    if(!hiddenTargets.length){
+        return;
+    }
+
+
+    state.mutating = true;
+
+
+    /*
+       IMPORTANT :
+       au début = UNE SEULE mutation.
+    */
+
+    let amount = 1;
+
+
+    /*
+       Après suffisamment de changements,
+       on peut parfois en faire 2.
+
+       Mais jamais une énorme rafale.
+    */
+
+    if(
+        state.changes >= 15 &&
+        Math.random() < .30
+    ){
+
+        amount = 2;
+
+    }
+
+
+    /*
+       Encore plus tard, parfois 2.
+    */
+
+    if(
+        state.changes >= 25 &&
+        Math.random() < .55
+    ){
+
+        amount = 2;
+
+    }
+
+
+    /*
+       On mélange les éléments qui viennent
+       réellement de sortir de l'écran.
+    */
+
+    const shuffled =
+        [...hiddenTargets].sort(
+            () => Math.random() - .5
         );
 
 
+    let done = 0;
+
+
+    for(
+        const target of shuffled
+    ){
+
+        if(done >= amount){
+            break;
+        }
+
+
+        /*
+           Chaque élément ne peut déclencher
+           qu'une fois jusqu'à ce qu'il
+           redevienne visible.
+        */
+
+        if(
+            state.armed.has(target)
+        ){
+            continue;
+        }
+
+
+        if(
+            !isOffscreen(target)
+        ){
+            continue;
+        }
+
+
+        const success =
+            mutateOne(target);
+
+
+        if(success){
+
+            state.armed.add(target);
+
+            done++;
+
+        }
+
+    }
+
+
     /*
-       Quelques éléments complètement retournés.
+       Les changements plus gros ne sont
+       pas déclenchés automatiquement :
+       ils ont besoin d'être eux-mêmes
+       sortis de l'écran.
     */
 
-    document.getElementById("infoBox")
-        .classList.add("flip-180");
+    if(
+        state.changes >= 18 &&
+        done === 0
+    ){
+
+        /*
+           Petit changement de secours,
+           toujours sur un seul élément caché.
+        */
+
+        const target =
+            randomItem(hiddenTargets);
 
 
-    document.getElementById("searchBox")
-        .classList.add("tilt");
+        if(
+            target &&
+            !state.armed.has(target)
+        ){
+
+            if(
+                mutateOne(target)
+            ){
+
+                state.armed.add(target);
+
+            }
+
+        }
+
+    }
 
 
-    document.getElementById("footer")
-        .classList.add("wtf-pulse");
-
-
-    /*
-       Le logo part légèrement.
-    */
-
-    document.getElementById("logo")
-        .classList.add("wtf-spin");
+    state.mutating = false;
 }
 
 
 /* =========================================================
-   BURST DE CHANGEMENTS
-   ========================================================= */
+   DÉTECTION DES ÉLÉMENTS QUI SORTENT
+========================================================= */
 
-function burst(){
+function scanVisibility(){
 
-    if(state.burstRunning) return;
-
-    state.burstRunning = true;
+    const newlyHidden = [];
 
 
-    /*
-       Plus le troll avance,
-       plus il y a de changements par passage.
-    */
-
-    let amount = 2;
-
-
-    if(state.changes >= 5){
-        amount = 3;
-    }
-
-    if(state.changes >= 10){
-        amount = 4;
-    }
-
-    if(state.changes >= 16){
-        amount = 5;
-    }
-
-    if(state.changes >= 22){
-        amount = 6;
-    }
-
-    if(state.changes >= 28){
-        amount = 8;
-    }
-
-
-    /*
-       Le titre est prioritaire :
-       s'il est caché, il change.
-    */
-
-    const title = document.getElementById("mainTitle");
-
-    if(
-        title &&
-        isOffscreen(title)
+    for(
+        const target of trollTargets
     ){
-        mutateTitle();
-    }
+
+        const visible =
+            isVisible(target);
 
 
-    /*
-       Toujours beaucoup de couleurs.
-    */
-
-    mutateGradient();
-
-
-    if(
-        state.changes >= 4
-    ){
-        mutateGradient();
-    }
+        const previous =
+            state.previousVisibility.get(
+                target
+            );
 
 
-    /*
-       Série de mutations.
-    */
+        /*
+           Première observation :
+           on enregistre simplement.
+           Rien ne change immédiatement.
+        */
 
-    for(let i = 0; i < amount; i++){
+        if(previous === undefined){
 
-        const actions = [
+            state.previousVisibility.set(
+                target,
+                visible
+            );
 
-            mutateGradient,
-            mutateGradient,
-            mutateTextColor,
-            mutateText,
-            mutateBlock,
-            mutateShape,
-            mutateFooter
+            continue;
 
-        ];
-
-
-        if(state.changes >= 9){
-            actions.push(mutateCardOrder);
-            actions.push(mutateBlock);
         }
 
 
-        if(state.changes >= 15){
-            actions.push(mutateSectionOrder);
-            actions.push(mutateFlip);
+        /*
+           L'élément vient de passer
+           de visible à hors écran.
+        */
+
+        if(
+            previous === true &&
+            visible === false
+        ){
+
+            newlyHidden.push(target);
+
         }
 
 
-        if(state.changes >= 24){
-            actions.push(mutateSectionOrder);
-            actions.push(mutateFlip);
-            actions.push(mutateNavigation);
+        /*
+           S'il revient à l'écran,
+           il est réarmé.
+
+           Il pourra donc provoquer
+           un nouveau changement plus tard.
+        */
+
+        if(visible === true){
+
+            state.armed.delete(target);
+
         }
 
 
-        const action = randomItem(actions);
+        state.previousVisibility.set(
+            target,
+            visible
+        );
 
-        action();
     }
 
 
-    state.burstRunning = false;
+    if(newlyHidden.length){
+
+        handleNewlyHidden(
+            newlyHidden
+        );
+
+    }
 }
 
 
 /* =========================================================
-   DÉTECTION DU SCROLL
-   ========================================================= */
+   SCROLL
+========================================================= */
 
-let scrollTimer = null;
+let scrollFrame = false;
 
 
 window.addEventListener(
     "scroll",
     () => {
 
-        state.lastScroll = Date.now();
-
-
         /*
-           On attend juste la fin du mouvement
-           pour faire un burst.
+           On ne lance PAS de mutation à chaque
+           événement scroll.
 
-           Le temps ne fait PAS progresser le troll :
-           c'est bien le déplacement dans la page
-           qui rend les éléments cachés éligibles.
+           On attend que la position soit
+           stabilisée sur cette frame.
         */
 
-        clearTimeout(scrollTimer);
+        if(scrollFrame){
+            return;
+        }
 
 
-        scrollTimer = setTimeout(
+        scrollFrame = true;
+
+
+        requestAnimationFrame(
             () => {
 
-                burst();
+                scanVisibility();
 
-            },
-            120
+                scrollFrame = false;
+
+            }
         );
 
     },
@@ -2000,84 +2417,25 @@ window.addEventListener(
 
 
 /* =========================================================
-   VÉRIFICATION DES ÉLÉMENTS CACHÉS
-   ========================================================= */
+   RECHERCHE
+========================================================= */
 
-let lastHiddenSignature = "";
-
-
-function checkHiddenElements(){
-
-    const targets = [
-
-        document.getElementById("mainTitle"),
-        document.getElementById("heroText"),
-        document.getElementById("discoverTitle"),
-        document.getElementById("trendTitle"),
-        document.getElementById("infoTitle"),
-        document.getElementById("card1"),
-        document.getElementById("card2"),
-        document.getElementById("card3"),
-        document.getElementById("trend1"),
-        document.getElementById("trend2"),
-        document.getElementById("trend3"),
-        document.getElementById("infoBox"),
-        document.getElementById("footer")
-
-    ].filter(Boolean);
-
-
-    const hidden = targets.filter(
-        el => isOffscreen(el)
+const searchInput =
+    document.getElementById(
+        "searchInput"
     );
 
 
-    const signature = hidden
-        .map(el => el.id)
-        .join("|");
-
-
-    /*
-       Si la liste des éléments cachés change,
-       on déclenche immédiatement un nouveau burst.
-    */
-
-    if(
-        signature !== lastHiddenSignature &&
-        hidden.length > 0
-    ){
-
-        lastHiddenSignature = signature;
-
-        burst();
-    }
-}
-
-
-/*
-   Ce timer ne déclenche aucune progression.
-   Il vérifie uniquement quels éléments sont
-   actuellement hors écran.
-*/
-
-setInterval(
-    checkHiddenElements,
-    650
-);
-
-
-/* =========================================================
-   RECHERCHE
-   ========================================================= */
-
-const searchInput =
-    document.getElementById("searchInput");
-
 const searchButton =
-    document.getElementById("searchButton");
+    document.getElementById(
+        "searchButton"
+    );
+
 
 const searchResult =
-    document.getElementById("searchResult");
+    document.getElementById(
+        "searchResult"
+    );
 
 
 function performSearch(){
@@ -2092,6 +2450,7 @@ function performSearch(){
             "Entrez un sujet à rechercher.";
 
         return;
+
     }
 
 
@@ -2111,7 +2470,9 @@ searchInput.addEventListener(
     event => {
 
         if(event.key === "Enter"){
+
             performSearch();
+
         }
 
     }
@@ -2119,52 +2480,262 @@ searchInput.addEventListener(
 
 
 /* =========================================================
-   LIENS DE NAVIGATION
-   ========================================================= */
+   WTF FINAL
+========================================================= */
 
-document.querySelectorAll("nav a").forEach(
-    link => {
+function launchFinalWTF(){
 
-        link.addEventListener(
-            "click",
-            () => {
+    if(state.finalWtf){
+        return;
+    }
 
-                /*
-                   Petit changement possible après
-                   avoir quitté la zone actuelle.
-                */
 
-                setTimeout(
-                    checkHiddenElements,
-                    50
-                );
-            }
+    state.finalWtf = true;
+
+
+    document.body.classList.add(
+        "wtf-final"
+    );
+
+
+    /*
+       À ce moment-là seulement,
+       on assume complètement le délire.
+    */
+
+    const main =
+        document.querySelector("main");
+
+
+    if(main){
+
+        const sections =
+            [...main.children];
+
+
+        sections.sort(
+            () =>
+                Math.random() - .5
+        );
+
+
+        sections.forEach(
+            section =>
+                main.appendChild(section)
         );
 
     }
-);
+
+
+    /*
+       Mélange des cartes.
+    */
+
+    shuffleCards(
+        document.getElementById("cards")
+    );
+
+
+    shuffleCards(
+        document.getElementById("trendCards")
+    );
+
+
+    /*
+       Gros dégradés.
+    */
+
+    const wtfGradients = [
+
+        "gradient-wtf-1",
+        "gradient-wtf-2",
+        "gradient-wtf-3"
+
+    ];
+
+
+    document.querySelectorAll(
+        ".card"
+    ).forEach(
+        card => {
+
+            clearGradientClasses(card);
+
+            card.classList.add(
+                randomItem(wtfGradients)
+            );
+
+
+            if(
+                Math.random() > .55
+            ){
+
+                card.classList.add(
+                    "wtf-pulse"
+                );
+
+            }
+
+        }
+    );
+
+
+    /*
+       Titres WTF.
+    */
+
+    document.getElementById(
+        "mainTitle"
+    ).textContent =
+        randomItem(wtfTitles);
+
+
+    document.getElementById(
+        "discoverTitle"
+    ).textContent =
+        randomItem([
+
+            "Section 03 / 01",
+
+            "Les choses qui étaient ici",
+
+            "Découvrir ce qui n'est plus là.",
+
+            "Pourquoi cette section ?"
+
+        ]);
+
+
+    document.getElementById(
+        "trendTitle"
+    ).textContent =
+        randomItem([
+
+            "Tendances précédentes futures",
+
+            "A B C A C B",
+
+            "Ce qui attire l'attention ailleurs.",
+
+            "Tendance : probablement."
+
+        ]);
+
+
+    document.getElementById(
+        "infoTitle"
+    ).textContent =
+        randomItem([
+
+            "Pourquoi Daily ?",
+
+            "Pourquoi cette section est ici ?",
+
+            "À propos de rien.",
+
+            "Informations non disponibles."
+
+        ]);
+
+
+    document.getElementById(
+        "infoText"
+    ).textContent =
+        randomItem([
+
+            "Cette page fonctionne exactement comme prévu.",
+
+            "Les sections ont décidé de changer de place.",
+
+            "Il n'y a absolument aucune raison de chercher une logique.",
+
+            "Cette information était dans une autre section."
+
+        ]);
+
+
+    /*
+       Inversions finales.
+    */
+
+    document.getElementById(
+        "infoBox"
+    ).classList.add(
+        "flip-180"
+    );
+
+
+    document.getElementById(
+        "searchBox"
+    ).classList.add(
+        "tilt"
+    );
+
+
+    document.getElementById(
+        "logo"
+    ).classList.add(
+        "wtf-spin"
+    );
+
+
+    /*
+       Navigation inversée.
+    */
+
+    const nav =
+        document.getElementById(
+            "navigation"
+        );
+
+
+    [...nav.children]
+        .reverse()
+        .forEach(
+            link =>
+                nav.appendChild(link)
+        );
+
+
+    document.getElementById(
+        "footerText"
+    ).textContent =
+        "© 2026 Daily — Fin ?";
+
+}
 
 
 /* =========================================================
-   DÉMARRAGE
-   ========================================================= */
+   INITIALISATION
+========================================================= */
 
-window.addEventListener(
-    "load",
-    () => {
+function initializeVisibility(){
 
-        /*
-           Aucun changement immédiat.
+    /*
+       On mémorise simplement l'état initial.
 
-           La page commence normalement.
-           Les transformations commencent
-           lorsque le visiteur se déplace
-           et fait sortir des éléments de l'écran.
-        */
+       Donc les éléments déjà sous l'écran au chargement
+       ne déclenchent RIEN.
 
-        lastHiddenSignature = "";
+       Il faut réellement les avoir vus puis les faire
+       sortir de l'écran.
+    */
+
+    for(
+        const target of trollTargets
+    ){
+
+        state.previousVisibility.set(
+            target,
+            isVisible(target)
+        );
+
     }
-);
+
+}
+
+
+initializeVisibility();
 
 </script>
 

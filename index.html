@@ -3,20 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daily — Découvrez autrement</title>
+<title>Daily — Magazine & découvertes</title>
 
 <style>
-:root{
-    --bg:#f5f5f2;
-    --surface:#fff;
-    --text:#181818;
-    --muted:#707070;
-    --line:#deded9;
-    --dark:#181818;
-}
-
 *{
     box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 html{
@@ -24,14 +17,14 @@ html{
 }
 
 body{
-    margin:0;
-    background:var(--bg);
-    color:var(--text);
-    font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    font-family:Inter,Arial,Helvetica,sans-serif;
+    background:#f5f5f2;
+    color:#181818;
+    line-height:1.5;
     overflow-x:hidden;
     transition:
-        background-color 1s ease,
-        color 1s ease;
+        background .7s ease,
+        color .7s ease;
 }
 
 a{
@@ -44,590 +37,719 @@ input{
     font:inherit;
 }
 
-
-/* =====================================================
-   HEADER
-===================================================== */
-
 header{
     position:sticky;
     top:0;
-    z-index:50;
-
-    height:74px;
-
+    z-index:1000;
+    height:72px;
     display:flex;
     align-items:center;
     justify-content:space-between;
-
-    padding:0 5vw;
-
+    padding:0 6vw;
     background:rgba(245,245,242,.88);
-    backdrop-filter:blur(14px);
-
-    border-bottom:1px solid rgba(0,0,0,.08);
-
+    backdrop-filter:blur(16px);
+    border-bottom:1px solid #deded9;
     transition:
-        background-color .9s ease,
-        border-color .9s ease,
-        transform 1s ease,
-        filter 1s ease;
+        background .7s ease,
+        border .7s ease,
+        transform .8s cubic-bezier(.2,.8,.2,1),
+        filter .7s ease;
 }
 
 .logo{
-    font-size:22px;
+    font-size:25px;
     font-weight:800;
     letter-spacing:-1px;
-
-    transition:
-        color .8s ease,
-        letter-spacing .8s ease,
-        transform .9s ease;
+    transition:transform .8s ease,color .7s ease;
 }
 
 nav{
     display:flex;
-    align-items:center;
-    gap:8px;
-
+    gap:28px;
     transition:
-        gap .9s ease,
-        transform 1s cubic-bezier(.2,.8,.2,1);
+        transform .8s ease,
+        gap .7s ease;
 }
 
 nav a{
-    padding:9px 13px;
-    border-radius:10px;
-
-    color:#555;
-
     font-size:14px;
-
+    color:#666;
     transition:
-        all .8s cubic-bezier(.2,.8,.2,1);
+        color .5s ease,
+        transform .7s ease;
 }
 
 nav a:hover{
-    background:#e9e9e5;
-    color:#111;
+    color:#181818;
 }
 
-
-/* =====================================================
-   STRUCTURE
-===================================================== */
-
 main{
-    width:min(1180px,90%);
-    margin:auto;
+    display:flex;
+    flex-direction:column;
+    width:100%;
+}
+
+section{
+    width:100%;
+    position:relative;
+    transition:
+        background .8s ease,
+        color .8s ease,
+        border-radius .8s ease,
+        transform 1s cubic-bezier(.2,.8,.2,1),
+        filter .8s ease,
+        box-shadow .8s ease,
+        padding .8s ease;
 }
 
 .hero{
-    min-height:670px;
-
+    min-height:calc(100vh - 72px);
     display:flex;
-    flex-direction:column;
-    justify-content:center;
+    align-items:center;
+    padding:90px 6vw;
+}
 
-    padding:90px 0 120px;
-
-    transition:
-        transform 1.2s cubic-bezier(.2,.8,.2,1),
-        filter 1s ease;
+.hero-inner{
+    width:100%;
+    max-width:1000px;
+    margin:auto;
 }
 
 .eyebrow{
     display:inline-block;
-    width:max-content;
-
-    margin-bottom:22px;
-    padding:7px 11px;
-
-    border:1px solid var(--line);
-    border-radius:100px;
-
-    color:var(--muted);
-
-    font-size:12px;
+    margin-bottom:20px;
+    color:#777;
+    font-size:13px;
     font-weight:700;
     letter-spacing:.08em;
     text-transform:uppercase;
-
-    transition:all .8s ease;
+    transition:
+        color .6s ease,
+        transform .8s ease;
 }
 
 .hero h1{
     max-width:900px;
-
-    margin:0;
-
-    font-size:clamp(52px,8vw,105px);
-    line-height:.93;
+    font-size:clamp(48px,8vw,100px);
+    line-height:.95;
     letter-spacing:-.065em;
-
+    margin-bottom:30px;
     transition:
-        color .9s ease,
-        transform 1s cubic-bezier(.2,.8,.2,1),
-        letter-spacing 1s ease,
+        color .7s ease,
+        transform 1s ease,
         filter .7s ease;
 }
 
 .hero p{
     max-width:650px;
-
-    margin:30px 0 35px;
-
-    color:var(--muted);
-
-    font-size:18px;
-    line-height:1.6;
-
+    color:#707070;
+    font-size:19px;
+    margin-bottom:38px;
     transition:
-        color .9s ease,
-        transform 1s ease,
-        filter .7s ease;
+        color .7s ease,
+        transform .8s ease;
 }
 
 .search{
     display:flex;
-    width:min(600px,100%);
-    gap:10px;
+    width:min(680px,100%);
+    border:1px solid #d7d7d2;
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 8px 30px rgba(0,0,0,.04);
+    transition:
+        background .7s ease,
+        border .7s ease,
+        box-shadow .8s ease,
+        transform .8s ease;
 }
 
 .search input{
     flex:1;
     min-width:0;
-
-    padding:15px 17px;
-
-    border:1px solid var(--line);
-    border-radius:13px;
-
-    outline:none;
-
-    background:var(--surface);
-    color:var(--text);
-
-    transition:all .8s ease;
-}
-
-.search input:focus{
-    border-color:#999;
+    border:0;
+    outline:0;
+    padding:18px 20px;
+    color:#181818;
+    background:transparent;
 }
 
 .search button{
     border:0;
-    border-radius:13px;
-
-    padding:0 22px;
-
-    background:var(--dark);
+    padding:0 25px;
+    background:#181818;
     color:#fff;
-
     cursor:pointer;
-
-    transition:all .8s cubic-bezier(.2,.8,.2,1);
+    transition:
+        background .6s ease,
+        transform .5s ease;
 }
 
 .search button:hover{
-    transform:translateY(-2px);
+    transform:scale(1.03);
 }
 
 .search-result{
-    display:none;
-
     margin-top:15px;
-
-    color:var(--muted);
     font-size:14px;
+    color:#777;
+    min-height:20px;
 }
 
-.search-result.show{
-    display:block;
+.content-section{
+    padding:120px 6vw;
 }
 
-
-/* =====================================================
-   SECTIONS
-===================================================== */
-
-.section{
-    padding:80px 0;
-
-    transition:
-        transform 1.2s cubic-bezier(.2,.8,.2,1),
-        filter 1s ease,
-        background-color 1s ease;
+.section-inner{
+    max-width:1200px;
+    margin:auto;
 }
 
 .section-heading{
-    display:flex;
-    align-items:end;
-    justify-content:space-between;
-
-    gap:30px;
-    margin-bottom:30px;
+    margin-bottom:45px;
 }
 
-.section-heading h2{
-    margin:0;
-
-    font-size:42px;
-    letter-spacing:-.04em;
-
-    transition:all .9s ease;
+.section-label{
+    color:#777;
+    font-size:13px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    margin-bottom:12px;
+    transition:color .6s ease;
 }
 
-.section-heading span{
-    color:var(--muted);
-    font-size:14px;
-
-    transition:all .8s ease;
+.section-title{
+    font-size:clamp(34px,5vw,62px);
+    letter-spacing:-.045em;
+    line-height:1;
+    transition:
+        color .7s ease,
+        transform .8s ease;
 }
-
-
-/* =====================================================
-   CARDS
-===================================================== */
 
 .cards{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:18px;
-
-    transition:all 1.2s cubic-bezier(.2,.8,.2,1);
+    gap:20px;
+    transition:
+        transform 1s ease,
+        gap .8s ease;
 }
 
 .card{
     min-height:290px;
-
+    padding:28px;
+    background:#fff;
+    border:1px solid #deded9;
+    border-radius:20px;
     display:flex;
     flex-direction:column;
     justify-content:space-between;
-
-    padding:25px;
-
-    border:1px solid var(--line);
-    border-radius:18px;
-
-    background:var(--surface);
-
     transition:
-        transform 1.1s cubic-bezier(.2,.8,.2,1),
-        background-color 1s ease,
-        border-color 1s ease,
-        color 1s ease,
-        filter 1s ease,
-        box-shadow 1s ease,
-        border-radius 1s ease;
+        background .8s ease,
+        color .8s ease,
+        border .8s ease,
+        transform 1s cubic-bezier(.2,.8,.2,1),
+        box-shadow .8s ease,
+        border-radius .8s ease,
+        filter .8s ease;
 }
 
 .card-number{
+    font-size:13px;
     color:#999;
-
-    font-size:12px;
-    font-weight:700;
-
-    transition:all .8s ease;
+    transition:color .6s ease;
 }
 
 .card h3{
-    margin:35px 0 10px;
-
-    font-size:25px;
+    font-size:28px;
     line-height:1.05;
     letter-spacing:-.035em;
-
-    transition:all .9s ease;
+    margin:30px 0 12px;
+    transition:
+        color .6s ease,
+        transform .8s ease;
 }
 
 .card p{
-    margin:0;
-
-    color:var(--muted);
-
-    line-height:1.5;
-
-    transition:all .9s ease;
+    color:#777;
+    font-size:15px;
+    transition:color .6s ease;
 }
 
+.trends{
+    background:#ecece8;
+}
 
-/* =====================================================
-   INFO
-===================================================== */
+.trend-card{
+    min-height:220px;
+}
 
 .info{
-    margin:70px 0;
+    padding:110px 6vw;
+}
 
-    padding:75px;
-
-    border-radius:25px;
-
-    background:var(--dark);
-    color:#f5f5f2;
-
+.info-box{
+    max-width:1200px;
+    margin:auto;
+    padding:65px;
+    border-radius:30px;
+    background:#181818;
+    color:#fff;
     transition:
-        transform 1.3s cubic-bezier(.2,.8,.2,1),
-        background-color 1s ease,
-        filter 1s ease,
-        border-radius 1.2s ease,
-        padding 1s ease;
+        background .8s ease,
+        color .8s ease,
+        transform 1s cubic-bezier(.2,.8,.2,1),
+        border-radius .8s ease,
+        box-shadow .8s ease;
 }
 
-.info h2{
-    max-width:750px;
-
-    margin:0 0 18px;
-
-    font-size:clamp(35px,5vw,65px);
+.info-box h2{
+    font-size:clamp(36px,5vw,65px);
+    letter-spacing:-.05em;
     line-height:1;
-    letter-spacing:-.055em;
-
-    transition:all 1s ease;
+    margin-bottom:25px;
+    transition:color .7s ease;
 }
 
-.info p{
-    max-width:650px;
-
-    margin:0;
-
+.info-box p{
+    max-width:720px;
     color:#aaa;
-
-    line-height:1.65;
-
-    transition:all .9s ease;
+    transition:color .7s ease;
 }
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
 
 footer{
-    margin-top:100px;
-
-    padding:35px 5vw;
-
-    border-top:1px solid var(--line);
-
-    color:var(--muted);
-
+    padding:45px 6vw;
+    border-top:1px solid #deded9;
+    color:#888;
     font-size:13px;
-
-    transition:all 1.2s cubic-bezier(.2,.8,.2,1);
-}
-
-
-/* =====================================================
-   TEXTES
-===================================================== */
-
-.text-change{
-    opacity:0;
-    filter:blur(7px);
-    transform:translateY(8px);
-
     transition:
-        opacity .45s ease,
-        filter .45s ease,
-        transform .45s ease;
+        background .8s ease,
+        color .8s ease,
+        transform 1s ease;
 }
 
+/* =========================================================
+   CHANGEMENTS DE COULEURS
+   ========================================================= */
 
-/* =====================================================
-   PETITS MOUVEMENTS
-===================================================== */
+.gradient-soft-1{
+    background:linear-gradient(135deg,#fff 0%,#edf2ff 100%) !important;
+}
+
+.gradient-soft-2{
+    background:linear-gradient(135deg,#fff 0%,#fff0f6 100%) !important;
+}
+
+.gradient-soft-3{
+    background:linear-gradient(135deg,#fff 0%,#edfff5 100%) !important;
+}
+
+.gradient-soft-4{
+    background:linear-gradient(135deg,#fff7e6 0%,#ffffff 50%,#edf7ff 100%) !important;
+}
+
+.gradient-medium-1{
+    background:linear-gradient(135deg,#e9ddff,#dceeff,#fff0d7) !important;
+}
+
+.gradient-medium-2{
+    background:linear-gradient(135deg,#dffcf1,#d9f1ff,#f4dcff) !important;
+}
+
+.gradient-medium-3{
+    background:linear-gradient(120deg,#fff1c7,#ffd9e8,#dce5ff) !important;
+}
+
+.gradient-medium-4{
+    background:linear-gradient(135deg,#d9f7ff,#e7d8ff,#ffdce8) !important;
+}
+
+.gradient-strong-1{
+    background:linear-gradient(135deg,#5ee7df,#b490ca) !important;
+    color:#111 !important;
+}
+
+.gradient-strong-2{
+    background:linear-gradient(135deg,#ffecd2,#fcb69f) !important;
+    color:#111 !important;
+}
+
+.gradient-strong-3{
+    background:linear-gradient(135deg,#a8edea,#fed6e3) !important;
+    color:#111 !important;
+}
+
+.gradient-strong-4{
+    background:linear-gradient(135deg,#667eea,#764ba2) !important;
+    color:#fff !important;
+}
+
+.gradient-strong-5{
+    background:linear-gradient(135deg,#f093fb,#f5576c) !important;
+    color:#fff !important;
+}
+
+.gradient-strong-6{
+    background:linear-gradient(135deg,#4facfe,#00f2fe) !important;
+    color:#07151c !important;
+}
+
+.gradient-strong-7{
+    background:linear-gradient(135deg,#43e97b,#38f9d7) !important;
+    color:#062015 !important;
+}
+
+.gradient-wtf-1{
+    background:linear-gradient(
+        135deg,
+        #ff0080 0%,
+        #7928ca 25%,
+        #00d4ff 50%,
+        #00ff87 75%,
+        #ffe600 100%
+    ) !important;
+    color:#111 !important;
+}
+
+.gradient-wtf-2{
+    background:linear-gradient(
+        45deg,
+        #ff3cac,
+        #784ba0,
+        #2b86c5,
+        #00ff9d
+    ) !important;
+    color:#fff !important;
+}
+
+.gradient-wtf-3{
+    background:linear-gradient(
+        120deg,
+        #ff0000,
+        #ff8a00,
+        #ffe600,
+        #00ff00,
+        #00d9ff,
+        #4d00ff,
+        #ff00aa
+    ) !important;
+    color:#fff !important;
+}
+
+/* couleurs du texte */
+
+.text-red{
+    color:#e63946 !important;
+}
+
+.text-blue{
+    color:#2563eb !important;
+}
+
+.text-purple{
+    color:#7c3aed !important;
+}
+
+.text-green{
+    color:#059669 !important;
+}
+
+.text-orange{
+    color:#ea580c !important;
+}
+
+.text-pink{
+    color:#db2777 !important;
+}
+
+.text-cyan{
+    color:#0891b2 !important;
+}
+
+/* =========================================================
+   BLOCS QUI BOUGENT
+   ========================================================= */
 
 .move-right{
-    transform:translateX(22px) rotate(.6deg);
+    transform:translate3d(45px,10px,0) rotate(1.5deg) scale(1.02) !important;
 }
 
 .move-left{
-    transform:translateX(-22px) rotate(-.6deg);
-}
-
-.move-down{
-    transform:translateY(15px) rotate(.5deg);
+    transform:translate3d(-45px,-8px,0) rotate(-1.5deg) scale(1.02) !important;
 }
 
 .move-up{
-    transform:translateY(-15px) rotate(-.5deg);
+    transform:translate3d(10px,-35px,0) rotate(1deg) !important;
 }
 
-
-/* =====================================================
-   COULEURS
-===================================================== */
-
-.color-soft{
-    filter:hue-rotate(8deg) saturate(.85);
+.move-down{
+    transform:translate3d(-10px,35px,0) rotate(-1deg) !important;
 }
 
-.color-medium{
-    filter:hue-rotate(18deg) saturate(1.05);
+.move-big-right{
+    transform:translate3d(110px,0,0) rotate(4deg) scale(1.03) !important;
 }
 
-.color-strange{
-    filter:hue-rotate(35deg) saturate(1.2);
+.move-big-left{
+    transform:translate3d(-110px,0,0) rotate(-4deg) scale(1.03) !important;
 }
 
-.text-soft{
-    color:#555!important;
+.float-weird{
+    transform:translate3d(25px,-45px,0) rotate(3deg) scale(1.04) !important;
 }
 
-.text-medium{
-    color:#333!important;
+.rotate-block{
+    transform:rotate(6deg) translate3d(20px,0,0) scale(1.02) !important;
 }
 
-.text-strange{
-    color:#666!important;
+.rotate-block-left{
+    transform:rotate(-6deg) translate3d(-20px,0,0) scale(1.02) !important;
 }
 
-
-/* =====================================================
-   FORMES
-===================================================== */
+/* =========================================================
+   FORMES / INVERSIONS
+   ========================================================= */
 
 .round-more{
-    border-radius:42px!important;
+    border-radius:55px !important;
 }
 
 .round-less{
-    border-radius:5px!important;
+    border-radius:3px !important;
 }
 
-.spacing-weird{
-    letter-spacing:.025em!important;
+.flip-x{
+    transform:scaleX(-1) !important;
 }
 
-.spacing-tight{
-    letter-spacing:-.075em!important;
+.flip-y{
+    transform:rotateX(180deg) !important;
 }
 
-
-/* =====================================================
-   WTF PHASE
-===================================================== */
-
-.wtf-rotate-right{
-    transform:translate(15px,8px) rotate(4deg)!important;
+.flip-180{
+    transform:rotate(180deg) !important;
 }
 
-.wtf-rotate-left{
-    transform:translate(-15px,8px) rotate(-4deg)!important;
+.tilt{
+    transform:rotate(3deg) !important;
 }
 
-.wtf-big{
-    transform:scale(1.035) rotate(1.5deg)!important;
+.tilt-left{
+    transform:rotate(-3deg) !important;
 }
 
-.wtf-small{
-    transform:scale(.965) rotate(-1deg)!important;
+/* =========================================================
+   ANIMATION DE TEXTE
+   ========================================================= */
+
+.text-changing{
+    animation:textChange .65s ease;
 }
 
-.wtf-mirror{
-    transform:scaleX(-1)!important;
+@keyframes textChange{
+    0%{
+        opacity:1;
+        filter:blur(0);
+        transform:translateY(0);
+    }
+    45%{
+        opacity:0;
+        filter:blur(5px);
+        transform:translateY(-8px);
+    }
+    100%{
+        opacity:1;
+        filter:blur(0);
+        transform:translateY(0);
+    }
 }
 
-.wtf-shadow{
+/* =========================================================
+   PHASE WTF
+   ========================================================= */
+
+body.wtf-final{
+    background:
+        repeating-linear-gradient(
+            25deg,
+            #fff 0px,
+            #fff 20px,
+            #f4d7ff 21px,
+            #d8f7ff 42px,
+            #fff0b8 63px
+        ) !important;
+}
+
+body.wtf-final header{
+    background:
+        linear-gradient(
+            90deg,
+            #ff00aa,
+            #6c5ce7,
+            #00d4ff,
+            #00ff88,
+            #ffe600
+        ) !important;
+    border-color:#111 !important;
+    color:#111 !important;
+}
+
+body.wtf-final nav{
+    gap:12px;
+    transform:rotate(-2deg);
+}
+
+body.wtf-final nav a{
+    color:#111 !important;
+    font-weight:800;
+}
+
+body.wtf-final .logo{
+    transform:rotate(5deg) scale(1.2);
+}
+
+body.wtf-final .hero h1{
+    letter-spacing:.02em;
+    transform:rotate(-3deg) scale(1.04);
+}
+
+body.wtf-final .card{
     box-shadow:
-        14px 18px 0 rgba(0,0,0,.08),
-        -7px -7px 0 rgba(255,255,255,.7)!important;
+        15px 15px 0 #111,
+        -8px -8px 0 rgba(255,0,180,.5);
 }
 
-.wtf-nav{
-    flex-direction:row-reverse!important;
-    gap:22px!important;
+body.wtf-final .info-box{
+    box-shadow:
+        20px 20px 0 #ff00aa,
+        -20px -20px 0 #00d9ff;
 }
 
-.wtf-nav a:nth-child(2){
-    transform:translateY(8px) rotate(-2deg);
+body.wtf-final footer{
+    background:#111;
+    color:#fff;
 }
 
-.wtf-nav a:nth-child(3){
-    transform:translateY(-7px) rotate(2deg);
+.wtf-pulse{
+    animation:wtfPulse 1.2s infinite alternate ease-in-out;
 }
 
-.wtf-info{
-    border-radius:60px!important;
-    padding:95px 60px!important;
+@keyframes wtfPulse{
+    from{
+        filter:hue-rotate(0deg);
+    }
+    to{
+        filter:hue-rotate(100deg);
+    }
 }
 
-.wtf-title{
-    letter-spacing:-.095em!important;
-    transform:rotate(-1.5deg)!important;
+.wtf-spin{
+    animation:wtfSpin 4s linear infinite;
 }
 
+@keyframes wtfSpin{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg);
+    }
+}
 
-/* =====================================================
-   MOBILE
-===================================================== */
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
 
 @media(max-width:800px){
-
     header{
-        padding:0 4vw;
+        padding:0 20px;
     }
 
     nav{
-        gap:1px;
+        gap:13px;
     }
 
     nav a{
-        padding:8px 6px;
         font-size:12px;
     }
 
-    main{
-        width:90%;
+    .hero{
+        padding:70px 20px;
     }
 
-    .hero{
-        min-height:600px;
+    .content-section,
+    .info{
+        padding:80px 20px;
     }
 
     .cards{
         grid-template-columns:1fr;
     }
 
-    .info{
-        padding:40px 25px;
+    .info-box{
+        padding:35px 25px;
     }
 
-    .section-heading{
-        align-items:start;
+    .move-big-right{
+        transform:translate3d(35px,0,0) rotate(3deg) !important;
+    }
+
+    .move-big-left{
+        transform:translate3d(-35px,0,0) rotate(-3deg) !important;
+    }
+}
+
+@media(max-width:560px){
+    header{
+        height:auto;
+        min-height:65px;
         flex-direction:column;
+        gap:10px;
+        padding:12px 15px;
+    }
+
+    nav{
+        width:100%;
+        justify-content:space-between;
+    }
+
+    .hero{
+        min-height:calc(100vh - 100px);
+    }
+
+    .search{
+        flex-direction:column;
+    }
+
+    .search button{
+        padding:15px;
     }
 }
 </style>
 </head>
 
-
 <body>
 
-<header id="header">
+<header id="siteHeader">
+    <a href="#accueil" class="logo" id="logo">Daily</a>
 
-    <a href="#accueil" class="logo" id="logo">
-        Daily
-    </a>
-
-    <nav id="nav">
+    <nav id="navigation">
         <a href="#accueil">Accueil</a>
         <a href="#decouvrir">Découvrir</a>
         <a href="#tendances">Tendances</a>
         <a href="#apropos">À propos</a>
     </nav>
-
 </header>
-
 
 <main>
 
-    <!-- ================= HERO ================= -->
+<section class="hero" id="accueil">
+    <div class="hero-inner">
 
-    <section class="hero" id="accueil">
-
-        <div class="eyebrow" id="eyebrow">
+        <div class="eyebrow" id="heroEyebrow">
             Magazine & découvertes
         </div>
 
@@ -635,1331 +757,1361 @@ footer{
             Découvrez ce qui mérite votre attention.
         </h1>
 
-        <p id="subtitle">
+        <p id="heroText">
             Des idées, des découvertes et des sujets intéressants,
             réunis au même endroit.
         </p>
 
-        <div class="search">
-
+        <div class="search" id="searchBox">
             <input
                 id="searchInput"
                 type="text"
-                placeholder="Rechercher quelque chose..."
+                placeholder="Rechercher un sujet..."
             >
-
             <button id="searchButton">
                 Rechercher
             </button>
-
         </div>
 
-        <div
-            class="search-result"
-            id="searchResult">
-        </div>
+        <div class="search-result" id="searchResult"></div>
 
-    </section>
+    </div>
+</section>
 
 
-    <!-- ================= DECOUVRIR ================= -->
+<section class="content-section" id="decouvrir">
 
-    <section class="section" id="decouvrir">
+    <div class="section-inner">
 
         <div class="section-heading">
-
-            <h2 id="discoverTitle">
+            <div class="section-label" id="discoverLabel">
                 À découvrir
+            </div>
+
+            <h2 class="section-title" id="discoverTitle">
+                Des choses intéressantes.
             </h2>
-
-            <span id="discoverLabel">
-                Sélection du moment
-            </span>
-
         </div>
-
 
         <div class="cards" id="cards">
 
             <article class="card" id="card1">
+                <div class="card-number">01</div>
 
                 <div>
-
-                    <div class="card-number">
-                        01
-                    </div>
-
-                    <h3 id="cardTitle1">
-                        Les idées qui changent notre façon de voir les choses
-                    </h3>
-
-                    <p id="cardText1">
-                        Quelques sujets choisis pour sortir un peu de
-                        l'ordinaire.
+                    <h3>Les idées qui changent tout</h3>
+                    <p>
+                        Certaines petites idées peuvent modifier
+                        complètement notre manière de voir les choses.
                     </p>
-
                 </div>
-
-                <span class="card-number">
-                    Découverte
-                </span>
-
             </article>
-
 
             <article class="card" id="card2">
+                <div class="card-number">02</div>
 
                 <div>
-
-                    <div class="card-number">
-                        02
-                    </div>
-
-                    <h3 id="cardTitle2">
-                        Nouveautés et curiosités du moment
-                    </h3>
-
-                    <p id="cardText2">
-                        Des choses intéressantes à regarder quand on a
-                        quelques minutes devant soi.
+                    <h3>Le monde autrement</h3>
+                    <p>
+                        Des découvertes étonnantes et des sujets
+                        qui méritent quelques minutes d'attention.
                     </p>
-
                 </div>
-
-                <span class="card-number">
-                    Tendance
-                </span>
-
             </article>
-
 
             <article class="card" id="card3">
+                <div class="card-number">03</div>
 
                 <div>
-
-                    <div class="card-number">
-                        03
-                    </div>
-
-                    <h3 id="cardTitle3">
-                        Pourquoi certaines choses attirent notre attention
-                    </h3>
-
-                    <p id="cardText3">
-                        Un mélange d'idées, de curiosités et de découvertes.
+                    <h3>Curiosités du quotidien</h3>
+                    <p>
+                        Les choses ordinaires cachent parfois
+                        des détails beaucoup moins ordinaires.
                     </p>
-
                 </div>
-
-                <span class="card-number">
-                    Idée
-                </span>
-
             </article>
 
         </div>
+    </div>
+</section>
 
-    </section>
 
+<section class="content-section trends" id="tendances">
 
-    <!-- ================= TENDANCES ================= -->
-
-    <section class="section" id="tendances">
+    <div class="section-inner">
 
         <div class="section-heading">
-
-            <h2 id="trendTitle">
+            <div class="section-label" id="trendLabel">
                 Tendances
+            </div>
+
+            <h2 class="section-title" id="trendTitle">
+                Ce qui attire l'attention.
             </h2>
-
-            <span id="trendLabel">
-                Ce qui circule actuellement
-            </span>
-
         </div>
 
+        <div class="cards" id="trendCards">
 
-        <div class="cards">
-
-            <article class="card" id="trend1">
+            <article class="card trend-card" id="trend1">
+                <div class="card-number">A</div>
 
                 <div>
-
-                    <div class="card-number">
-                        04
-                    </div>
-
-                    <h3 id="trendText1">
-                        Les petites découvertes du quotidien
-                    </h3>
-
+                    <h3>Technologies</h3>
                     <p>
-                        Certaines choses deviennent intéressantes
-                        simplement parce qu'on commence à les remarquer.
+                        Les nouveautés qui transforment progressivement
+                        notre quotidien.
                     </p>
-
                 </div>
-
             </article>
 
-
-            <article class="card" id="trend2">
+            <article class="card trend-card" id="trend2">
+                <div class="card-number">B</div>
 
                 <div>
-
-                    <div class="card-number">
-                        05
-                    </div>
-
-                    <h3 id="trendText2">
-                        Ce qu'on remarque quand on regarde mieux
-                    </h3>
-
+                    <h3>Culture</h3>
                     <p>
-                        Parfois, un détail suffit à changer complètement
-                        une impression.
+                        Des créations, des histoires et des idées
+                        à découvrir.
                     </p>
-
                 </div>
-
             </article>
 
-
-            <article class="card" id="trend3">
+            <article class="card trend-card" id="trend3">
+                <div class="card-number">C</div>
 
                 <div>
-
-                    <div class="card-number">
-                        06
-                    </div>
-
-                    <h3 id="trendText3">
-                        Quelques choses à garder en tête
-                    </h3>
-
+                    <h3>Curiosités</h3>
                     <p>
-                        Rien de particulier. Enfin... normalement.
+                        Des faits étonnants qui donnent envie
+                        d'en savoir davantage.
                     </p>
-
                 </div>
-
             </article>
 
         </div>
+    </div>
+</section>
 
-    </section>
 
+<section class="info" id="apropos">
 
-    <!-- ================= A PROPOS ================= -->
-
-    <section class="info" id="apropos">
+    <div class="info-box" id="infoBox">
 
         <h2 id="infoTitle">
-            Tout ce qui mérite votre attention, au même endroit.
+            Pourquoi Daily ?
         </h2>
 
         <p id="infoText">
-            Daily rassemble des contenus simples, intéressants et
-            accessibles. Prenez le temps de regarder autour de vous.
+            Daily rassemble des sujets variés afin de permettre
+            à chacun de découvrir quelque chose de nouveau,
+            simplement et rapidement.
         </p>
 
-    </section>
+    </div>
+</section>
 
 </main>
 
 
 <footer id="footer">
-
-    <span id="footerText">
-        © 2026 Daily — Tous droits réservés.
-    </span>
-
+    <div id="footerText">
+        © 2026 Daily — Magazine & découvertes
+    </div>
 </footer>
 
 
 <script>
 
 /* =========================================================
-   ETAT
-========================================================= */
+   ÉTAT DU TROLL
+   ========================================================= */
 
 const state = {
-
-    /*
-       Nombre total de changements.
-    */
     changes:0,
-
-    /*
-       Niveau d'étrangeté.
-       Il augmente avec les changements réellement effectués.
-    */
-    level:0,
-
-    /*
-       Éléments déjà transformés.
-    */
-    changed:new Set(),
-
-    /*
-       Empêche deux moteurs de lancer exactement
-       la même chose au même instant.
-    */
-    working:false
-
+    finalWtf:false,
+    titleChanges:0,
+    burstRunning:false,
+    lastScroll:0
 };
 
 
 /* =========================================================
    OUTILS
-========================================================= */
+   ========================================================= */
 
 function isOffscreen(element){
 
     if(!element) return false;
 
-    const rect=element.getBoundingClientRect();
+    const r = element.getBoundingClientRect();
 
     return (
-        rect.bottom < -20 ||
-        rect.top > window.innerHeight + 20
+        r.bottom < -30 ||
+        r.top > window.innerHeight + 30
     );
 }
 
 
-function random(array){
-
-    return array[
-        Math.floor(Math.random()*array.length)
-    ];
-
+function randomItem(array){
+    return array[Math.floor(Math.random() * array.length)];
 }
 
 
-function wait(ms){
+function addChange(){
 
-    return new Promise(resolve=>{
-        setTimeout(resolve,ms);
-    });
+    state.changes++;
 
+    if(
+        state.changes >= 34 &&
+        !state.finalWtf
+    ){
+        launchFinalWTF();
+    }
 }
 
 
-function changed(key){
-
-    return state.changed.has(key);
-
-}
-
-
-function mark(key){
-
-    state.changed.add(key);
-
-}
-
-
-/* =========================================================
-   CHANGEMENT DE TEXTE
-========================================================= */
-
-async function changeText(element,text,key){
+function addClass(element,className){
 
     if(!element) return false;
 
-    /*
-       CONDITION IMPORTANTE :
-       le texte doit être hors écran.
-    */
-
     if(!isOffscreen(element)) return false;
 
-    if(changed(key)) return false;
+    element.classList.add(className);
 
-    mark(key);
-
-    element.classList.add("text-change");
-
-    await wait(400);
-
-    /*
-       Si la personne est revenue dessus pendant
-       l'animation, on ne fait pas le changement
-       sous ses yeux.
-    */
-
-    if(!isOffscreen(element)){
-
-        element.classList.remove("text-change");
-
-        return false;
-
-    }
-
-    element.textContent=text;
-
-    await wait(450);
-
-    element.classList.remove("text-change");
-
-    state.changes++;
+    addChange();
 
     return true;
+}
+
+
+function removeAfter(element,className,ms){
+
+    setTimeout(() => {
+
+        if(
+            element &&
+            !state.finalWtf
+        ){
+            element.classList.remove(className);
+        }
+
+    },ms);
 
 }
 
 
 /* =========================================================
-   TITRE
-========================================================= */
+   TITRES
+   ========================================================= */
 
-const titleVariants=[
-
+const normalTitles = [
     "Découvrez ce qui mérite votre attention.",
-
-    "Quelques idées qui valent le détour.",
-
-    "Les découvertes du moment.",
-
-    "Tout ce qui mérite votre attention.",
-
-    "Découvrez les sujets du moment.",
-
-    "Des idées à découvrir aujourd'hui.",
-
-    "Ce qui mérite vraiment un coup d'œil.",
-
-    "Quelques découvertes intéressantes.",
-
-    "Les sujets à découvrir aujourd'hui.",
-
-    "Ce qu'il faut peut-être regarder de plus près."
-
+    "Des choses qui méritent d'être découvertes.",
+    "Découvrez quelque chose de nouveau.",
+    "Ce qui mérite vraiment votre attention.",
+    "Un autre regard sur le quotidien.",
+    "Les idées à découvrir aujourd'hui.",
+    "Quelques découvertes intéressantes."
 ];
 
 
-const subtitleVariants=[
-
-    "Des idées, des découvertes et des sujets intéressants, réunis au même endroit.",
-
-    "Quelques sujets intéressants à découvrir tranquillement.",
-
-    "Un endroit pour découvrir de nouvelles choses.",
-
-    "Des découvertes simples, intéressantes et accessibles.",
-
-    "Les sujets qui méritent peut-être quelques minutes de votre temps."
-
+const strangeTitles = [
+    "Découvrez ce qui mérite votre attention.",
+    "Cette page semble légèrement différente.",
+    "Vous aviez déjà vu ce titre ?",
+    "Tout est parfaitement normal.",
+    "Il y avait probablement un autre titre.",
+    "Ne vous inquiétez pas pour le titre.",
+    "Cette phrase était ailleurs.",
+    "Le titre fonctionne normalement.",
+    "Quelque chose a changé.",
+    "Pourquoi ce titre est comme ça ?"
 ];
 
 
-const eyebrowVariants=[
-
-    "Magazine & découvertes",
-
-    "Sélection du moment",
-
-    "Idées & curiosités",
-
-    "Découvertes quotidiennes",
-
-    "À voir aujourd'hui",
-
-    "Quelques découvertes"
-
+const wtfTitles = [
+    "Le titre est actuellement ailleurs.",
+    "03 / 01 / 04",
+    "Ceci était une section.",
+    "Pourquoi les titres ont-ils décidé ça ?",
+    "DAILY DAILY DAILY",
+    "Le titre n'a rien demandé.",
+    "Cette page connaît le chemin.",
+    "Attention au texte qui n'est plus ici.",
+    "Section principale secondaire principale.",
+    "Tout est exactement différent."
 ];
 
 
-async function mutateHero(){
+function mutateTitle(){
 
-    const title=document.getElementById("mainTitle");
-    const subtitle=document.getElementById("subtitle");
-    const eyebrow=document.getElementById("eyebrow");
+    const title = document.getElementById("mainTitle");
 
-    const choices=[];
+    if(!title) return;
 
-    if(isOffscreen(title)){
-        choices.push([
-            title,
-            titleVariants,
-            "hero-title"
-        ]);
+    if(!isOffscreen(title)) return;
+
+    let list = normalTitles;
+
+    if(state.changes >= 18){
+        list = strangeTitles;
     }
 
-    if(isOffscreen(subtitle)){
-        choices.push([
-            subtitle,
-            subtitleVariants,
-            "hero-subtitle"
-        ]);
+    if(state.finalWtf){
+        list = wtfTitles;
     }
 
-    if(isOffscreen(eyebrow)){
-        choices.push([
-            eyebrow,
-            eyebrowVariants,
-            "hero-eyebrow"
-        ]);
+    let newText = randomItem(list);
+
+    if(newText === title.textContent){
+        newText = randomItem(list);
     }
 
-    if(!choices.length) return false;
+    title.classList.remove("text-changing");
 
-    const [element,texts,key]=random(choices);
+    void title.offsetWidth;
 
-    return changeText(
-        element,
-        random(texts),
-        key+"-"+state.changes
-    );
+    title.classList.add("text-changing");
 
+    title.textContent = newText;
+
+    state.titleChanges++;
+
+    addChange();
 }
 
 
 /* =========================================================
-   CARTES
-========================================================= */
+   AUTRES TEXTES
+   ========================================================= */
 
-const cardVariants=[
-
-    "Les idées qui changent notre façon de voir les choses",
-
-    "Quelques découvertes qui méritent votre attention.",
-
-    "Des idées qu'on remarque parfois seulement après coup.",
-
-    "Nouveautés et curiosités du moment",
-
-    "Ce qu'on commence à remarquer en ce moment.",
-
-    "Pourquoi certaines choses attirent notre attention",
-
-    "Les détails qui changent une impression.",
-
-    "Ce qui devient intéressant quand on y regarde mieux.",
-
-    "Quelques choses à garder en tête.",
-
-    "Ce qu'on remarque quand on prend le temps de regarder."
-
+const strangeTexts = [
+    "Une découverte peut parfois apparaître exactement là où on ne l'attend pas.",
+    "Cette section était probablement dans un autre ordre.",
+    "Tout fonctionne comme prévu.",
+    "Il semble que quelque chose ait légèrement changé.",
+    "Cette information est parfaitement normale.",
+    "Vous pouvez continuer votre lecture.",
+    "Cette phrase était plus longue avant.",
+    "Rien de particulier à signaler."
 ];
 
 
-async function mutateCard(){
+function mutateText(){
 
-    const cards=[
-
-        document.getElementById("card1"),
-        document.getElementById("card2"),
-        document.getElementById("card3"),
-        document.getElementById("trend1"),
-        document.getElementById("trend2"),
-        document.getElementById("trend3")
-
-    ];
-
-    const available=cards.filter(card=>{
-
-        if(!card) return false;
-
-        return isOffscreen(card);
-
-    });
-
-
-    if(!available.length) return false;
-
-
-    const card=random(available);
-
-    const title=card.querySelector("h3");
-
-    if(!title) return false;
-
-
-    return changeText(
-
-        title,
-
-        random(cardVariants),
-
-        "card-"+card.id+"-"+state.changes
-
-    );
-
-}
-
-
-/* =========================================================
-   CHANGEMENT DE COULEUR
-========================================================= */
-
-function mutateColor(){
-
-    const elements=[
-
-        document.getElementById("card1"),
-        document.getElementById("card2"),
-        document.getElementById("card3"),
-
-        document.getElementById("trend1"),
-        document.getElementById("trend2"),
-        document.getElementById("trend3"),
-
-        document.getElementById("decouvrir"),
-        document.getElementById("tendances"),
-        document.getElementById("apropos")
-
-    ].filter(Boolean);
-
-
-    const available=elements.filter(isOffscreen);
-
-    if(!available.length) return false;
-
-
-    const element=random(available);
-
-    const key=
-        "color-"+element.id+"-"+state.changes;
-
-
-    if(changed(key)) return false;
-
-    mark(key);
-
-
-    element.classList.add(
-
-        random([
-
-            "color-soft",
-            "color-medium",
-            "color-strange"
-
-        ])
-
-    );
-
-
-    state.changes++;
-
-    return true;
-
-}
-
-
-/* =========================================================
-   TEXTE QUI CHANGE DE COULEUR
-========================================================= */
-
-function mutateTextColor(){
-
-    const elements=[
-
-        document.getElementById("mainTitle"),
-        document.getElementById("subtitle"),
+    const targets = [
+        document.getElementById("heroText"),
         document.getElementById("discoverTitle"),
         document.getElementById("trendTitle"),
+        document.getElementById("infoText"),
         document.getElementById("infoTitle"),
         document.getElementById("footerText")
+    ];
 
-    ].filter(Boolean);
-
-
-    const available=elements.filter(isOffscreen);
+    const available = targets.filter(
+        el => el && isOffscreen(el)
+    );
 
     if(!available.length) return false;
 
+    const target = randomItem(available);
 
-    const element=random(available);
+    target.classList.remove("text-changing");
 
-    const key=
-        "textcolor-"+element.id+"-"+state.changes;
+    void target.offsetWidth;
+
+    target.classList.add("text-changing");
+
+    target.textContent = randomItem(strangeTexts);
+
+    addChange();
+
+    return true;
+}
 
 
-    if(changed(key)) return false;
+/* =========================================================
+   COULEURS / DÉGRADÉS
+   ========================================================= */
 
-    mark(key);
+const softGradients = [
+    "gradient-soft-1",
+    "gradient-soft-2",
+    "gradient-soft-3",
+    "gradient-soft-4"
+];
 
 
-    element.classList.add(
+const mediumGradients = [
+    "gradient-medium-1",
+    "gradient-medium-2",
+    "gradient-medium-3",
+    "gradient-medium-4"
+];
 
-        random([
 
-            "text-soft",
-            "text-medium",
-            "text-strange"
+const strongGradients = [
+    "gradient-strong-1",
+    "gradient-strong-2",
+    "gradient-strong-3",
+    "gradient-strong-4",
+    "gradient-strong-5",
+    "gradient-strong-6",
+    "gradient-strong-7"
+];
 
-        ])
 
+const wtfGradients = [
+    "gradient-wtf-1",
+    "gradient-wtf-2",
+    "gradient-wtf-3"
+];
+
+
+const allGradientClasses = [
+    ...softGradients,
+    ...mediumGradients,
+    ...strongGradients,
+    ...wtfGradients
+];
+
+
+function clearGradients(element){
+
+    allGradientClasses.forEach(
+        c => element.classList.remove(c)
     );
-
-
-    state.changes++;
-
-    return true;
-
 }
 
 
-/* =========================================================
-   BLOC ENTIER QUI BOUGE
-========================================================= */
+function mutateGradient(){
 
-function mutateBlock(){
-
-    const blocks=[
-
-        document.getElementById("decouvrir"),
-        document.getElementById("tendances"),
-        document.getElementById("apropos"),
-
-        document.getElementById("card1"),
-        document.getElementById("card2"),
-        document.getElementById("card3"),
-
-        document.getElementById("trend1"),
-        document.getElementById("trend2"),
-        document.getElementById("trend3"),
-
-        document.getElementById("footer")
-
-    ].filter(Boolean);
-
-
-    const available=blocks.filter(isOffscreen);
-
-    if(!available.length) return false;
-
-
-    const element=random(available);
-
-    const key=
-        "move-"+element.id+"-"+state.changes;
-
-
-    if(changed(key)) return false;
-
-    mark(key);
-
-
-    element.classList.add(
-
-        random([
-
-            "move-right",
-            "move-left",
-            "move-up",
-            "move-down"
-
-        ])
-
-    );
-
-
-    state.changes++;
-
-    return true;
-
-}
-
-
-/* =========================================================
-   FORMES
-========================================================= */
-
-function mutateShape(){
-
-    const elements=[
-
-        document.getElementById("card1"),
-        document.getElementById("card2"),
-        document.getElementById("card3"),
-
-        document.getElementById("trend1"),
-        document.getElementById("trend2"),
-        document.getElementById("trend3"),
-
-        document.getElementById("apropos")
-
-    ].filter(Boolean);
-
-
-    const available=elements.filter(isOffscreen);
-
-    if(!available.length) return false;
-
-
-    const element=random(available);
-
-    const key=
-        "shape-"+element.id+"-"+state.changes;
-
-
-    if(changed(key)) return false;
-
-    mark(key);
-
-
-    element.classList.add(
-
-        random([
-
-            "round-more",
-            "round-less",
-            "spacing-weird",
-            "spacing-tight"
-
-        ])
-
-    );
-
-
-    state.changes++;
-
-    return true;
-
-}
-
-
-/* =========================================================
-   ORDRE DES SECTIONS
-========================================================= */
-
-function reorderCards(){
-
-    const section=document.getElementById("decouvrir");
-
-    const cards=document.getElementById("cards");
-
-
-    if(!section || !cards) return false;
-
-    if(!isOffscreen(section)) return false;
-
-
-    const key="cards-order-"+state.changes;
-
-    if(changed(key)) return false;
-
-    mark(key);
-
-
-    const children=[...cards.children];
-
-    children.sort(()=>Math.random()-.5);
-
-    children.forEach(child=>{
-        cards.appendChild(child);
-    });
-
-
-    state.changes++;
-
-    return true;
-
-}
-
-
-/* =========================================================
-   WTF : MENU
-========================================================= */
-
-function mutateNav(){
-
-    const nav=document.getElementById("nav");
-
-    if(!nav) return false;
-
-
-    const key="nav-wtf";
-
-    if(changed(key)) return false;
-
-    mark(key);
-
-
-    nav.classList.add("wtf-nav");
-
-    state.changes++;
-
-    return true;
-
-}
-
-
-/* =========================================================
-   WTF : GROS BLOC
-========================================================= */
-
-function mutateWTFBlock(){
-
-    const elements=[
-
-        document.getElementById("card1"),
-        document.getElementById("card2"),
-        document.getElementById("card3"),
-
-        document.getElementById("trend1"),
-        document.getElementById("trend2"),
-        document.getElementById("trend3"),
-
-        document.getElementById("decouvrir"),
-        document.getElementById("tendances"),
-        document.getElementById("apropos"),
-        document.getElementById("footer")
-
-    ].filter(Boolean);
-
-
-    const available=elements.filter(isOffscreen);
-
-    if(!available.length) return false;
-
-
-    const element=random(available);
-
-    const key=
-        "wtf-"+element.id+"-"+state.changes;
-
-
-    if(changed(key)) return false;
-
-    mark(key);
-
-
-    element.classList.add(
-
-        random([
-
-            "wtf-rotate-right",
-            "wtf-rotate-left",
-            "wtf-big",
-            "wtf-small",
-            "wtf-shadow"
-
-        ])
-
-    );
-
-
-    state.changes++;
-
-    return true;
-
-}
-
-
-/* =========================================================
-   TITRE WTF
-========================================================= */
-
-function wtfTitle(){
-
-    const title=document.getElementById("mainTitle");
-
-    if(!title || !isOffscreen(title)) return false;
-
-
-    title.classList.add("wtf-title");
-
-    state.changes++;
-
-    return true;
-
-}
-
-
-/* =========================================================
-   INFO WTF
-========================================================= */
-
-function wtfInfo(){
-
-    const info=document.getElementById("apropos");
-
-    if(!info || !isOffscreen(info)) return false;
-
-
-    info.classList.add("wtf-info");
-
-    state.changes++;
-
-    return true;
-
-}
-
-
-/* =========================================================
-   MOTEUR PRINCIPAL
-========================================================= */
-
-async function mutateHiddenElements(){
-
-    if(state.working) return;
-
-    state.working=true;
-
-
-    /*
-       On récupère TOUT ce qui est hors écran.
-    */
-
-    const all=[
+    const targets = [
 
         document.getElementById("accueil"),
         document.getElementById("decouvrir"),
         document.getElementById("tendances"),
         document.getElementById("apropos"),
-
+        document.getElementById("cards"),
+        document.getElementById("trendCards"),
         document.getElementById("card1"),
         document.getElementById("card2"),
         document.getElementById("card3"),
-
         document.getElementById("trend1"),
         document.getElementById("trend2"),
         document.getElementById("trend3"),
-
+        document.getElementById("infoBox"),
+        document.getElementById("searchBox"),
         document.getElementById("footer"),
-
-        document.getElementById("mainTitle"),
-        document.getElementById("subtitle"),
-        document.getElementById("eyebrow"),
-        document.getElementById("discoverTitle"),
-        document.getElementById("trendTitle"),
-        document.getElementById("infoTitle")
+        document.getElementById("siteHeader")
 
     ].filter(Boolean);
 
 
-    const hidden=all.filter(isOffscreen);
-
-
-    /*
-       S'il n'y a rien hors écran,
-       on attend.
-    */
-
-    if(!hidden.length){
-
-        state.working=false;
-
-        return;
-
-    }
-
-
-    /*
-       Combien de choses changent simultanément ?
-
-       Début :
-       2 changements
-
-       Milieu :
-       3-4
-
-       Fin :
-       5-7
-    */
-
-    let amount=2;
-
-
-    if(state.changes>=5){
-        amount=3;
-    }
-
-    if(state.changes>=10){
-        amount=4;
-    }
-
-    if(state.changes>=16){
-        amount=5;
-    }
-
-    if(state.changes>=24){
-        amount=6;
-    }
-
-
-    /*
-       On lance plusieurs changements.
-    */
-
-    const actions=[
-
-        mutateHero,
-        mutateCard,
-        mutateColor,
-        mutateTextColor,
-        mutateBlock,
-        mutateShape,
-        reorderCards
-
-    ];
-
-
-    /*
-       À partir d'un certain nombre de changements,
-       on ajoute les vraies anomalies.
-    */
-
-    if(state.changes>=10){
-
-        actions.push(
-            mutateWTFBlock
-        );
-
-    }
-
-
-    if(state.changes>=15){
-
-        actions.push(
-            mutateWTFBlock,
-            mutateWTFBlock
-        );
-
-    }
-
-
-    /*
-       Les actions sont exécutées presque ensemble.
-    */
-
-    const selected=[];
-
-
-    for(let i=0;i<amount;i++){
-
-        const action=random(actions);
-
-        selected.push(action);
-
-    }
-
-
-    await Promise.all(
-
-        selected.map(action=>{
-
-            try{
-                return action();
-            }catch(error){
-                return false;
-            }
-
-        })
-
+    const available = targets.filter(
+        el => isOffscreen(el)
     );
 
 
-    /*
-       PHASE WTF
-    */
+    if(!available.length) return false;
 
-    if(state.changes>=18){
 
-        /*
-           Plusieurs gros changements en même temps.
-        */
+    const target = randomItem(available);
 
-        mutateNav();
-        wtfTitle();
-        wtfInfo();
+    clearGradients(target);
 
-        for(let i=0;i<4;i++){
-            mutateWTFBlock();
-        }
 
+    let list = softGradients;
+
+    if(state.changes >= 7){
+        list = mediumGradients;
+    }
+
+    if(state.changes >= 14){
+        list = strongGradients;
+    }
+
+    if(state.finalWtf){
+        list = wtfGradients;
     }
 
 
-    state.working=false;
+    target.classList.add(
+        randomItem(list)
+    );
 
+    addChange();
+
+    return true;
 }
 
 
 /* =========================================================
-   SURVEILLANCE CONTINUE
-========================================================= */
+   COULEURS DE TEXTE
+   ========================================================= */
 
-/*
-   C'est ici que le comportement change vraiment.
+const textColors = [
+    "text-red",
+    "text-blue",
+    "text-purple",
+    "text-green",
+    "text-orange",
+    "text-pink",
+    "text-cyan"
+];
 
-   Toutes les 900 ms :
 
-   → on regarde ce qui est hors écran
-   → s'il y a des éléments cachés
-   → plusieurs sont modifiés
+function mutateTextColor(){
 
-   Donc pas besoin de remonter/descendre 50 fois.
-*/
+    const targets = [
 
-setInterval(()=>{
+        document.getElementById("mainTitle"),
+        document.getElementById("discoverTitle"),
+        document.getElementById("trendTitle"),
+        document.getElementById("infoTitle"),
+        document.getElementById("heroEyebrow"),
+        document.getElementById("discoverLabel"),
+        document.getElementById("trendLabel")
 
-    mutateHiddenElements();
+    ].filter(Boolean);
 
-},900);
+
+    const available = targets.filter(
+        el => isOffscreen(el)
+    );
+
+
+    if(!available.length) return false;
+
+
+    const target = randomItem(available);
+
+    textColors.forEach(
+        c => target.classList.remove(c)
+    );
+
+    target.classList.add(
+        randomItem(textColors)
+    );
+
+    addChange();
+
+    return true;
+}
 
 
 /* =========================================================
-   QUAND UN ELEMENT SORT DE L'ECRAN
-========================================================= */
+   MOUVEMENTS DE BLOCS
+   ========================================================= */
 
-/*
-   On surveille le scroll.
-
-   Dès que la personne vient de quitter une zone,
-   on lance rapidement un paquet de changements.
-*/
-
-let lastY=window.scrollY;
-
-let scrollTimer=null;
-
-
-window.addEventListener("scroll",()=>{
-
-    const current=window.scrollY;
-
-    clearTimeout(scrollTimer);
+const movementClasses = [
+    "move-right",
+    "move-left",
+    "move-up",
+    "move-down",
+    "float-weird",
+    "rotate-block",
+    "rotate-block-left"
+];
 
 
-    scrollTimer=setTimeout(()=>{
+function mutateBlock(){
+
+    const targets = [
+
+        document.getElementById("accueil"),
+        document.getElementById("decouvrir"),
+        document.getElementById("tendances"),
+        document.getElementById("apropos"),
+        document.getElementById("card1"),
+        document.getElementById("card2"),
+        document.getElementById("card3"),
+        document.getElementById("trend1"),
+        document.getElementById("trend2"),
+        document.getElementById("trend3"),
+        document.getElementById("infoBox"),
+        document.getElementById("searchBox"),
+        document.getElementById("footer")
+
+    ].filter(Boolean);
+
+
+    const available = targets.filter(
+        el => isOffscreen(el)
+    );
+
+
+    if(!available.length) return false;
+
+
+    const target = randomItem(available);
+
+
+    movementClasses.forEach(
+        c => target.classList.remove(c)
+    );
+
+
+    let list = movementClasses;
+
+
+    if(state.changes >= 18){
+        list = [
+            ...movementClasses,
+            "move-big-right",
+            "move-big-left"
+        ];
+    }
+
+
+    target.classList.add(
+        randomItem(list)
+    );
+
+
+    addChange();
+
+    return true;
+}
+
+
+/* =========================================================
+   FORMES
+   ========================================================= */
+
+function mutateShape(){
+
+    const targets = [
+
+        document.getElementById("card1"),
+        document.getElementById("card2"),
+        document.getElementById("card3"),
+        document.getElementById("trend1"),
+        document.getElementById("trend2"),
+        document.getElementById("trend3"),
+        document.getElementById("infoBox"),
+        document.getElementById("searchBox")
+
+    ].filter(Boolean);
+
+
+    const available = targets.filter(
+        el => isOffscreen(el)
+    );
+
+
+    if(!available.length) return false;
+
+
+    const target = randomItem(available);
+
+
+    const choices = [
+        "round-more",
+        "round-less",
+        "tilt",
+        "tilt-left"
+    ];
+
+
+    target.classList.add(
+        randomItem(choices)
+    );
+
+
+    addChange();
+
+    return true;
+}
+
+
+/* =========================================================
+   RETOURNEMENT DE BLOCS
+   ========================================================= */
+
+function mutateFlip(){
+
+    const targets = [
+
+        document.getElementById("card1"),
+        document.getElementById("card2"),
+        document.getElementById("card3"),
+        document.getElementById("trend1"),
+        document.getElementById("trend2"),
+        document.getElementById("trend3"),
+        document.getElementById("infoBox"),
+        document.getElementById("apropos"),
+        document.getElementById("tendances")
+
+    ].filter(Boolean);
+
+
+    const available = targets.filter(
+        el => isOffscreen(el)
+    );
+
+
+    if(!available.length) return false;
+
+
+    const target = randomItem(available);
+
+
+    const choices = [
+        "flip-x",
+        "flip-y",
+        "flip-180"
+    ];
+
+
+    target.classList.add(
+        randomItem(choices)
+    );
+
+
+    addChange();
+
+    return true;
+}
+
+
+/* =========================================================
+   RÉORDONNEMENT DES CARTES
+   ========================================================= */
+
+function shuffleCards(container){
+
+    if(!container) return false;
+
+    if(!isOffscreen(container)) return false;
+
+
+    const children = [...container.children];
+
+    for(let i = children.length - 1; i > 0; i--){
+
+        const j = Math.floor(
+            Math.random() * (i + 1)
+        );
+
+        [
+            children[i],
+            children[j]
+        ] = [
+            children[j],
+            children[i]
+        ];
+    }
+
+
+    children.forEach(
+        child => container.appendChild(child)
+    );
+
+
+    addChange();
+
+    return true;
+}
+
+
+function mutateCardOrder(){
+
+    const containers = [
+        document.getElementById("cards"),
+        document.getElementById("trendCards")
+    ];
+
+
+    const available = containers.filter(
+        el => el && isOffscreen(el)
+    );
+
+
+    if(!available.length) return false;
+
+
+    return shuffleCards(
+        randomItem(available)
+    );
+}
+
+
+/* =========================================================
+   RÉORDONNEMENT DES SECTIONS
+   ========================================================= */
+
+function mutateSectionOrder(){
+
+    const main = document.querySelector("main");
+
+    if(!main) return false;
+
+
+    const sections = [
+        document.getElementById("accueil"),
+        document.getElementById("decouvrir"),
+        document.getElementById("tendances"),
+        document.getElementById("apropos")
+    ].filter(Boolean);
+
+
+    let available = sections.filter(
+        el => isOffscreen(el)
+    );
+
+
+    /*
+       Au début on laisse le Hero tranquille.
+       Plus tard, tout peut être déplacé.
+    */
+
+    if(state.changes < 24){
+
+        available = available.filter(
+            el => el.id !== "accueil"
+        );
+    }
+
+
+    if(available.length < 2) return false;
+
+
+    const a = randomItem(available);
+
+    let b = randomItem(available);
+
+    let safety = 0;
+
+    while(b === a && safety < 10){
+        b = randomItem(available);
+        safety++;
+    }
+
+
+    if(a === b) return false;
+
+
+    const all = [...main.children];
+
+    const indexA = all.indexOf(a);
+    const indexB = all.indexOf(b);
+
+
+    if(indexA < indexB){
+
+        main.insertBefore(b,a);
+
+    }else{
+
+        main.insertBefore(a,b);
+    }
+
+
+    addChange();
+
+    return true;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+function mutateNavigation(){
+
+    const nav = document.getElementById("navigation");
+
+    if(!nav) return false;
+
+
+    if(!isOffscreen(nav)) return false;
+
+
+    const links = [...nav.children];
+
+    if(links.length < 2) return false;
+
+
+    links.reverse().forEach(
+        link => nav.appendChild(link)
+    );
+
+
+    addChange();
+
+    return true;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+function mutateFooter(){
+
+    const footer = document.getElementById("footer");
+
+    if(!footer || !isOffscreen(footer)){
+        return false;
+    }
+
+
+    const texts = [
+        "© 2026 Daily — Magazine & découvertes",
+        "© 2026 Daily — Tout est normal.",
+        "© 2026 Daily — Cette page était différente.",
+        "© 2026 Daily — Fin de la page.",
+        "© 2026 Daily — Fin ?",
+        "© 2026 Daily — 04 / 01 / 03"
+    ];
+
+
+    footer.querySelector("#footerText").textContent =
+        randomItem(texts);
+
+
+    addChange();
+
+    return true;
+}
+
+
+/* =========================================================
+   WTF
+   ========================================================= */
+
+function launchFinalWTF(){
+
+    if(state.finalWtf) return;
+
+    state.finalWtf = true;
+
+
+    document.body.classList.add("wtf-final");
+
+
+    const main = document.querySelector("main");
+
+
+    /*
+       On réordonne absolument tout.
+    */
+
+    if(main){
+
+        const sections = [...main.children];
+
+        for(let i = sections.length - 1; i > 0; i--){
+
+            const j = Math.floor(
+                Math.random() * (i + 1)
+            );
+
+            [
+                sections[i],
+                sections[j]
+            ] = [
+                sections[j],
+                sections[i]
+            ];
+        }
+
+
+        sections.forEach(
+            section => main.appendChild(section)
+        );
+    }
+
+
+    /*
+       Gros changements visuels.
+    */
+
+    document.querySelectorAll(".card").forEach(
+        card => {
+
+            card.classList.add(
+                randomItem([
+                    "gradient-wtf-1",
+                    "gradient-wtf-2",
+                    "gradient-wtf-3"
+                ])
+            );
+
+            if(Math.random() > .45){
+                card.classList.add("wtf-pulse");
+            }
+
+            if(Math.random() > .7){
+                card.classList.add("flip-x");
+            }
+        }
+    );
+
+
+    /*
+       Texte complètement WTF.
+    */
+
+    document.getElementById("mainTitle").textContent =
+        randomItem(wtfTitles);
+
+
+    document.getElementById("discoverTitle").textContent =
+        randomItem([
+            "Section 03 / 01",
+            "Les choses qui étaient ici",
+            "Découvrir ce qui n'est plus là.",
+            "Pourquoi cette section ?"
+        ]);
+
+
+    document.getElementById("trendTitle").textContent =
+        randomItem([
+            "Tendances précédentes futures",
+            "A B C A C B",
+            "Ce qui attire l'attention ailleurs.",
+            "Tendance : probablement."
+        ]);
+
+
+    document.getElementById("infoTitle").textContent =
+        randomItem([
+            "Pourquoi Daily ?",
+            "Pourquoi cette section est ici ?",
+            "À propos de rien.",
+            "Informations non disponibles."
+        ]);
+
+
+    document.getElementById("infoText").textContent =
+        randomItem([
+            "Cette page fonctionne exactement comme prévu.",
+            "Les sections ont décidé de changer de place.",
+            "Il n'y a absolument aucune raison de chercher une logique.",
+            "Cette information était dans une autre section."
+        ]);
+
+
+    /*
+       Mélange supplémentaire des cartes.
+    */
+
+    shuffleCards(document.getElementById("cards"));
+    shuffleCards(document.getElementById("trendCards"));
+
+
+    /*
+       Navigation inversée.
+    */
+
+    const nav = document.getElementById("navigation");
+
+    [...nav.children]
+        .reverse()
+        .forEach(
+            link => nav.appendChild(link)
+        );
+
+
+    /*
+       Quelques éléments complètement retournés.
+    */
+
+    document.getElementById("infoBox")
+        .classList.add("flip-180");
+
+
+    document.getElementById("searchBox")
+        .classList.add("tilt");
+
+
+    document.getElementById("footer")
+        .classList.add("wtf-pulse");
+
+
+    /*
+       Le logo part légèrement.
+    */
+
+    document.getElementById("logo")
+        .classList.add("wtf-spin");
+}
+
+
+/* =========================================================
+   BURST DE CHANGEMENTS
+   ========================================================= */
+
+function burst(){
+
+    if(state.burstRunning) return;
+
+    state.burstRunning = true;
+
+
+    /*
+       Plus le troll avance,
+       plus il y a de changements par passage.
+    */
+
+    let amount = 2;
+
+
+    if(state.changes >= 5){
+        amount = 3;
+    }
+
+    if(state.changes >= 10){
+        amount = 4;
+    }
+
+    if(state.changes >= 16){
+        amount = 5;
+    }
+
+    if(state.changes >= 22){
+        amount = 6;
+    }
+
+    if(state.changes >= 28){
+        amount = 8;
+    }
+
+
+    /*
+       Le titre est prioritaire :
+       s'il est caché, il change.
+    */
+
+    const title = document.getElementById("mainTitle");
+
+    if(
+        title &&
+        isOffscreen(title)
+    ){
+        mutateTitle();
+    }
+
+
+    /*
+       Toujours beaucoup de couleurs.
+    */
+
+    mutateGradient();
+
+
+    if(
+        state.changes >= 4
+    ){
+        mutateGradient();
+    }
+
+
+    /*
+       Série de mutations.
+    */
+
+    for(let i = 0; i < amount; i++){
+
+        const actions = [
+
+            mutateGradient,
+            mutateGradient,
+            mutateTextColor,
+            mutateText,
+            mutateBlock,
+            mutateShape,
+            mutateFooter
+
+        ];
+
+
+        if(state.changes >= 9){
+            actions.push(mutateCardOrder);
+            actions.push(mutateBlock);
+        }
+
+
+        if(state.changes >= 15){
+            actions.push(mutateSectionOrder);
+            actions.push(mutateFlip);
+        }
+
+
+        if(state.changes >= 24){
+            actions.push(mutateSectionOrder);
+            actions.push(mutateFlip);
+            actions.push(mutateNavigation);
+        }
+
+
+        const action = randomItem(actions);
+
+        action();
+    }
+
+
+    state.burstRunning = false;
+}
+
+
+/* =========================================================
+   DÉTECTION DU SCROLL
+   ========================================================= */
+
+let scrollTimer = null;
+
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        state.lastScroll = Date.now();
+
 
         /*
-           On attend juste que le scroll soit terminé
-           pour être sûr que les éléments sont réellement
-           hors écran.
+           On attend juste la fin du mouvement
+           pour faire un burst.
+
+           Le temps ne fait PAS progresser le troll :
+           c'est bien le déplacement dans la page
+           qui rend les éléments cachés éligibles.
         */
 
-        mutateHiddenElements();
-
-    },180);
+        clearTimeout(scrollTimer);
 
 
-    lastY=current;
+        scrollTimer = setTimeout(
+            () => {
 
-},{passive:true});
+                burst();
+
+            },
+            120
+        );
+
+    },
+    {
+        passive:true
+    }
+);
+
+
+/* =========================================================
+   VÉRIFICATION DES ÉLÉMENTS CACHÉS
+   ========================================================= */
+
+let lastHiddenSignature = "";
+
+
+function checkHiddenElements(){
+
+    const targets = [
+
+        document.getElementById("mainTitle"),
+        document.getElementById("heroText"),
+        document.getElementById("discoverTitle"),
+        document.getElementById("trendTitle"),
+        document.getElementById("infoTitle"),
+        document.getElementById("card1"),
+        document.getElementById("card2"),
+        document.getElementById("card3"),
+        document.getElementById("trend1"),
+        document.getElementById("trend2"),
+        document.getElementById("trend3"),
+        document.getElementById("infoBox"),
+        document.getElementById("footer")
+
+    ].filter(Boolean);
+
+
+    const hidden = targets.filter(
+        el => isOffscreen(el)
+    );
+
+
+    const signature = hidden
+        .map(el => el.id)
+        .join("|");
+
+
+    /*
+       Si la liste des éléments cachés change,
+       on déclenche immédiatement un nouveau burst.
+    */
+
+    if(
+        signature !== lastHiddenSignature &&
+        hidden.length > 0
+    ){
+
+        lastHiddenSignature = signature;
+
+        burst();
+    }
+}
+
+
+/*
+   Ce timer ne déclenche aucune progression.
+   Il vérifie uniquement quels éléments sont
+   actuellement hors écran.
+*/
+
+setInterval(
+    checkHiddenElements,
+    650
+);
 
 
 /* =========================================================
    RECHERCHE
-========================================================= */
+   ========================================================= */
 
-const articles=[
+const searchInput =
+    document.getElementById("searchInput");
 
-    "Les idées qui changent notre façon de voir les choses",
+const searchButton =
+    document.getElementById("searchButton");
 
-    "Nouveautés et curiosités du moment",
-
-    "Pourquoi certaines choses attirent notre attention",
-
-    "Les petites découvertes du quotidien",
-
-    "Ce qu'on remarque quand on regarde mieux",
-
-    "Quelques choses à garder en tête"
-
-];
+const searchResult =
+    document.getElementById("searchResult");
 
 
-function search(){
+function performSearch(){
 
-    const input=document.getElementById("searchInput");
-
-    const result=document.getElementById("searchResult");
-
-    const query=input.value.trim().toLowerCase();
+    const query =
+        searchInput.value.trim();
 
 
     if(!query){
 
-        result.textContent=
-            "Entrez quelque chose à rechercher.";
-
-        result.classList.add("show");
+        searchResult.textContent =
+            "Entrez un sujet à rechercher.";
 
         return;
-
     }
 
 
-    const matches=articles.filter(article=>
-
-        article.toLowerCase().includes(query)
-
-    );
-
-
-    if(matches.length){
-
-        result.textContent=
-
-            matches.length+
-            " résultat"+
-            (matches.length>1?"s":"")+
-            " trouvé"+
-            (matches.length>1?"s":"")+".";
-
-    }else{
-
-        result.textContent=
-            "Aucun résultat trouvé.";
-
-    }
-
-
-    result.classList.add("show");
-
-
-    /*
-       La recherche déclenche aussi plusieurs
-       changements ailleurs.
-    */
-
-    setTimeout(()=>{
-
-        mutateHiddenElements();
-
-    },300);
-
+    searchResult.textContent =
+        `Résultats pour « ${query} » — Découvrez les sujets disponibles sur Daily.`;
 }
 
 
-document
-.getElementById("searchButton")
-.addEventListener("click",search);
+searchButton.addEventListener(
+    "click",
+    performSearch
+);
 
 
-document
-.getElementById("searchInput")
-.addEventListener("keydown",event=>{
+searchInput.addEventListener(
+    "keydown",
+    event => {
 
-    if(event.key==="Enter"){
-        search();
-    }
-
-});
-
-
-/* =========================================================
-   RETOUR SUR L'ONGLET
-========================================================= */
-
-document.addEventListener(
-    "visibilitychange",
-    ()=>{
-
-        if(!document.hidden){
-
-            setTimeout(()=>{
-
-                mutateHiddenElements();
-
-            },300);
-
+        if(event.key === "Enter"){
+            performSearch();
         }
 
     }
@@ -1967,14 +2119,52 @@ document.addEventListener(
 
 
 /* =========================================================
-   PREMIERE VERIFICATION
-========================================================= */
+   LIENS DE NAVIGATION
+   ========================================================= */
 
-setTimeout(()=>{
+document.querySelectorAll("nav a").forEach(
+    link => {
 
-    mutateHiddenElements();
+        link.addEventListener(
+            "click",
+            () => {
 
-},1000);
+                /*
+                   Petit changement possible après
+                   avoir quitté la zone actuelle.
+                */
+
+                setTimeout(
+                    checkHiddenElements,
+                    50
+                );
+            }
+        );
+
+    }
+);
+
+
+/* =========================================================
+   DÉMARRAGE
+   ========================================================= */
+
+window.addEventListener(
+    "load",
+    () => {
+
+        /*
+           Aucun changement immédiat.
+
+           La page commence normalement.
+           Les transformations commencent
+           lorsque le visiteur se déplace
+           et fait sortir des éléments de l'écran.
+        */
+
+        lastHiddenSignature = "";
+    }
+);
 
 </script>
 

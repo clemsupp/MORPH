@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Daily — Actualités & découvertes</title>
 
 <style>
@@ -16,7 +17,6 @@
     --text: #17191d;
     --muted: #737780;
     --accent: #3157e8;
-    --accent2: #8d45e8;
     --border: #e4e6eb;
     --radius: 18px;
 }
@@ -30,8 +30,10 @@ body {
     font-family: Inter, Arial, sans-serif;
     background: var(--bg);
     color: var(--text);
-    min-height: 100vh;
     overflow-x: hidden;
+    transition:
+        background .35s ease,
+        color .35s ease;
 }
 
 a {
@@ -39,14 +41,9 @@ a {
     text-decoration: none;
 }
 
-button,
-input {
-    font: inherit;
-}
-
 header {
     height: 72px;
-    background: rgba(255,255,255,.92);
+    background: rgba(255,255,255,.94);
     border-bottom: 1px solid var(--border);
     display: flex;
     align-items: center;
@@ -56,12 +53,14 @@ header {
     top: 0;
     z-index: 100;
     backdrop-filter: blur(12px);
+    transition: .4s ease;
 }
 
 .logo {
     font-size: 24px;
     font-weight: 900;
     letter-spacing: -1px;
+    transition: .4s ease;
 }
 
 .logo span {
@@ -76,7 +75,7 @@ nav {
 }
 
 nav a {
-    transition: .2s;
+    transition: .25s ease;
 }
 
 nav a:hover {
@@ -96,6 +95,10 @@ nav a:hover {
     padding: 60px;
     position: relative;
     overflow: hidden;
+    transition:
+        transform .5s ease,
+        border-radius .5s ease,
+        background .5s ease;
 }
 
 .hero-inner::after {
@@ -104,10 +107,11 @@ nav a:hover {
     width: 280px;
     height: 280px;
     border-radius: 50%;
-    background: linear-gradient(135deg,var(--accent),var(--accent2));
-    opacity: .08;
+    background: var(--accent);
+    opacity: .07;
     right: -80px;
     top: -80px;
+    transition: .6s ease;
 }
 
 .eyebrow {
@@ -116,6 +120,7 @@ nav a:hover {
     font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 1.5px;
+    transition: .3s ease;
 }
 
 h1 {
@@ -124,6 +129,10 @@ h1 {
     letter-spacing: -5px;
     max-width: 800px;
     margin: 18px 0;
+    transition:
+        transform .5s ease,
+        letter-spacing .5s ease,
+        opacity .3s ease;
 }
 
 .hero p {
@@ -131,6 +140,7 @@ h1 {
     font-size: 18px;
     max-width: 650px;
     line-height: 1.7;
+    transition: .3s ease;
 }
 
 .search {
@@ -162,6 +172,7 @@ h1 {
     padding: 0 24px;
     cursor: pointer;
     font-weight: 700;
+    transition: .3s ease;
 }
 
 section {
@@ -181,6 +192,7 @@ section {
     margin: 0;
     font-size: 32px;
     letter-spacing: -1px;
+    transition: .35s ease;
 }
 
 .section-title p {
@@ -200,9 +212,12 @@ section {
     border-radius: var(--radius);
     padding: 25px;
     min-height: 250px;
-    transition: .25s;
     position: relative;
     overflow: hidden;
+    transition:
+        transform .55s ease,
+        border-radius .5s ease,
+        box-shadow .5s ease;
 }
 
 .card:hover {
@@ -225,11 +240,13 @@ section {
 .card h3 {
     font-size: 22px;
     margin: 0 0 12px;
+    transition: .35s ease;
 }
 
 .card p {
     color: var(--muted);
     line-height: 1.6;
+    transition: .35s ease;
 }
 
 .read {
@@ -245,6 +262,9 @@ section {
     color: white;
     border-radius: 24px;
     padding: 45px;
+    transition:
+        transform .5s ease,
+        border-radius .5s ease;
 }
 
 .info p {
@@ -259,9 +279,12 @@ footer {
     padding: 60px 25px;
     color: var(--muted);
     border-top: 1px solid var(--border);
+    transition: .4s ease;
 }
 
-/* RECHERCHE */
+/* =========================
+   RECHERCHE
+========================= */
 
 #results {
     display: none;
@@ -295,89 +318,56 @@ footer {
 }
 
 /* =========================
-   VERSION CHAOS
+   PETITES ANOMALIES
 ========================= */
 
-body.chaos {
-    --bg: #0d0d10;
-    --surface: #18181d;
-    --text: #f8f8fa;
-    --muted: #aaaab5;
-    --border: #33333d;
+.mirror-x {
+    transform: scaleX(-1);
 }
 
-body.chaos header {
-    background: rgba(20,20,25,.9);
+.mirror-y {
+    transform: scaleY(-1);
 }
 
-body.chaos .hero-inner {
-    box-shadow: 0 0 70px rgba(120,70,255,.12);
+.rotated {
+    transform: rotate(180deg);
 }
 
-body.chaos .card:hover {
-    box-shadow: 0 20px 60px rgba(100,50,255,.2);
+.soft-move {
+    transform: translateX(12px);
 }
 
-.moved {
-    transform:
-        translate(
-            var(--move-x),
-            var(--move-y)
-        )
-        rotate(var(--rotate))
-        scale(var(--scale));
+.soft-move-left {
+    transform: translateX(-10px);
 }
 
-.flipped {
-    transform:
-        translate(
-            var(--move-x),
-            var(--move-y)
-        )
-        rotateY(180deg)
-        rotate(var(--rotate))
-        scale(var(--scale));
+.soft-tilt {
+    transform: rotate(-1.5deg);
 }
 
-.inverted {
-    filter: invert(1) hue-rotate(180deg);
+.soft-tilt-right {
+    transform: rotate(1.5deg);
 }
 
-.sideways {
-    writing-mode: vertical-rl;
+.small-letter {
+    letter-spacing: -3px !important;
 }
 
-.big {
-    transform:
-        translate(
-            var(--move-x),
-            var(--move-y)
-        )
-        rotate(var(--rotate))
-        scale(1.25);
+.large-letter {
+    letter-spacing: 2px !important;
 }
 
-.tiny {
-    transform:
-        translate(
-            var(--move-x),
-            var(--move-y)
-        )
-        rotate(var(--rotate))
-        scale(.7);
+.dark-version {
+    --bg: #f1f1f3;
+    --surface: #fbfbfc;
 }
 
-.neon {
-    box-shadow:
-        0 0 20px var(--accent),
-        0 0 50px var(--accent2);
-}
-
-.chaos-border {
-    border-radius: 2px !important;
+.subtle-line {
+    border-bottom-color: #cfd2d8 !important;
 }
 
 @media(max-width:800px) {
+
     nav {
         gap: 12px;
     }
@@ -413,7 +403,10 @@ body.chaos .card:hover {
 <body>
 
 <header id="header">
-    <a href="#accueil" class="logo" id="logo">Dai<span>ly</span></a>
+
+    <a href="#accueil" class="logo" id="logo">
+        Dai<span>ly</span>
+    </a>
 
     <nav id="nav">
         <a href="#accueil">Accueil</a>
@@ -421,13 +414,19 @@ body.chaos .card:hover {
         <a href="#tendances">Tendances</a>
         <a href="#apropos">À propos</a>
     </nav>
+
 </header>
+
 
 <main>
 
 <section class="hero" id="accueil">
+
     <div class="hero-inner" id="hero">
-        <div class="eyebrow" id="eyebrow">Magazine numérique</div>
+
+        <div class="eyebrow" id="eyebrow">
+            Magazine numérique
+        </div>
 
         <h1 id="title">
             Les choses intéressantes commencent ici.
@@ -439,73 +438,130 @@ body.chaos .card:hover {
         </p>
 
         <div class="search">
+
             <input
                 id="searchInput"
                 type="text"
                 placeholder="Rechercher un article..."
             >
-            <button id="searchButton">Rechercher</button>
+
+            <button id="searchButton">
+                Rechercher
+            </button>
+
         </div>
 
         <div id="results"></div>
+
     </div>
+
 </section>
 
 
 <section id="decouvrir">
 
     <div class="section-title">
+
         <div>
-            <h2 id="discoverTitle">À découvrir</h2>
-            <p id="discoverSubtitle">Quelques sujets sélectionnés.</p>
+
+            <h2 id="discoverTitle">
+                À découvrir
+            </h2>
+
+            <p id="discoverSubtitle">
+                Quelques sujets sélectionnés.
+            </p>
+
         </div>
+
     </div>
+
 
     <div class="cards" id="cards">
 
-        <article class="card" data-normal-title="Pourquoi les océans changent">
-            <div class="card-number">01</div>
-            <h3>Pourquoi les océans changent</h3>
+        <article class="card" id="card1">
+
+            <div class="card-number">
+                01
+            </div>
+
+            <h3>
+                Pourquoi les océans changent
+            </h3>
+
             <p>
                 Les océans évoluent constamment sous l'effet
                 des phénomènes naturels et des activités humaines.
             </p>
-            <a href="#apropos" class="read">En savoir plus →</a>
+
+            <a href="#apropos" class="read">
+                En savoir plus →
+            </a>
+
         </article>
 
-        <article class="card" data-normal-title="Les villes du futur">
-            <div class="card-number">02</div>
-            <h3>Les villes du futur</h3>
+
+        <article class="card" id="card2">
+
+            <div class="card-number">
+                02
+            </div>
+
+            <h3>
+                Les villes du futur
+            </h3>
+
             <p>
-                À quoi pourraient ressembler les villes dans
-                quelques décennies ?
+                À quoi pourraient ressembler les villes
+                dans quelques décennies ?
             </p>
-            <a href="#apropos" class="read">En savoir plus →</a>
+
+            <a href="#apropos" class="read">
+                En savoir plus →
+            </a>
+
         </article>
 
-        <article class="card" data-normal-title="Une technologie étonnante">
-            <div class="card-number">03</div>
-            <h3>Une technologie étonnante</h3>
+
+        <article class="card" id="card3">
+
+            <div class="card-number">
+                03
+            </div>
+
+            <h3>
+                Une technologie étonnante
+            </h3>
+
             <p>
                 Certaines inventions semblent sortir directement
                 d'un film de science-fiction.
             </p>
-            <a href="#apropos" class="read">En savoir plus →</a>
+
+            <a href="#apropos" class="read">
+                En savoir plus →
+            </a>
+
         </article>
 
     </div>
+
 </section>
 
 
 <section id="tendances">
 
     <div class="info" id="info">
-        <h2 id="trendTitle">Ce qui fait parler aujourd'hui</h2>
+
+        <h2 id="trendTitle">
+            Ce qui fait parler aujourd'hui
+        </h2>
 
         <p id="trendText">
             Les sujets scientifiques, technologiques et culturels
             occupent une place importante dans l'actualité.
         </p>
+
     </div>
 
 </section>
@@ -514,13 +570,29 @@ body.chaos .card:hover {
 <section id="apropos">
 
     <div class="section-title">
+
         <div>
-            <h2>À propos de Daily</h2>
-            <p>Un magazine indépendant.</p>
+
+            <h2>
+                À propos de Daily
+            </h2>
+
+            <p>
+                Un magazine indépendant.
+            </p>
+
         </div>
+
     </div>
 
-    <p style="color:var(--muted);line-height:1.8;max-width:700px;">
+    <p
+        style="
+        color:var(--muted);
+        line-height:1.8;
+        max-width:700px;
+        "
+        id="aboutText"
+    >
         Daily rassemble des articles et des découvertes dans
         différents domaines afin de proposer une lecture simple,
         rapide et accessible.
@@ -530,6 +602,7 @@ body.chaos .card:hover {
 
 </main>
 
+
 <footer id="footer">
     © 2026 Daily — Tous droits réservés.
 </footer>
@@ -537,612 +610,1022 @@ body.chaos .card:hover {
 
 <script>
 
-/* =========================================================
-   CHAQUE ACTUALISATION = NOUVELLE VERSION
-========================================================= */
+/* ==========================================================
+   LE PRINCIPE :
+   Rien n'est bizarre au chargement.
 
-const random = arr =>
-    arr[Math.floor(Math.random() * arr.length)];
+   Les anomalies apparaissent progressivement selon :
+   - le scroll
+   - le temps passé
+   - le sens du scroll
+   - les retours en haut
+   - quelques interactions
 
-const chance = probability =>
-    Math.random() < probability;
-
-
-/* ---------------------------------------------------------
-   Profil complètement aléatoire à chaque refresh
---------------------------------------------------------- */
-
-const profiles = [
-    "clean",
-    "dark",
-    "colorful",
-    "editorial",
-    "minimal",
-    "chaotic",
-    "strange"
-];
-
-const profile = random(profiles);
+   MAIS :
+   - pas de gros bordel
+   - pas de couleurs qui flashent
+   - pas d'éléments qui volent partout
+   - tout reste lisible
+========================================================== */
 
 
-/* ---------------------------------------------------------
-   Textes
---------------------------------------------------------- */
+/* ----------------------------------------------------------
+   État
+---------------------------------------------------------- */
 
-const weirdTitles = [
+const state = {
+
+    started: false,
+
+    scrollEvents: 0,
+
+    downCount: 0,
+
+    upCount: 0,
+
+    lastDirection: null,
+
+    anomalies: 0,
+
+    topVisits: 0,
+
+    idleTriggered: false,
+
+    used: new Set()
+
+};
+
+
+/* ----------------------------------------------------------
+   Textes possibles
+---------------------------------------------------------- */
+
+const titles = [
+
     "Les choses intéressantes commencent ici.",
-    "Découvrez ce qui mérite votre attention.",
-    "Une nouvelle façon de regarder le monde.",
-    "Tout ce que vous devez savoir aujourd'hui.",
+
+    "Découvrez les dernières nouveautés.",
+
+    "Ce qu'il faut découvrir aujourd'hui.",
+
     "Quelques idées qui valent le détour.",
-    "Bienvenue dans quelque chose de parfaitement normal."
+
+    "Les découvertes du moment.",
+
+    "Tout ce qui mérite votre attention.",
+
+    "Les sujets à découvrir aujourd'hui."
+
 ];
 
-const weirdSubtitles = [
+
+const subtitles = [
+
     "Découvrez des idées, des découvertes et des histoires sélectionnées pour vous.",
-    "Des informations soigneusement choisies pour votre lecture.",
-    "Quelques sujets intéressants réunis au même endroit.",
-    "Il y a beaucoup de choses à découvrir ici.",
-    "Tout semble normal. Pour le moment.",
-    "Cette page contient exactement ce qu'elle est censée contenir.",
-    "Vous pouvez continuer à lire normalement.",
-    "Ne vous inquiétez pas du titre."
+
+    "Une sélection de sujets intéressants à découvrir.",
+
+    "Retrouvez les informations et découvertes du moment.",
+
+    "Quelques sujets soigneusement sélectionnés.",
+
+    "Les dernières découvertes réunies au même endroit."
+
 ];
 
-const weirdCardTitles = [
+
+const cardTitles = [
+
     [
-        "Une découverte inattendue",
-        "Les choses changent plus vite qu'on ne le pense",
-        "Un phénomène fascinant"
+        "Pourquoi les océans changent",
+        "Les villes du futur",
+        "Une technologie étonnante"
     ],
+
     [
-        "Pourquoi personne ne remarque cela",
-        "Une histoire particulièrement étrange",
-        "La technologie qui arrive"
+        "Pourquoi les océans évoluent",
+        "Les villes du futur",
+        "Une technologie étonnante"
     ],
+
     [
-        "Ceci est le premier article",
-        "Ceci est probablement le deuxième",
-        "Le troisième était ici"
+        "Pourquoi les océans changent",
+        "Les villes de demain",
+        "Une technologie étonnante"
     ],
+
     [
-        "Les océans",
-        "Les villes",
-        "Quelque chose avec la technologie"
+        "Pourquoi les océans changent",
+        "Les villes du futur",
+        "Une technologie surprenante"
     ],
+
     [
-        "Article intéressant",
-        "Article très intéressant",
-        "Article encore plus intéressant"
+        "Pourquoi les océans changent",
+        "Les villes du futur",
+        "Une nouvelle technologie"
     ]
-];
 
-const weirdDescriptions = [
-    "Cette histoire mérite quelques minutes de votre attention.",
-    "Les chercheurs continuent d'étudier ce phénomène.",
-    "Personne ne sait exactement pourquoi cela fonctionne.",
-    "Ce sujet devient de plus en plus intéressant.",
-    "Tout ceci est parfaitement normal.",
-    "Cette information était différente avant l'actualisation.",
-    "Vous avez probablement déjà vu cette carte.",
-    "La position de cette carte est correcte.",
-    "Ne cherchez pas à comprendre cette partie."
 ];
 
 
-/* ---------------------------------------------------------
-   Version de base
---------------------------------------------------------- */
+const tinyTextChanges = [
 
-function randomTheme() {
+    "Quelques sujets sélectionnés.",
 
-    if(profile === "dark") {
-        document.body.classList.add("chaos");
-    }
+    "Quelques sujets intéressants.",
 
-    if(profile === "colorful") {
-        document.documentElement.style.setProperty(
-            "--accent",
-            random([
-                "#ff315c",
-                "#8b45ff",
-                "#00a878",
-                "#ff7b00",
-                "#008cff"
-            ])
-        );
+    "Une sélection de sujets.",
 
-        document.documentElement.style.setProperty(
-            "--accent2",
-            random([
-                "#ffb000",
-                "#00d9ff",
-                "#ff45d0",
-                "#6dff45"
-            ])
-        );
-    }
+    "Les sujets sélectionnés.",
 
-    if(profile === "editorial") {
-        document.documentElement.style.setProperty(
-            "--radius",
-            "2px"
-        );
+    "Notre sélection du moment.",
 
-        document.body.style.fontFamily =
-            "Georgia, Times New Roman, serif";
-    }
+    "Quelques découvertes sélectionnées."
 
-    if(profile === "minimal") {
-        document.documentElement.style.setProperty(
-            "--radius",
-            "5px"
-        );
-    }
+];
+
+
+const eyebrowTexts = [
+
+    "Magazine numérique",
+
+    "Sélection du jour",
+
+    "Magazine indépendant",
+
+    "Actualités & découvertes",
+
+    "Sélection du moment"
+
+];
+
+
+/* ----------------------------------------------------------
+   Fonction utilitaire
+---------------------------------------------------------- */
+
+function random(array) {
+
+    return array[
+        Math.floor(Math.random() * array.length)
+    ];
+
 }
 
 
-/* ---------------------------------------------------------
-   Textes aléatoires
---------------------------------------------------------- */
+function chance(value) {
 
-function randomizeTexts() {
+    return Math.random() < value;
 
-    document.getElementById("title").textContent =
-        random(weirdTitles);
+}
+
+
+/* ----------------------------------------------------------
+   Une anomalie à la fois
+---------------------------------------------------------- */
+
+function addAnomaly(fn) {
+
+    state.anomalies++;
+
+    fn();
+
+}
+
+
+/* ==========================================================
+   ANOMALIE 1
+   Le titre change
+========================================================== */
+
+function changeMainTitle() {
+
+    const title =
+        document.getElementById("title");
+
+    const current =
+        title.textContent;
+
+    let newTitle = random(titles);
+
+    while(newTitle === current) {
+        newTitle = random(titles);
+    }
+
+    title.style.opacity = "0.45";
+
+    setTimeout(() => {
+
+        title.textContent = newTitle;
+
+        title.style.opacity = "1";
+
+    }, 120);
+
+}
+
+
+/* ==========================================================
+   ANOMALIE 2
+   Le titre se retourne
+========================================================== */
+
+function mirrorTitle() {
+
+    const title =
+        document.getElementById("title");
+
+    title.classList.toggle("mirror-x");
+
+}
+
+
+/* ==========================================================
+   ANOMALIE 3
+   Le sous-titre change
+========================================================== */
+
+function changeSubtitle() {
 
     document.getElementById("subtitle").textContent =
-        random(weirdSubtitles);
+        random(subtitles);
+
+}
+
+
+/* ==========================================================
+   ANOMALIE 4
+   Le petit texte du haut change
+========================================================== */
+
+function changeEyebrow() {
 
     document.getElementById("eyebrow").textContent =
+        random(eyebrowTexts);
+
+}
+
+
+/* ==========================================================
+   ANOMALIE 5
+   Deux textes échangent leur contenu
+========================================================== */
+
+function swapCardTexts() {
+
+    const cards =
+        [...document.querySelectorAll(".card")];
+
+    const first =
+        cards[Math.floor(Math.random() * cards.length)];
+
+    const second =
+        cards[Math.floor(Math.random() * cards.length)];
+
+    if(first === second) return;
+
+    const firstTitle =
+        first.querySelector("h3");
+
+    const secondTitle =
+        second.querySelector("h3");
+
+    const temporary =
+        firstTitle.textContent;
+
+    firstTitle.textContent =
+        secondTitle.textContent;
+
+    secondTitle.textContent =
+        temporary;
+
+}
+
+
+/* ==========================================================
+   ANOMALIE 6
+   Une carte est légèrement déplacée
+========================================================== */
+
+function moveCard() {
+
+    const cards =
+        [...document.querySelectorAll(".card")];
+
+    const card =
+        random(cards);
+
+    card.classList.remove(
+        "soft-move",
+        "soft-move-left"
+    );
+
+    card.classList.add(
+        chance(.5)
+        ? "soft-move"
+        : "soft-move-left"
+    );
+
+}
+
+
+/* ==========================================================
+   ANOMALIE 7
+   Une carte est légèrement inclinée
+========================================================== */
+
+function tiltCard() {
+
+    const cards =
+        [...document.querySelectorAll(".card")];
+
+    const card =
+        random(cards);
+
+    card.classList.remove(
+        "soft-tilt",
+        "soft-tilt-right"
+    );
+
+    card.classList.add(
+        chance(.5)
+        ? "soft-tilt"
+        : "soft-tilt-right"
+    );
+
+}
+
+
+/* ==========================================================
+   ANOMALIE 8
+   Une seule carte est retournée
+========================================================== */
+
+function mirrorCard() {
+
+    const cards =
+        [...document.querySelectorAll(".card")];
+
+    const card =
+        random(cards);
+
+    card.classList.toggle("mirror-x");
+
+}
+
+
+/* ==========================================================
+   ANOMALIE 9
+   Le titre tourne à 180°
+========================================================== */
+
+function rotateTitle() {
+
+    const title =
+        document.getElementById("title");
+
+    title.classList.toggle("rotated");
+
+}
+
+
+/* ==========================================================
+   ANOMALIE 10
+   Le logo change légèrement
+========================================================== */
+
+function changeLogo() {
+
+    const logo =
+        document.getElementById("logo");
+
+    const versions = [
+
+        'Dai<span>ly</span>',
+
+        'Daily',
+
+        'Daily.',
+
+        'Dai<span>ly</span>',
+
+        'DAILY',
+
+        'dai<span>ly</span>',
+
+        'Daily™'
+
+    ];
+
+    logo.innerHTML =
+        random(versions);
+
+}
+
+
+/* ==========================================================
+   ANOMALIE 11
+   Le bouton change très légèrement
+========================================================== */
+
+function changeButton() {
+
+    document.getElementById("searchButton").textContent =
         random([
-            "Magazine numérique",
-            "Actualités",
-            "À découvrir",
-            "Sélection du jour",
-            "Magazine indépendant",
-            "Informations"
+            "Rechercher",
+            "Recherche",
+            "Chercher",
+            "Afficher"
         ]);
+
+}
+
+
+/* ==========================================================
+   ANOMALIE 12
+   Le sous-titre et le titre échangent leur texte
+   mais seulement très rarement.
+========================================================== */
+
+function swapHeroTexts() {
+
+    const title =
+        document.getElementById("title");
+
+    const subtitle =
+        document.getElementById("subtitle");
+
+    const oldTitle =
+        title.textContent;
+
+    const oldSubtitle =
+        subtitle.textContent;
+
+    title.textContent =
+        oldSubtitle;
+
+    subtitle.textContent =
+        oldTitle;
+
+}
+
+
+/* ==========================================================
+   ANOMALIE 13
+   Le bloc principal devient légèrement différent
+========================================================== */
+
+function alterHero() {
+
+    const hero =
+        document.getElementById("hero");
+
+    const modes = [
+
+        () => {
+            hero.style.borderRadius = "22px";
+        },
+
+        () => {
+            hero.style.borderRadius = "35px 10px 35px 10px";
+        },
+
+        () => {
+            hero.style.borderRadius = "12px";
+        },
+
+        () => {
+            hero.style.borderRadius = "28px";
+        }
+
+    ];
+
+    random(modes)();
+
+}
+
+
+/* ==========================================================
+   ANOMALIE 14
+   Le titre devient légèrement plus large/serré
+========================================================== */
+
+function alterTitleSpacing() {
+
+    const title =
+        document.getElementById("title");
+
+    title.classList.remove(
+        "small-letter",
+        "large-letter"
+    );
+
+    title.classList.add(
+        chance(.5)
+        ? "small-letter"
+        : "large-letter"
+    );
+
+}
+
+
+/* ==========================================================
+   ANOMALIE 15
+   L'ordre des cartes change
+   MAIS uniquement après plusieurs scrolls.
+========================================================== */
+
+function reorderCards() {
+
+    const container =
+        document.getElementById("cards");
+
+    const cards =
+        [...container.children];
+
+    cards
+        .sort(() => Math.random() - .5)
+        .forEach(card =>
+            container.appendChild(card)
+        );
+
+}
+
+
+/* ==========================================================
+   ANOMALIE 16
+   Le texte "À découvrir" change.
+========================================================== */
+
+function changeSectionTitle() {
 
     document.getElementById("discoverTitle").textContent =
         random([
             "À découvrir",
-            "Articles sélectionnés",
-            "Nos découvertes",
-            "Dernières découvertes",
             "À lire",
-            "Sujets du moment"
+            "Nos découvertes",
+            "Les sujets du moment",
+            "Sélection du moment"
         ]);
 
-    document.getElementById("discoverSubtitle").textContent =
-        random([
-            "Quelques sujets sélectionnés.",
-            "Des histoires qui méritent votre attention.",
-            "Notre sélection du moment.",
-            "Trois articles à découvrir.",
-            "Une sélection parfaitement normale."
-        ]);
-
-    document.getElementById("trendTitle").textContent =
-        random([
-            "Ce qui fait parler aujourd'hui",
-            "Les tendances du moment",
-            "À la une",
-            "Ce qu'il faut retenir",
-            "Les sujets importants",
-            "Les dernières tendances"
-        ]);
-
-    document.getElementById("trendText").textContent =
-        random([
-            "Les sujets scientifiques, technologiques et culturels occupent une place importante dans l'actualité.",
-            "De nombreuses découvertes continuent de transformer notre quotidien.",
-            "Les nouvelles technologies font évoluer nos habitudes.",
-            "Certains sujets prennent aujourd'hui une place inattendue.",
-            "Tout semble parfaitement normal dans cette section."
-        ]);
 }
 
 
-/* ---------------------------------------------------------
-   Cartes
---------------------------------------------------------- */
+/* ==========================================================
+   ANOMALIE 17
+   Le footer change.
+========================================================== */
 
-function randomizeCards() {
+function changeFooter() {
 
-    const cards = [...document.querySelectorAll(".card")];
-    const titles = random(weirdCardTitles);
+    document.getElementById("footer").textContent =
+        random([
+            "© 2026 Daily — Tous droits réservés.",
 
-    cards.forEach((card,index) => {
+            "© 2026 Daily — Tous droits réservés.",
 
-        const h3 = card.querySelector("h3");
-        const p = card.querySelector("p");
+            "© 2026 Daily — Magazine indépendant.",
 
-        h3.textContent = titles[index];
+            "© 2026 Daily — Informations & découvertes.",
 
-        p.textContent = random(weirdDescriptions);
-
-        card.querySelector(".card-number").textContent =
-            String(index + 1).padStart(2,"0");
-    });
-
-    /* changement d'ordre */
-    if(chance(.65)) {
-
-        const container = document.getElementById("cards");
-
-        const shuffled = [...cards].sort(
-            () => Math.random() - .5
-        );
-
-        shuffled.forEach(card =>
-            container.appendChild(card)
-        );
-    }
-}
-
-
-/* ---------------------------------------------------------
-   Gros déplacements
---------------------------------------------------------- */
-
-function moveElement(element) {
-
-    const x = Math.round(Math.random() * 260 - 130);
-    const y = Math.round(Math.random() * 180 - 90);
-    const r = Math.round(Math.random() * 20 - 10);
-    const s = (Math.random() * .35 + .9).toFixed(2);
-
-    element.style.setProperty("--move-x", `${x}px`);
-    element.style.setProperty("--move-y", `${y}px`);
-    element.style.setProperty("--rotate", `${r}deg`);
-    element.style.setProperty("--scale", s);
-
-    element.classList.add("moved");
-}
-
-
-/* ---------------------------------------------------------
-   Transformations
---------------------------------------------------------- */
-
-function mutateElements() {
-
-    const hero = document.getElementById("hero");
-    const info = document.getElementById("info");
-    const logo = document.getElementById("logo");
-    const cards = [...document.querySelectorAll(".card")];
-    const title = document.getElementById("title");
-
-    const all = [
-        hero,
-        info,
-        logo,
-        title,
-        ...cards
-    ];
-
-    /* au moins un gros déplacement */
-    if(chance(.85)) {
-        moveElement(random(all));
-    }
-
-    /* parfois plusieurs */
-    if(chance(.45)) {
-        moveElement(random(all));
-    }
-
-    /* inversion */
-    if(chance(.45)) {
-
-        const el = random([
-            ...cards,
-            info,
-            hero
+            "© 2026 Daily."
         ]);
 
-        el.classList.add("flipped");
-    }
-
-    /* inversion des couleurs */
-    if(chance(.30)) {
-
-        const el = random([
-            ...cards,
-            info,
-            hero
-        ]);
-
-        el.classList.add("inverted");
-    }
-
-    /* très gros */
-    if(chance(.30)) {
-
-        random([
-            ...cards,
-            hero,
-            info
-        ]).classList.add("big");
-    }
-
-    /* très petit */
-    if(chance(.20)) {
-
-        random(cards).classList.add("tiny");
-    }
-
-    /* effet bizarre */
-    if(chance(.35)) {
-
-        random([
-            ...cards,
-            info,
-            hero
-        ]).classList.add("neon");
-    }
-
-    /* bordures */
-    if(chance(.25)) {
-
-        random([
-            ...cards,
-            hero,
-            info
-        ]).classList.add("chaos-border");
-    }
 }
 
 
-/* ---------------------------------------------------------
-   Logo
---------------------------------------------------------- */
+/* ==========================================================
+   ANOMALIE 18
+   Une petite différence de couleur
+========================================================== */
 
-function mutateLogo() {
-
-    const logo = document.getElementById("logo");
-
-    logo.innerHTML = random([
-        "Dai<span>ly</span>",
-        "Daily.",
-        "DAILY",
-        "d a i l y",
-        "Dai<span>ly?</span>",
-        "D A I L Y",
-        "Daily<span>!</span>",
-        "Daily™",
-        "Daily.exe",
-        "Daily..."
-    ]);
-}
-
-
-/* ---------------------------------------------------------
-   Navigation
---------------------------------------------------------- */
-
-function mutateNavigation() {
-
-    const nav = document.getElementById("nav");
-    const links = [...nav.children];
-
-    if(chance(.7)) {
-
-        links
-            .sort(() => Math.random() - .5)
-            .forEach(link => nav.appendChild(link));
-    }
-
-    if(chance(.4)) {
-
-        random(links).style.transform =
-            `rotate(${Math.round(Math.random()*12-6)}deg)`;
-    }
-}
-
-
-/* ---------------------------------------------------------
-   Couleurs
---------------------------------------------------------- */
-
-function mutateColors() {
+function subtleColorChange() {
 
     const colors = [
-        ["#ff315c","#ff8a00"],
-        ["#7c3aed","#ec4899"],
-        ["#00a878","#00c2ff"],
-        ["#ffb000","#ff4d00"],
-        ["#2563eb","#9333ea"],
-        ["#111111","#555555"]
-    ];
 
-    const pair = random(colors);
+        "#3157e8",
+
+        "#3b5fe9",
+
+        "#3157e8",
+
+        "#284ed1",
+
+        "#3654d8"
+
+    ];
 
     document.documentElement.style.setProperty(
         "--accent",
-        pair[0]
+        random(colors)
     );
 
-    document.documentElement.style.setProperty(
-        "--accent2",
-        pair[1]
-    );
 }
 
 
-/* ---------------------------------------------------------
-   Layout complètement différent
---------------------------------------------------------- */
+/* ==========================================================
+   SYSTÈME DE TROLL
+========================================================== */
 
-function mutateLayout() {
-
-    const cards = document.getElementById("cards");
-
-    if(chance(.5)) {
-
-        cards.style.gridTemplateColumns =
-            random([
-                "1fr",
-                "1fr 1fr",
-                "2fr 1fr",
-                "1fr 2fr",
-                "repeat(3, 1fr)"
-            ]);
-    }
-
-    if(chance(.35)) {
-
-        document.getElementById("hero").style.borderRadius =
-            random([
-                "0px",
-                "50px",
-                "100px 0 100px 0",
-                "5px",
-                "40px 5px 40px 5px"
-            ]);
-    }
-}
-
-
-/* ---------------------------------------------------------
-   Mode très bizarre
---------------------------------------------------------- */
-
-function extremeChaos() {
-
-    document.body.classList.add("chaos");
-
-    document.getElementById("title").style.fontSize =
-        random([
-            "clamp(50px, 10vw, 120px)",
-            "clamp(30px, 5vw, 60px)",
-            "clamp(60px, 12vw, 140px)"
-        ]);
-
-    document.getElementById("title").style.transform =
-        `rotate(${Math.round(Math.random()*10-5)}deg)`;
-
-    if(chance(.5)) {
-
-        document.getElementById("info").style.transform =
-            `translateX(${Math.round(Math.random()*400-200)}px)
-             rotate(${Math.round(Math.random()*16-8)}deg)`;
-    }
-
-    if(chance(.5)) {
-
-        document.getElementById("header").style.transform =
-            `rotate(${Math.round(Math.random()*4-2)}deg)`;
-    }
-
-    if(chance(.4)) {
-
-        document.body.style.letterSpacing =
-            random([
-                "0px",
-                "1px",
-                "2px",
-                "-1px"
-            ]);
-    }
-}
-
-
-/* ---------------------------------------------------------
-   Chaque refresh lance UNE nouvelle combinaison
---------------------------------------------------------- */
-
-function generateVersion() {
-
-    randomTheme();
-    randomizeTexts();
-    randomizeCards();
-
-    mutateLogo();
-    mutateNavigation();
-    mutateColors();
-    mutateLayout();
-    mutateElements();
+function triggerSubtleAnomaly(direction) {
 
     /*
-       Certaines visites sont beaucoup plus folles
-       que d'autres.
+       Les premières anomalies sont extrêmement discrètes.
     */
 
-    if(profile === "chaotic") {
-        mutateElements();
-        mutateElements();
-        mutateElements();
-        extremeChaos();
+    if(state.anomalies === 0) {
+
+        addAnomaly(changeMainTitle);
+
+        return;
     }
 
-    if(profile === "strange") {
-        mutateElements();
-        mutateElements();
-        mutateLogo();
-        extremeChaos();
+
+    /*
+       Après quelques interactions,
+       on commence à combiner.
+    */
+
+    if(state.anomalies === 1) {
+
+        addAnomaly(
+            direction === "down"
+            ? changeSubtitle
+            : changeEyebrow
+        );
+
+        return;
     }
 
-    if(chance(.30)) {
-        extremeChaos();
+
+    if(state.anomalies === 2) {
+
+        addAnomaly(
+            chance(.5)
+            ? mirrorTitle
+            : moveCard
+        );
+
+        return;
     }
+
+
+    if(state.anomalies === 3) {
+
+        addAnomaly(
+            chance(.5)
+            ? tiltCard
+            : changeLogo
+        );
+
+        return;
+    }
+
+
+    if(state.anomalies === 4) {
+
+        addAnomaly(
+            chance(.5)
+            ? swapCardTexts
+            : changeSectionTitle
+        );
+
+        return;
+    }
+
+
+    /*
+       À partir d'ici, les combinaisons deviennent
+       légèrement plus troublantes.
+    */
+
+    const normalPool = [
+
+        changeMainTitle,
+
+        changeSubtitle,
+
+        changeEyebrow,
+
+        moveCard,
+
+        tiltCard,
+
+        changeLogo,
+
+        changeButton,
+
+        changeSectionTitle,
+
+        changeFooter,
+
+        subtleColorChange,
+
+        alterHero,
+
+        alterTitleSpacing
+
+    ];
+
+
+    /*
+       Très rarement :
+       une anomalie vraiment visible.
+    */
+
+    if(state.anomalies >= 7 && chance(.16)) {
+
+        random([
+            mirrorCard,
+            rotateTitle,
+            swapHeroTexts,
+            reorderCards
+        ])();
+
+        state.anomalies++;
+
+        return;
+    }
+
+
+    addAnomaly(
+        random(normalPool)
+    );
+
 }
 
 
-/* =========================================================
-   RECHERCHE FONCTIONNELLE
-========================================================= */
+/* ==========================================================
+   DÉTECTION DU SCROLL
+========================================================== */
+
+let lastScroll =
+    window.scrollY;
+
+let scrollCooldown =
+    false;
+
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        if(scrollCooldown)
+            return;
+
+        scrollCooldown = true;
+
+
+        const current =
+            window.scrollY;
+
+        const direction =
+            current > lastScroll
+            ? "down"
+            : "up";
+
+
+        lastScroll =
+            current;
+
+
+        if(direction === "down") {
+
+            state.downCount++;
+
+        } else {
+
+            state.upCount++;
+
+        }
+
+
+        state.scrollEvents++;
+
+
+        /*
+           On ne déclenche pas à chaque pixel.
+           Seulement après certains mouvements.
+        */
+
+        if(state.scrollEvents >= 3) {
+
+            state.scrollEvents = 0;
+
+            triggerSubtleAnomaly(direction);
+
+        }
+
+
+        /*
+           Quand il remonte complètement,
+           un petit changement supplémentaire
+           peut apparaître.
+        */
+
+        if(
+            current < 80 &&
+            state.lastDirection === "down"
+        ) {
+
+            state.topVisits++;
+
+            if(state.topVisits <= 3) {
+
+                setTimeout(() => {
+
+                    if(chance(.75)) {
+
+                        triggerSubtleAnomaly("up");
+
+                    }
+
+                }, 350);
+
+            }
+
+        }
+
+
+        state.lastDirection =
+            direction;
+
+
+        setTimeout(() => {
+
+            scrollCooldown = false;
+
+        }, 450);
+
+    },
+    { passive: true }
+);
+
+
+/* ==========================================================
+   TEMPS PASSÉ SUR UNE SECTION
+========================================================== */
+
+let idleTimer;
+
+
+function resetIdle() {
+
+    clearTimeout(idleTimer);
+
+    idleTimer = setTimeout(() => {
+
+        /*
+           Le site ne fait quelque chose que parfois.
+           Ça donne l'impression que le changement
+           vient du fait de rester sur la page.
+        */
+
+        if(chance(.48)) {
+
+            triggerSubtleAnomaly(
+                state.lastDirection || "down"
+            );
+
+        }
+
+    }, 6500);
+
+}
+
+
+[
+    "mousemove",
+    "keydown",
+    "scroll",
+    "touchstart"
+].forEach(event => {
+
+    window.addEventListener(
+        event,
+        resetIdle,
+        { passive: true }
+    );
+
+});
+
+
+resetIdle();
+
+
+/* ==========================================================
+   RETOUR SUR L'ONGLET
+========================================================== */
+
+document.addEventListener(
+    "visibilitychange",
+    () => {
+
+        if(document.visibilityState === "visible") {
+
+            /*
+               Petit changement quand quelqu'un
+               revient sur la page après être parti.
+            */
+
+            if(chance(.55)) {
+
+                setTimeout(() => {
+
+                    triggerSubtleAnomaly("up");
+
+                }, 500);
+
+            }
+
+        }
+
+    }
+);
+
+
+/* ==========================================================
+   RECHERCHE RÉELLE
+========================================================== */
 
 const articles = [
+
     {
         title: "Pourquoi les océans changent",
         text: "Une exploration des phénomènes qui transforment les océans."
     },
+
     {
         title: "Les villes du futur",
         text: "Architecture, transports et nouvelles façons de vivre."
     },
+
     {
         title: "Une technologie étonnante",
         text: "Des inventions qui pourraient transformer notre quotidien."
     },
+
     {
         title: "Les découvertes scientifiques",
-        text: "Quelques découvertes récentes à connaître."
+        text: "Quelques découvertes scientifiques à connaître."
     },
+
     {
         title: "L'avenir du numérique",
         text: "Comment les technologies évoluent autour de nous."
     }
+
 ];
+
 
 function search() {
 
     const input =
-        document.getElementById("searchInput").value
+        document
+        .getElementById("searchInput")
+        .value
         .trim()
         .toLowerCase();
+
 
     const results =
         document.getElementById("results");
 
+
     if(!input) {
+
         results.style.display = "none";
+
         return;
     }
 
-    const found = articles.filter(article =>
-        article.title.toLowerCase().includes(input) ||
-        article.text.toLowerCase().includes(input)
-    );
+
+    const found =
+        articles.filter(article =>
+
+            article.title
+                .toLowerCase()
+                .includes(input)
+
+            ||
+
+            article.text
+                .toLowerCase()
+                .includes(input)
+
+        );
+
 
     results.style.display = "block";
+
 
     if(found.length === 0) {
 
         results.innerHTML = `
             <div class="results-box">
                 <strong>Aucun résultat</strong>
+
                 <p style="color:var(--muted)">
                     Aucun article ne correspond à votre recherche.
                 </p>
@@ -1152,37 +1635,85 @@ function search() {
         return;
     }
 
+
     results.innerHTML = `
         <div class="results-box">
+
             ${found.map(article => `
+
                 <div class="result">
-                    <strong>${article.title}</strong>
-                    <span>${article.text}</span>
+
+                    <strong>
+                        ${article.title}
+                    </strong>
+
+                    <span>
+                        ${article.text}
+                    </span>
+
                 </div>
+
             `).join("")}
+
         </div>
     `;
+
+
+    /*
+       La recherche peut elle-même créer
+       une toute petite incohérence.
+    */
+
+    if(chance(.35)) {
+
+        setTimeout(() => {
+
+            triggerSubtleAnomaly("down");
+
+        }, 700);
+
+    }
+
 }
+
 
 document
     .getElementById("searchButton")
-    .addEventListener("click", search);
+    .addEventListener(
+        "click",
+        search
+    );
+
 
 document
     .getElementById("searchInput")
-    .addEventListener("keydown", event => {
+    .addEventListener(
+        "keydown",
+        event => {
 
-        if(event.key === "Enter") {
-            search();
+            if(event.key === "Enter") {
+
+                search();
+
+            }
+
         }
-    });
+    );
 
 
-/* =========================================================
-   LANCEMENT
-========================================================= */
+/* ==========================================================
+   PETIT DÉTAIL :
+   La première anomalie n'arrive pas immédiatement.
 
-generateVersion();
+   La personne a d'abord le temps de croire que c'est
+   juste un vrai site.
+========================================================== */
+
+setTimeout(() => {
+
+    state.started = true;
+
+}, 2500);
 
 </script>
 

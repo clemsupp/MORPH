@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Daily — Découvrez autrement</title>
 
 <style>
@@ -15,9 +15,13 @@
     --dark:#181818;
 }
 
-*{box-sizing:border-box}
+*{
+    box-sizing:border-box;
+}
 
-html{scroll-behavior:smooth}
+html{
+    scroll-behavior:smooth;
+}
 
 body{
     margin:0;
@@ -26,8 +30,8 @@ body{
     font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
     overflow-x:hidden;
     transition:
-        background-color 1.2s ease,
-        color 1.2s ease;
+        background-color 1s ease,
+        color 1s ease;
 }
 
 a{
@@ -35,24 +39,38 @@ a{
     text-decoration:none;
 }
 
-button,input{font:inherit}
+button,
+input{
+    font:inherit;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
 
 header{
     position:sticky;
     top:0;
     z-index:50;
+
     height:74px;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
+
     padding:0 5vw;
+
     background:rgba(245,245,242,.88);
     backdrop-filter:blur(14px);
+
     border-bottom:1px solid rgba(0,0,0,.08);
+
     transition:
-        background-color 1s ease,
-        border-color 1s ease,
-        transform 1s cubic-bezier(.2,.8,.2,1),
+        background-color .9s ease,
+        border-color .9s ease,
+        transform 1s ease,
         filter 1s ease;
 }
 
@@ -60,28 +78,44 @@ header{
     font-size:22px;
     font-weight:800;
     letter-spacing:-1px;
-    transition:all .8s ease;
+
+    transition:
+        color .8s ease,
+        letter-spacing .8s ease,
+        transform .9s ease;
 }
 
 nav{
     display:flex;
     align-items:center;
     gap:8px;
-    transition:all .9s cubic-bezier(.2,.8,.2,1);
+
+    transition:
+        gap .9s ease,
+        transform 1s cubic-bezier(.2,.8,.2,1);
 }
 
 nav a{
     padding:9px 13px;
     border-radius:10px;
+
     color:#555;
+
     font-size:14px;
-    transition:all .8s cubic-bezier(.2,.8,.2,1);
+
+    transition:
+        all .8s cubic-bezier(.2,.8,.2,1);
 }
 
 nav a:hover{
     background:#e9e9e5;
     color:#111;
 }
+
+
+/* =====================================================
+   STRUCTURE
+===================================================== */
 
 main{
     width:min(1180px,90%);
@@ -90,44 +124,68 @@ main{
 
 .hero{
     min-height:670px;
+
     display:flex;
     flex-direction:column;
     justify-content:center;
+
     padding:90px 0 120px;
-    transition:all 1.2s cubic-bezier(.2,.8,.2,1);
+
+    transition:
+        transform 1.2s cubic-bezier(.2,.8,.2,1),
+        filter 1s ease;
 }
 
 .eyebrow{
     display:inline-block;
     width:max-content;
+
     margin-bottom:22px;
     padding:7px 11px;
+
     border:1px solid var(--line);
     border-radius:100px;
+
     color:var(--muted);
+
     font-size:12px;
     font-weight:700;
     letter-spacing:.08em;
     text-transform:uppercase;
+
     transition:all .8s ease;
 }
 
 .hero h1{
     max-width:900px;
+
     margin:0;
+
     font-size:clamp(52px,8vw,105px);
     line-height:.93;
     letter-spacing:-.065em;
-    transition:all 1s cubic-bezier(.2,.8,.2,1);
+
+    transition:
+        color .9s ease,
+        transform 1s cubic-bezier(.2,.8,.2,1),
+        letter-spacing 1s ease,
+        filter .7s ease;
 }
 
 .hero p{
     max-width:650px;
+
     margin:30px 0 35px;
+
     color:var(--muted);
+
     font-size:18px;
     line-height:1.6;
-    transition:all .9s ease;
+
+    transition:
+        color .9s ease,
+        transform 1s ease,
+        filter .7s ease;
 }
 
 .search{
@@ -139,22 +197,35 @@ main{
 .search input{
     flex:1;
     min-width:0;
+
     padding:15px 17px;
+
     border:1px solid var(--line);
     border-radius:13px;
+
     outline:none;
+
     background:var(--surface);
     color:var(--text);
+
     transition:all .8s ease;
+}
+
+.search input:focus{
+    border-color:#999;
 }
 
 .search button{
     border:0;
     border-radius:13px;
+
     padding:0 22px;
+
     background:var(--dark);
     color:#fff;
+
     cursor:pointer;
+
     transition:all .8s cubic-bezier(.2,.8,.2,1);
 }
 
@@ -164,7 +235,9 @@ main{
 
 .search-result{
     display:none;
+
     margin-top:15px;
+
     color:var(--muted);
     font-size:14px;
 }
@@ -173,50 +246,74 @@ main{
     display:block;
 }
 
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+
 .section{
     padding:80px 0;
-    transition:all 1.3s cubic-bezier(.2,.8,.2,1);
+
+    transition:
+        transform 1.2s cubic-bezier(.2,.8,.2,1),
+        filter 1s ease,
+        background-color 1s ease;
 }
 
 .section-heading{
     display:flex;
     align-items:end;
     justify-content:space-between;
+
     gap:30px;
     margin-bottom:30px;
 }
 
 .section-heading h2{
     margin:0;
+
     font-size:42px;
     letter-spacing:-.04em;
+
     transition:all .9s ease;
 }
 
 .section-heading span{
     color:var(--muted);
     font-size:14px;
+
     transition:all .8s ease;
 }
+
+
+/* =====================================================
+   CARDS
+===================================================== */
 
 .cards{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:18px;
+
     transition:all 1.2s cubic-bezier(.2,.8,.2,1);
 }
 
 .card{
     min-height:290px;
+
     display:flex;
     flex-direction:column;
     justify-content:space-between;
+
     padding:25px;
+
     border:1px solid var(--line);
     border-radius:18px;
+
     background:var(--surface);
+
     transition:
-        transform 1.2s cubic-bezier(.2,.8,.2,1),
+        transform 1.1s cubic-bezier(.2,.8,.2,1),
         background-color 1s ease,
         border-color 1s ease,
         color 1s ease,
@@ -225,40 +322,52 @@ main{
         border-radius 1s ease;
 }
 
-.card:hover{
-    transform:translateY(-5px);
-}
-
 .card-number{
     color:#999;
+
     font-size:12px;
     font-weight:700;
+
     transition:all .8s ease;
 }
 
 .card h3{
     margin:35px 0 10px;
+
     font-size:25px;
     line-height:1.05;
     letter-spacing:-.035em;
+
     transition:all .9s ease;
 }
 
 .card p{
     margin:0;
+
     color:var(--muted);
+
     line-height:1.5;
+
     transition:all .9s ease;
 }
 
+
+/* =====================================================
+   INFO
+===================================================== */
+
 .info{
     margin:70px 0;
+
     padding:75px;
+
     border-radius:25px;
+
     background:var(--dark);
     color:#f5f5f2;
+
     transition:
-        transform 1.4s cubic-bezier(.2,.8,.2,1),
+        transform 1.3s cubic-bezier(.2,.8,.2,1),
         background-color 1s ease,
         filter 1s ease,
         border-radius 1.2s ease,
@@ -267,90 +376,127 @@ main{
 
 .info h2{
     max-width:750px;
+
     margin:0 0 18px;
+
     font-size:clamp(35px,5vw,65px);
     line-height:1;
     letter-spacing:-.055em;
+
     transition:all 1s ease;
 }
 
 .info p{
     max-width:650px;
-    margin:0;
-    color:#aaa;
-    line-height:1.65;
-    transition:all .9s ease;
-}
 
-footer{
-    margin-top:100px;
-    padding:35px 5vw;
-    border-top:1px solid var(--line);
-    color:var(--muted);
-    font-size:13px;
-    transition:all 1.2s ease;
+    margin:0;
+
+    color:#aaa;
+
+    line-height:1.65;
+
+    transition:all .9s ease;
 }
 
 
 /* =====================================================
-   ANIMATIONS NORMALES
+   FOOTER
 ===================================================== */
 
-.text-fade{
-    opacity:0;
-    filter:blur(8px);
-    transform:translateY(8px);
+footer{
+    margin-top:100px;
+
+    padding:35px 5vw;
+
+    border-top:1px solid var(--line);
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    transition:all 1.2s cubic-bezier(.2,.8,.2,1);
 }
 
+
+/* =====================================================
+   TEXTES
+===================================================== */
+
+.text-change{
+    opacity:0;
+    filter:blur(7px);
+    transform:translateY(8px);
+
+    transition:
+        opacity .45s ease,
+        filter .45s ease,
+        transform .45s ease;
+}
+
+
+/* =====================================================
+   PETITS MOUVEMENTS
+===================================================== */
+
 .move-right{
-    transform:translate(25px,5px) rotate(.7deg);
+    transform:translateX(22px) rotate(.6deg);
 }
 
 .move-left{
-    transform:translate(-25px,-4px) rotate(-.7deg);
+    transform:translateX(-22px) rotate(-.6deg);
 }
 
 .move-down{
-    transform:translate(4px,18px) rotate(.5deg);
+    transform:translateY(15px) rotate(.5deg);
 }
 
 .move-up{
-    transform:translate(-5px,-16px) rotate(-.5deg);
+    transform:translateY(-15px) rotate(-.5deg);
 }
 
-.tilt-right{
-    transform:translate(8px,3px) rotate(2deg);
+
+/* =====================================================
+   COULEURS
+===================================================== */
+
+.color-soft{
+    filter:hue-rotate(8deg) saturate(.85);
 }
 
-.tilt-left{
-    transform:translate(-8px,3px) rotate(-2deg);
+.color-medium{
+    filter:hue-rotate(18deg) saturate(1.05);
 }
+
+.color-strange{
+    filter:hue-rotate(35deg) saturate(1.2);
+}
+
+.text-soft{
+    color:#555!important;
+}
+
+.text-medium{
+    color:#333!important;
+}
+
+.text-strange{
+    color:#666!important;
+}
+
+
+/* =====================================================
+   FORMES
+===================================================== */
 
 .round-more{
-    border-radius:45px!important;
+    border-radius:42px!important;
 }
 
 .round-less{
     border-radius:5px!important;
 }
 
-.color-shift{
-    filter:hue-rotate(12deg) saturate(.85);
-}
-
-.color-strong{
-    filter:hue-rotate(28deg) saturate(1.15);
-}
-
-.text-grey{
-    color:#5a5a5a!important;
-}
-
-.text-dark{
-    color:#222!important;
-}
-
-.spacing{
+.spacing-weird{
     letter-spacing:.025em!important;
 }
 
@@ -360,38 +506,38 @@ footer{
 
 
 /* =====================================================
-   NIVEAU WTF
+   WTF PHASE
 ===================================================== */
 
-.wtf-body{
-    --bg:#e9e9e4;
-}
-
-.wtf-card{
-    box-shadow:
-        12px 18px 0 rgba(0,0,0,.07),
-        -8px -8px 0 rgba(255,255,255,.7);
-}
-
 .wtf-rotate-right{
-    transform:rotate(4deg) translate(18px,8px)!important;
+    transform:translate(15px,8px) rotate(4deg)!important;
 }
 
 .wtf-rotate-left{
-    transform:rotate(-4deg) translate(-18px,8px)!important;
+    transform:translate(-15px,8px) rotate(-4deg)!important;
 }
 
 .wtf-big{
     transform:scale(1.035) rotate(1.5deg)!important;
 }
 
+.wtf-small{
+    transform:scale(.965) rotate(-1deg)!important;
+}
+
 .wtf-mirror{
     transform:scaleX(-1)!important;
 }
 
+.wtf-shadow{
+    box-shadow:
+        14px 18px 0 rgba(0,0,0,.08),
+        -7px -7px 0 rgba(255,255,255,.7)!important;
+}
+
 .wtf-nav{
-    flex-direction:row-reverse;
-    gap:24px;
+    flex-direction:row-reverse!important;
+    gap:22px!important;
 }
 
 .wtf-nav a:nth-child(2){
@@ -399,29 +545,17 @@ footer{
 }
 
 .wtf-nav a:nth-child(3){
-    transform:translateY(-6px) rotate(2deg);
-}
-
-.wtf-title{
-    letter-spacing:-.095em!important;
-    transform:rotate(-1.5deg);
+    transform:translateY(-7px) rotate(2deg);
 }
 
 .wtf-info{
     border-radius:60px!important;
-    padding:90px 65px!important;
+    padding:95px 60px!important;
 }
 
-.wtf-footer{
-    transform:translateY(-20px) rotate(.8deg);
-}
-
-.wtf-section{
-    transform:translateX(30px) rotate(-1.2deg)!important;
-}
-
-.wtf-hidden-text{
-    text-transform:uppercase;
+.wtf-title{
+    letter-spacing:-.095em!important;
+    transform:rotate(-1.5deg)!important;
 }
 
 
@@ -436,7 +570,7 @@ footer{
     }
 
     nav{
-        gap:2px;
+        gap:1px;
     }
 
     nav a{
@@ -468,10 +602,14 @@ footer{
 </style>
 </head>
 
+
 <body>
 
 <header id="header">
-    <a href="#accueil" class="logo" id="logo">Daily</a>
+
+    <a href="#accueil" class="logo" id="logo">
+        Daily
+    </a>
 
     <nav id="nav">
         <a href="#accueil">Accueil</a>
@@ -479,215 +617,296 @@ footer{
         <a href="#tendances">Tendances</a>
         <a href="#apropos">À propos</a>
     </nav>
+
 </header>
 
 
 <main>
 
-<section class="hero" id="accueil">
+    <!-- ================= HERO ================= -->
 
-    <div class="eyebrow" id="eyebrow">
-        Magazine & découvertes
-    </div>
+    <section class="hero" id="accueil">
 
-    <h1 id="mainTitle">
-        Découvrez ce qui mérite votre attention.
-    </h1>
+        <div class="eyebrow" id="eyebrow">
+            Magazine & découvertes
+        </div>
 
-    <p id="subtitle">
-        Des idées, des découvertes et des sujets intéressants,
-        réunis au même endroit.
-    </p>
+        <h1 id="mainTitle">
+            Découvrez ce qui mérite votre attention.
+        </h1>
 
-    <div class="search">
-        <input
-            id="searchInput"
-            type="text"
-            placeholder="Rechercher quelque chose..."
-        >
-        <button id="searchButton">
-            Rechercher
-        </button>
-    </div>
+        <p id="subtitle">
+            Des idées, des découvertes et des sujets intéressants,
+            réunis au même endroit.
+        </p>
 
-    <div class="search-result" id="searchResult"></div>
+        <div class="search">
 
-</section>
+            <input
+                id="searchInput"
+                type="text"
+                placeholder="Rechercher quelque chose..."
+            >
 
+            <button id="searchButton">
+                Rechercher
+            </button>
 
-<section class="section" id="decouvrir">
+        </div>
 
-    <div class="section-heading">
-        <h2 id="discoverTitle">À découvrir</h2>
-        <span id="discoverLabel">Sélection du moment</span>
-    </div>
+        <div
+            class="search-result"
+            id="searchResult">
+        </div>
 
-    <div class="cards" id="cards">
-
-        <article class="card" id="card1">
-
-            <div>
-                <div class="card-number">01</div>
-
-                <h3 id="cardTitle1">
-                    Les idées qui changent notre façon de voir les choses
-                </h3>
-
-                <p id="cardText1">
-                    Quelques sujets choisis pour sortir un peu de
-                    l'ordinaire.
-                </p>
-            </div>
-
-            <span class="card-number">Découverte</span>
-
-        </article>
+    </section>
 
 
-        <article class="card" id="card2">
+    <!-- ================= DECOUVRIR ================= -->
 
-            <div>
-                <div class="card-number">02</div>
+    <section class="section" id="decouvrir">
 
-                <h3 id="cardTitle2">
-                    Nouveautés et curiosités du moment
-                </h3>
+        <div class="section-heading">
 
-                <p id="cardText2">
-                    Des choses intéressantes à regarder quand on a
-                    quelques minutes devant soi.
-                </p>
-            </div>
+            <h2 id="discoverTitle">
+                À découvrir
+            </h2>
 
-            <span class="card-number">Tendance</span>
+            <span id="discoverLabel">
+                Sélection du moment
+            </span>
 
-        </article>
+        </div>
 
 
-        <article class="card" id="card3">
+        <div class="cards" id="cards">
 
-            <div>
-                <div class="card-number">03</div>
+            <article class="card" id="card1">
 
-                <h3 id="cardTitle3">
-                    Pourquoi certaines choses attirent notre attention
-                </h3>
+                <div>
 
-                <p id="cardText3">
-                    Un mélange d'idées, de curiosités et de découvertes.
-                </p>
-            </div>
+                    <div class="card-number">
+                        01
+                    </div>
 
-            <span class="card-number">Idée</span>
+                    <h3 id="cardTitle1">
+                        Les idées qui changent notre façon de voir les choses
+                    </h3>
 
-        </article>
+                    <p id="cardText1">
+                        Quelques sujets choisis pour sortir un peu de
+                        l'ordinaire.
+                    </p>
 
-    </div>
+                </div>
 
-</section>
+                <span class="card-number">
+                    Découverte
+                </span>
 
-
-<section class="section" id="tendances">
-
-    <div class="section-heading">
-        <h2 id="trendTitle">Tendances</h2>
-        <span id="trendLabel">Ce qui circule actuellement</span>
-    </div>
-
-    <div class="cards">
-
-        <article class="card" id="trend1">
-
-            <div>
-                <div class="card-number">04</div>
-
-                <h3 id="trendText1">
-                    Les petites découvertes du quotidien
-                </h3>
-
-                <p>
-                    Certaines choses deviennent intéressantes
-                    simplement parce qu'on commence à les remarquer.
-                </p>
-            </div>
-
-        </article>
+            </article>
 
 
-        <article class="card" id="trend2">
+            <article class="card" id="card2">
 
-            <div>
-                <div class="card-number">05</div>
+                <div>
 
-                <h3 id="trendText2">
-                    Ce qu'on remarque quand on regarde mieux
-                </h3>
+                    <div class="card-number">
+                        02
+                    </div>
 
-                <p>
-                    Parfois, un détail suffit à changer complètement
-                    une impression.
-                </p>
-            </div>
+                    <h3 id="cardTitle2">
+                        Nouveautés et curiosités du moment
+                    </h3>
 
-        </article>
+                    <p id="cardText2">
+                        Des choses intéressantes à regarder quand on a
+                        quelques minutes devant soi.
+                    </p>
 
+                </div>
 
-        <article class="card" id="trend3">
+                <span class="card-number">
+                    Tendance
+                </span>
 
-            <div>
-                <div class="card-number">06</div>
-
-                <h3 id="trendText3">
-                    Quelques choses à garder en tête
-                </h3>
-
-                <p>
-                    Rien de particulier. Enfin... normalement.
-                </p>
-            </div>
-
-        </article>
-
-    </div>
-
-</section>
+            </article>
 
 
-<section class="info" id="apropos">
+            <article class="card" id="card3">
 
-    <h2 id="infoTitle">
-        Tout ce qui mérite votre attention, au même endroit.
-    </h2>
+                <div>
 
-    <p id="infoText">
-        Daily rassemble des contenus simples, intéressants et
-        accessibles. Prenez le temps de regarder autour de vous.
-    </p>
+                    <div class="card-number">
+                        03
+                    </div>
 
-</section>
+                    <h3 id="cardTitle3">
+                        Pourquoi certaines choses attirent notre attention
+                    </h3>
+
+                    <p id="cardText3">
+                        Un mélange d'idées, de curiosités et de découvertes.
+                    </p>
+
+                </div>
+
+                <span class="card-number">
+                    Idée
+                </span>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= TENDANCES ================= -->
+
+    <section class="section" id="tendances">
+
+        <div class="section-heading">
+
+            <h2 id="trendTitle">
+                Tendances
+            </h2>
+
+            <span id="trendLabel">
+                Ce qui circule actuellement
+            </span>
+
+        </div>
+
+
+        <div class="cards">
+
+            <article class="card" id="trend1">
+
+                <div>
+
+                    <div class="card-number">
+                        04
+                    </div>
+
+                    <h3 id="trendText1">
+                        Les petites découvertes du quotidien
+                    </h3>
+
+                    <p>
+                        Certaines choses deviennent intéressantes
+                        simplement parce qu'on commence à les remarquer.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="card" id="trend2">
+
+                <div>
+
+                    <div class="card-number">
+                        05
+                    </div>
+
+                    <h3 id="trendText2">
+                        Ce qu'on remarque quand on regarde mieux
+                    </h3>
+
+                    <p>
+                        Parfois, un détail suffit à changer complètement
+                        une impression.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="card" id="trend3">
+
+                <div>
+
+                    <div class="card-number">
+                        06
+                    </div>
+
+                    <h3 id="trendText3">
+                        Quelques choses à garder en tête
+                    </h3>
+
+                    <p>
+                        Rien de particulier. Enfin... normalement.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= A PROPOS ================= -->
+
+    <section class="info" id="apropos">
+
+        <h2 id="infoTitle">
+            Tout ce qui mérite votre attention, au même endroit.
+        </h2>
+
+        <p id="infoText">
+            Daily rassemble des contenus simples, intéressants et
+            accessibles. Prenez le temps de regarder autour de vous.
+        </p>
+
+    </section>
 
 </main>
 
 
 <footer id="footer">
+
     <span id="footerText">
         © 2026 Daily — Tous droits réservés.
     </span>
+
 </footer>
 
 
 <script>
+
 /* =========================================================
-   ÉTAT DU TROLL
+   ETAT
 ========================================================= */
 
 const state = {
+
+    /*
+       Nombre total de changements.
+    */
+    changes:0,
+
+    /*
+       Niveau d'étrangeté.
+       Il augmente avec les changements réellement effectués.
+    */
     level:0,
-    mutations:0,
-    started:Date.now(),
-    lastMutation:0,
-    used:new Set(),
-    wtf:false
+
+    /*
+       Éléments déjà transformés.
+    */
+    changed:new Set(),
+
+    /*
+       Empêche deux moteurs de lancer exactement
+       la même chose au même instant.
+    */
+    working:false
+
 };
 
 
@@ -695,61 +914,98 @@ const state = {
    OUTILS
 ========================================================= */
 
-function offscreen(el){
+function isOffscreen(element){
 
-    if(!el) return false;
+    if(!element) return false;
 
-    const r=el.getBoundingClientRect();
+    const rect=element.getBoundingClientRect();
 
-    return r.bottom < -30 ||
-           r.top > window.innerHeight + 30;
+    return (
+        rect.bottom < -20 ||
+        rect.top > window.innerHeight + 20
+    );
 }
 
 
-function random(arr){
-    return arr[Math.floor(Math.random()*arr.length)];
+function random(array){
+
+    return array[
+        Math.floor(Math.random()*array.length)
+    ];
+
 }
 
 
 function wait(ms){
-    return new Promise(resolve=>setTimeout(resolve,ms));
+
+    return new Promise(resolve=>{
+        setTimeout(resolve,ms);
+    });
+
 }
 
 
-function use(key){
+function changed(key){
 
-    if(state.used.has(key)) return false;
+    return state.changed.has(key);
 
-    state.used.add(key);
-    return true;
+}
+
+
+function mark(key){
+
+    state.changed.add(key);
+
 }
 
 
 /* =========================================================
-   CHANGER UN TEXTE
+   CHANGEMENT DE TEXTE
 ========================================================= */
 
-async function changeText(el,text,key){
+async function changeText(element,text,key){
 
-    if(!el || !offscreen(el)) return false;
-    if(!use(key)) return false;
+    if(!element) return false;
 
-    el.classList.add("text-fade");
+    /*
+       CONDITION IMPORTANTE :
+       le texte doit être hors écran.
+    */
 
-    await wait(450);
+    if(!isOffscreen(element)) return false;
 
-    if(!offscreen(el)){
-        el.classList.remove("text-fade");
+    if(changed(key)) return false;
+
+    mark(key);
+
+    element.classList.add("text-change");
+
+    await wait(400);
+
+    /*
+       Si la personne est revenue dessus pendant
+       l'animation, on ne fait pas le changement
+       sous ses yeux.
+    */
+
+    if(!isOffscreen(element)){
+
+        element.classList.remove("text-change");
+
         return false;
+
     }
 
-    el.textContent=text;
+    element.textContent=text;
 
     await wait(450);
 
-    el.classList.remove("text-fade");
+    element.classList.remove("text-change");
+
+    state.changes++;
 
     return true;
+
 }
 
 
@@ -757,33 +1013,60 @@ async function changeText(el,text,key){
    TITRE
 ========================================================= */
 
-const titleTexts=[
+const titleVariants=[
+
     "Découvrez ce qui mérite votre attention.",
+
     "Quelques idées qui valent le détour.",
+
     "Les découvertes du moment.",
+
     "Tout ce qui mérite votre attention.",
+
     "Découvrez les sujets du moment.",
+
     "Des idées à découvrir aujourd'hui.",
+
     "Ce qui mérite vraiment un coup d'œil.",
-    "Quelques découvertes intéressantes."
+
+    "Quelques découvertes intéressantes.",
+
+    "Les sujets à découvrir aujourd'hui.",
+
+    "Ce qu'il faut peut-être regarder de plus près."
+
 ];
 
 
-const subtitleTexts=[
+const subtitleVariants=[
+
     "Des idées, des découvertes et des sujets intéressants, réunis au même endroit.",
+
     "Quelques sujets intéressants à découvrir tranquillement.",
+
     "Un endroit pour découvrir de nouvelles choses.",
+
     "Des découvertes simples, intéressantes et accessibles.",
+
     "Les sujets qui méritent peut-être quelques minutes de votre temps."
+
 ];
 
 
-const eyebrowTexts=[
+const eyebrowVariants=[
+
     "Magazine & découvertes",
+
     "Sélection du moment",
+
     "Idées & curiosités",
+
     "Découvertes quotidiennes",
-    "À voir aujourd'hui"
+
+    "À voir aujourd'hui",
+
+    "Quelques découvertes"
+
 ];
 
 
@@ -793,31 +1076,42 @@ async function mutateHero(){
     const subtitle=document.getElementById("subtitle");
     const eyebrow=document.getElementById("eyebrow");
 
-    if(offscreen(title) && Math.random()<.7){
-        return changeText(
+    const choices=[];
+
+    if(isOffscreen(title)){
+        choices.push([
             title,
-            random(titleTexts),
-            "title-"+state.mutations
-        );
+            titleVariants,
+            "hero-title"
+        ]);
     }
 
-    if(offscreen(subtitle)){
-        return changeText(
+    if(isOffscreen(subtitle)){
+        choices.push([
             subtitle,
-            random(subtitleTexts),
-            "subtitle-"+state.mutations
-        );
+            subtitleVariants,
+            "hero-subtitle"
+        ]);
     }
 
-    if(offscreen(eyebrow)){
-        return changeText(
+    if(isOffscreen(eyebrow)){
+        choices.push([
             eyebrow,
-            random(eyebrowTexts),
-            "eyebrow-"+state.mutations
-        );
+            eyebrowVariants,
+            "hero-eyebrow"
+        ]);
     }
 
-    return false;
+    if(!choices.length) return false;
+
+    const [element,texts,key]=random(choices);
+
+    return changeText(
+        element,
+        random(texts),
+        key+"-"+state.changes
+    );
+
 }
 
 
@@ -825,142 +1119,248 @@ async function mutateHero(){
    CARTES
 ========================================================= */
 
-const cardTexts=[
+const cardVariants=[
+
     "Les idées qui changent notre façon de voir les choses",
+
     "Quelques découvertes qui méritent votre attention.",
+
     "Des idées qu'on remarque parfois seulement après coup.",
+
     "Nouveautés et curiosités du moment",
+
     "Ce qu'on commence à remarquer en ce moment.",
+
     "Pourquoi certaines choses attirent notre attention",
+
     "Les détails qui changent une impression.",
-    "Ce qui devient intéressant quand on y regarde mieux."
+
+    "Ce qui devient intéressant quand on y regarde mieux.",
+
+    "Quelques choses à garder en tête.",
+
+    "Ce qu'on remarque quand on prend le temps de regarder."
+
 ];
 
 
 async function mutateCard(){
 
     const cards=[
+
         document.getElementById("card1"),
         document.getElementById("card2"),
         document.getElementById("card3"),
         document.getElementById("trend1"),
         document.getElementById("trend2"),
         document.getElementById("trend3")
+
     ];
 
-    const hidden=cards.filter(offscreen);
+    const available=cards.filter(card=>{
 
-    if(!hidden.length) return false;
+        if(!card) return false;
 
-    const card=random(hidden);
+        return isOffscreen(card);
+
+    });
+
+
+    if(!available.length) return false;
+
+
+    const card=random(available);
+
     const title=card.querySelector("h3");
 
     if(!title) return false;
 
+
     return changeText(
+
         title,
-        random(cardTexts),
-        "card-"+card.id+"-"+state.mutations
+
+        random(cardVariants),
+
+        "card-"+card.id+"-"+state.changes
+
     );
+
 }
 
 
 /* =========================================================
-   PETITS CHANGEMENTS
+   CHANGEMENT DE COULEUR
 ========================================================= */
 
 function mutateColor(){
 
-    const els=[
+    const elements=[
+
         document.getElementById("card1"),
         document.getElementById("card2"),
         document.getElementById("card3"),
+
         document.getElementById("trend1"),
         document.getElementById("trend2"),
         document.getElementById("trend3"),
+
+        document.getElementById("decouvrir"),
+        document.getElementById("tendances"),
         document.getElementById("apropos")
-    ];
 
-    const hidden=els.filter(offscreen);
+    ].filter(Boolean);
 
-    if(!hidden.length) return false;
 
-    const el=random(hidden);
+    const available=elements.filter(isOffscreen);
 
-    el.classList.add(
+    if(!available.length) return false;
+
+
+    const element=random(available);
+
+    const key=
+        "color-"+element.id+"-"+state.changes;
+
+
+    if(changed(key)) return false;
+
+    mark(key);
+
+
+    element.classList.add(
+
         random([
-            "color-shift",
-            "color-strong"
+
+            "color-soft",
+            "color-medium",
+            "color-strange"
+
         ])
+
     );
 
+
+    state.changes++;
+
     return true;
+
 }
 
 
+/* =========================================================
+   TEXTE QUI CHANGE DE COULEUR
+========================================================= */
+
 function mutateTextColor(){
 
-    const els=[
+    const elements=[
+
         document.getElementById("mainTitle"),
         document.getElementById("subtitle"),
         document.getElementById("discoverTitle"),
         document.getElementById("trendTitle"),
         document.getElementById("infoTitle"),
         document.getElementById("footerText")
-    ];
 
-    const hidden=els.filter(offscreen);
+    ].filter(Boolean);
 
-    if(!hidden.length) return false;
 
-    const el=random(hidden);
+    const available=elements.filter(isOffscreen);
 
-    el.classList.add(
+    if(!available.length) return false;
+
+
+    const element=random(available);
+
+    const key=
+        "textcolor-"+element.id+"-"+state.changes;
+
+
+    if(changed(key)) return false;
+
+    mark(key);
+
+
+    element.classList.add(
+
         random([
-            "text-grey",
-            "text-dark"
+
+            "text-soft",
+            "text-medium",
+            "text-strange"
+
         ])
+
     );
 
+
+    state.changes++;
+
     return true;
+
 }
 
 
 /* =========================================================
-   BLOC ENTIER
+   BLOC ENTIER QUI BOUGE
 ========================================================= */
 
-function moveBlock(){
+function mutateBlock(){
 
     const blocks=[
+
         document.getElementById("decouvrir"),
         document.getElementById("tendances"),
         document.getElementById("apropos"),
+
         document.getElementById("card1"),
         document.getElementById("card2"),
         document.getElementById("card3"),
+
         document.getElementById("trend1"),
         document.getElementById("trend2"),
         document.getElementById("trend3"),
+
         document.getElementById("footer")
-    ];
 
-    const hidden=blocks.filter(offscreen);
+    ].filter(Boolean);
 
-    if(!hidden.length) return false;
 
-    const el=random(hidden);
+    const available=blocks.filter(isOffscreen);
 
-    el.classList.add(
+    if(!available.length) return false;
+
+
+    const element=random(available);
+
+    const key=
+        "move-"+element.id+"-"+state.changes;
+
+
+    if(changed(key)) return false;
+
+    mark(key);
+
+
+    element.classList.add(
+
         random([
+
             "move-right",
             "move-left",
             "move-up",
             "move-down"
+
         ])
+
     );
 
+
+    state.changes++;
+
     return true;
+
 }
 
 
@@ -970,54 +1370,99 @@ function moveBlock(){
 
 function mutateShape(){
 
-    const blocks=[
+    const elements=[
+
         document.getElementById("card1"),
         document.getElementById("card2"),
         document.getElementById("card3"),
+
         document.getElementById("trend1"),
         document.getElementById("trend2"),
         document.getElementById("trend3"),
+
         document.getElementById("apropos")
-    ];
 
-    const hidden=blocks.filter(offscreen);
+    ].filter(Boolean);
 
-    if(!hidden.length) return false;
 
-    random(hidden).classList.add(
+    const available=elements.filter(isOffscreen);
+
+    if(!available.length) return false;
+
+
+    const element=random(available);
+
+    const key=
+        "shape-"+element.id+"-"+state.changes;
+
+
+    if(changed(key)) return false;
+
+    mark(key);
+
+
+    element.classList.add(
+
         random([
+
             "round-more",
-            "round-less"
+            "round-less",
+            "spacing-weird",
+            "spacing-tight"
+
         ])
+
     );
 
+
+    state.changes++;
+
     return true;
+
 }
 
 
 /* =========================================================
-   ORDRE DES CARTES
+   ORDRE DES SECTIONS
 ========================================================= */
 
 function reorderCards(){
 
     const section=document.getElementById("decouvrir");
+
     const cards=document.getElementById("cards");
 
-    if(!section || !cards || !offscreen(section)) return false;
+
+    if(!section || !cards) return false;
+
+    if(!isOffscreen(section)) return false;
+
+
+    const key="cards-order-"+state.changes;
+
+    if(changed(key)) return false;
+
+    mark(key);
+
 
     const children=[...cards.children];
 
     children.sort(()=>Math.random()-.5);
 
-    children.forEach(c=>cards.appendChild(c));
+    children.forEach(child=>{
+        cards.appendChild(child);
+    });
+
+
+    state.changes++;
 
     return true;
+
 }
 
 
 /* =========================================================
-   MENU
+   WTF : MENU
 ========================================================= */
 
 function mutateNav(){
@@ -1026,117 +1471,122 @@ function mutateNav(){
 
     if(!nav) return false;
 
-    nav.classList.add(
-        random([
-            "wtf-nav"
-        ])
-    );
+
+    const key="nav-wtf";
+
+    if(changed(key)) return false;
+
+    mark(key);
+
+
+    nav.classList.add("wtf-nav");
+
+    state.changes++;
 
     return true;
+
 }
 
 
 /* =========================================================
-   NIVEAU WTF
+   WTF : GROS BLOC
 ========================================================= */
 
-function wtfMutation(){
+function mutateWTFBlock(){
 
-    const candidates=[
-        document.getElementById("decouvrir"),
-        document.getElementById("tendances"),
-        document.getElementById("apropos"),
+    const elements=[
+
         document.getElementById("card1"),
         document.getElementById("card2"),
         document.getElementById("card3"),
+
         document.getElementById("trend1"),
         document.getElementById("trend2"),
         document.getElementById("trend3"),
+
+        document.getElementById("decouvrir"),
+        document.getElementById("tendances"),
+        document.getElementById("apropos"),
         document.getElementById("footer")
-    ];
 
-    const hidden=candidates.filter(offscreen);
+    ].filter(Boolean);
 
-    if(!hidden.length) return false;
 
-    const el=random(hidden);
+    const available=elements.filter(isOffscreen);
 
-    el.classList.add(
+    if(!available.length) return false;
+
+
+    const element=random(available);
+
+    const key=
+        "wtf-"+element.id+"-"+state.changes;
+
+
+    if(changed(key)) return false;
+
+    mark(key);
+
+
+    element.classList.add(
+
         random([
+
             "wtf-rotate-right",
             "wtf-rotate-left",
             "wtf-big",
-            "wtf-card",
-            "wtf-section"
+            "wtf-small",
+            "wtf-shadow"
+
         ])
+
     );
 
+
+    state.changes++;
+
     return true;
+
 }
 
 
 /* =========================================================
-   TRÈS GROS WTF
+   TITRE WTF
 ========================================================= */
 
-async function finalWTF(){
-
-    if(state.wtf) return;
-
-    state.wtf=true;
-
-    /*
-       On attend une zone cachée avant de commencer
-       la grosse phase.
-    */
-
-    document.body.classList.add("wtf-body");
+function wtfTitle(){
 
     const title=document.getElementById("mainTitle");
-    const nav=document.getElementById("nav");
+
+    if(!title || !isOffscreen(title)) return false;
+
+
+    title.classList.add("wtf-title");
+
+    state.changes++;
+
+    return true;
+
+}
+
+
+/* =========================================================
+   INFO WTF
+========================================================= */
+
+function wtfInfo(){
+
     const info=document.getElementById("apropos");
-    const footer=document.getElementById("footer");
 
-    if(offscreen(title)){
-        title.classList.add("wtf-title");
-    }
+    if(!info || !isOffscreen(info)) return false;
 
-    if(offscreen(info)){
-        info.classList.add("wtf-info");
-    }
 
-    /*
-       Plusieurs petites transformations espacées.
-    */
+    info.classList.add("wtf-info");
 
-    await wait(1200);
+    state.changes++;
 
-    if(offscreen(footer)){
-        footer.classList.add("wtf-footer");
-    }
+    return true;
 
-    await wait(1000);
-
-    mutateNav();
-
-    await wait(1000);
-
-    reorderCards();
-
-    await wait(1000);
-
-    /*
-       Quelques blocs commencent à partir dans
-       des directions différentes.
-    */
-
-    for(let i=0;i<4;i++){
-
-        wtfMutation();
-
-        await wait(550);
-
-    }
 }
 
 
@@ -1144,263 +1594,254 @@ async function finalWTF(){
    MOTEUR PRINCIPAL
 ========================================================= */
 
-async function doMutation(){
+async function mutateHiddenElements(){
+
+    if(state.working) return;
+
+    state.working=true;
+
 
     /*
-       Une mutation au maximum toutes les quelques secondes.
+       On récupère TOUT ce qui est hors écran.
     */
 
-    if(Date.now()-state.lastMutation<2200) return;
+    const all=[
 
-    state.lastMutation=Date.now();
-    state.mutations++;
+        document.getElementById("accueil"),
+        document.getElementById("decouvrir"),
+        document.getElementById("tendances"),
+        document.getElementById("apropos"),
+
+        document.getElementById("card1"),
+        document.getElementById("card2"),
+        document.getElementById("card3"),
+
+        document.getElementById("trend1"),
+        document.getElementById("trend2"),
+        document.getElementById("trend3"),
+
+        document.getElementById("footer"),
+
+        document.getElementById("mainTitle"),
+        document.getElementById("subtitle"),
+        document.getElementById("eyebrow"),
+        document.getElementById("discoverTitle"),
+        document.getElementById("trendTitle"),
+        document.getElementById("infoTitle")
+
+    ].filter(Boolean);
+
+
+    const hidden=all.filter(isOffscreen);
+
 
     /*
-       Niveau calculé automatiquement avec le temps.
+       S'il n'y a rien hors écran,
+       on attend.
     */
 
-    const elapsed=(Date.now()-state.started)/1000;
+    if(!hidden.length){
 
-    if(elapsed<12){
-        state.level=1;
-    }
-    else if(elapsed<25){
-        state.level=2;
-    }
-    else if(elapsed<45){
-        state.level=3;
-    }
-    else if(elapsed<70){
-        state.level=4;
-    }
-    else{
-        state.level=5;
-    }
+        state.working=false;
 
-
-    let success=false;
-
-
-    /* -----------------------------------------------
-       NIVEAU 1
-       Presque invisible
-    ----------------------------------------------- */
-
-    if(state.level===1){
-
-        success=random([
-            ()=>mutateHero(),
-            ()=>mutateHero(),
-            ()=>mutateCard(),
-            ()=>mutateTextColor()
-        ])();
-
-    }
-
-
-    /* -----------------------------------------------
-       NIVEAU 2
-       On commence à remarquer
-    ----------------------------------------------- */
-
-    else if(state.level===2){
-
-        success=random([
-            ()=>mutateHero(),
-            ()=>mutateCard(),
-            ()=>mutateColor(),
-            ()=>mutateTextColor(),
-            ()=>moveBlock()
-        ])();
-
-    }
-
-
-    /* -----------------------------------------------
-       NIVEAU 3
-       Le site commence à bouger
-    ----------------------------------------------- */
-
-    else if(state.level===3){
-
-        success=random([
-            ()=>mutateCard(),
-            ()=>mutateColor(),
-            ()=>moveBlock(),
-            ()=>mutateShape(),
-            ()=>reorderCards()
-        ])();
-
-    }
-
-
-    /* -----------------------------------------------
-       NIVEAU 4
-       Bizarre
-    ----------------------------------------------- */
-
-    else if(state.level===4){
-
-        success=random([
-            ()=>moveBlock(),
-            ()=>moveBlock(),
-            ()=>mutateShape(),
-            ()=>reorderCards(),
-            ()=>mutateColor(),
-            ()=>mutateTextColor(),
-            ()=>wtfMutation()
-        ])();
-
-    }
-
-
-    /* -----------------------------------------------
-       NIVEAU 5
-       WTF
-    ----------------------------------------------- */
-
-    else{
-
-        success=random([
-            ()=>wtfMutation(),
-            ()=>wtfMutation(),
-            ()=>mutateShape(),
-            ()=>reorderCards(),
-            ()=>moveBlock()
-        ])();
+        return;
 
     }
 
 
     /*
-       Après suffisamment de temps :
-       grosse phase finale.
+       Combien de choses changent simultanément ?
+
+       Début :
+       2 changements
+
+       Milieu :
+       3-4
+
+       Fin :
+       5-7
     */
 
-    if(
-        state.level>=5 &&
-        state.mutations>=18 &&
-        !state.wtf
-    ){
+    let amount=2;
 
-        finalWTF();
+
+    if(state.changes>=5){
+        amount=3;
+    }
+
+    if(state.changes>=10){
+        amount=4;
+    }
+
+    if(state.changes>=16){
+        amount=5;
+    }
+
+    if(state.changes>=24){
+        amount=6;
+    }
+
+
+    /*
+       On lance plusieurs changements.
+    */
+
+    const actions=[
+
+        mutateHero,
+        mutateCard,
+        mutateColor,
+        mutateTextColor,
+        mutateBlock,
+        mutateShape,
+        reorderCards
+
+    ];
+
+
+    /*
+       À partir d'un certain nombre de changements,
+       on ajoute les vraies anomalies.
+    */
+
+    if(state.changes>=10){
+
+        actions.push(
+            mutateWTFBlock
+        );
 
     }
+
+
+    if(state.changes>=15){
+
+        actions.push(
+            mutateWTFBlock,
+            mutateWTFBlock
+        );
+
+    }
+
+
+    /*
+       Les actions sont exécutées presque ensemble.
+    */
+
+    const selected=[];
+
+
+    for(let i=0;i<amount;i++){
+
+        const action=random(actions);
+
+        selected.push(action);
+
+    }
+
+
+    await Promise.all(
+
+        selected.map(action=>{
+
+            try{
+                return action();
+            }catch(error){
+                return false;
+            }
+
+        })
+
+    );
+
+
+    /*
+       PHASE WTF
+    */
+
+    if(state.changes>=18){
+
+        /*
+           Plusieurs gros changements en même temps.
+        */
+
+        mutateNav();
+        wtfTitle();
+        wtfInfo();
+
+        for(let i=0;i<4;i++){
+            mutateWTFBlock();
+        }
+
+    }
+
+
+    state.working=false;
 
 }
 
 
 /* =========================================================
-   PLANIFICATEUR AUTOMATIQUE
+   SURVEILLANCE CONTINUE
 ========================================================= */
 
 /*
-   C'est LA différence avec l'ancien système.
+   C'est ici que le comportement change vraiment.
 
-   Le troll ne dépend plus du scroll.
+   Toutes les 900 ms :
 
-   Il regarde régulièrement ce qui est hors écran
-   et modifie quelque chose automatiquement.
+   → on regarde ce qui est hors écran
+   → s'il y a des éléments cachés
+   → plusieurs sont modifiés
+
+   Donc pas besoin de remonter/descendre 50 fois.
 */
 
-function scheduleNext(){
+setInterval(()=>{
 
-    const elapsed=(Date.now()-state.started)/1000;
+    mutateHiddenElements();
 
-    let delay;
-
-    if(elapsed<15){
-
-        delay=4500+Math.random()*2500;
-
-    }
-    else if(elapsed<35){
-
-        delay=3500+Math.random()*2200;
-
-    }
-    else if(elapsed<60){
-
-        delay=2800+Math.random()*1800;
-
-    }
-    else{
-
-        delay=2200+Math.random()*1400;
-
-    }
-
-    setTimeout(async()=>{
-
-        await doMutation();
-
-        scheduleNext();
-
-    },delay);
-}
+},900);
 
 
 /* =========================================================
-   MUTATION FORCÉE DU HAUT
-   Quand le joueur est loin du haut.
+   QUAND UN ELEMENT SORT DE L'ECRAN
 ========================================================= */
 
-let scrollY=0;
+/*
+   On surveille le scroll.
+
+   Dès que la personne vient de quitter une zone,
+   on lance rapidement un paquet de changements.
+*/
+
+let lastY=window.scrollY;
+
+let scrollTimer=null;
+
 
 window.addEventListener("scroll",()=>{
 
-    scrollY=window.scrollY;
+    const current=window.scrollY;
 
-    /*
-       Si le joueur est assez loin du haut,
-       on donne régulièrement une occasion au titre
-       de changer.
-    */
-
-    if(scrollY>650){
-
-        if(
-            Date.now()-state.lastMutation>3500 &&
-            Math.random()<0.035
-        ){
-
-            const title=document.getElementById("mainTitle");
-
-            if(offscreen(title)){
-                mutateHero();
-                state.lastMutation=Date.now();
-                state.mutations++;
-            }
-        }
-    }
-
-});
+    clearTimeout(scrollTimer);
 
 
-/* =========================================================
-   IDLE
-========================================================= */
+    scrollTimer=setTimeout(()=>{
 
-let idleTimer;
+        /*
+           On attend juste que le scroll soit terminé
+           pour être sûr que les éléments sont réellement
+           hors écran.
+        */
 
-function resetIdle(){
+        mutateHiddenElements();
 
-    clearTimeout(idleTimer);
+    },180);
 
-    idleTimer=setTimeout(()=>{
 
-        doMutation();
+    lastY=current;
 
-        resetIdle();
-
-    },5000+Math.random()*5000);
-
-}
-
-["mousemove","touchstart","keydown","scroll"]
-.forEach(event=>{
-    window.addEventListener(event,resetIdle,{passive:true});
-});
+},{passive:true});
 
 
 /* =========================================================
@@ -1408,21 +1849,30 @@ function resetIdle(){
 ========================================================= */
 
 const articles=[
+
     "Les idées qui changent notre façon de voir les choses",
+
     "Nouveautés et curiosités du moment",
+
     "Pourquoi certaines choses attirent notre attention",
+
     "Les petites découvertes du quotidien",
+
     "Ce qu'on remarque quand on regarde mieux",
+
     "Quelques choses à garder en tête"
+
 ];
 
 
 function search(){
 
     const input=document.getElementById("searchInput");
+
     const result=document.getElementById("searchResult");
 
     const query=input.value.trim().toLowerCase();
+
 
     if(!query){
 
@@ -1432,15 +1882,21 @@ function search(){
         result.classList.add("show");
 
         return;
+
     }
 
+
     const matches=articles.filter(article=>
+
         article.toLowerCase().includes(query)
+
     );
+
 
     if(matches.length){
 
         result.textContent=
+
             matches.length+
             " résultat"+
             (matches.length>1?"s":"")+
@@ -1449,26 +1905,39 @@ function search(){
 
     }else{
 
-        result.textContent="Aucun résultat trouvé.";
+        result.textContent=
+            "Aucun résultat trouvé.";
 
     }
 
+
     result.classList.add("show");
 
+
+    /*
+       La recherche déclenche aussi plusieurs
+       changements ailleurs.
+    */
+
     setTimeout(()=>{
-        doMutation();
-    },1200);
+
+        mutateHiddenElements();
+
+    },300);
+
 }
 
 
-document.getElementById("searchButton")
+document
+.getElementById("searchButton")
 .addEventListener("click",search);
 
 
-document.getElementById("searchInput")
-.addEventListener("keydown",e=>{
+document
+.getElementById("searchInput")
+.addEventListener("keydown",event=>{
 
-    if(e.key==="Enter"){
+    if(event.key==="Enter"){
         search();
     }
 
@@ -1479,39 +1948,33 @@ document.getElementById("searchInput")
    RETOUR SUR L'ONGLET
 ========================================================= */
 
-document.addEventListener("visibilitychange",()=>{
+document.addEventListener(
+    "visibilitychange",
+    ()=>{
 
-    if(document.hidden) return;
+        if(!document.hidden){
 
-    setTimeout(()=>{
-        doMutation();
-    },1000);
+            setTimeout(()=>{
 
-});
+                mutateHiddenElements();
+
+            },300);
+
+        }
+
+    }
+);
 
 
 /* =========================================================
-   DÉMARRAGE
+   PREMIERE VERIFICATION
 ========================================================= */
-
-/*
-   Première petite anomalie assez rapidement,
-   même sans toucher au scroll.
-*/
 
 setTimeout(()=>{
 
-    doMutation();
+    mutateHiddenElements();
 
-},3500);
-
-
-/*
-   Puis le moteur automatique.
-*/
-
-scheduleNext();
-resetIdle();
+},1000);
 
 </script>
 

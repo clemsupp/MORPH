@@ -1,522 +1,410 @@
-```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Daily — Actualités & découvertes</title>
 
 <style>
-*{
-    box-sizing:border-box;
+* {
+    box-sizing: border-box;
 }
 
-:root{
-    --blue:#2563eb;
-    --dark:#111827;
-    --gray:#6b7280;
-    --light:#f8fafc;
+:root {
+    --bg: #f5f6f8;
+    --surface: #ffffff;
+    --text: #17191d;
+    --muted: #737780;
+    --accent: #3157e8;
+    --accent2: #8d45e8;
+    --border: #e4e6eb;
+    --radius: 18px;
 }
 
-html{
-    scroll-behavior:smooth;
+html {
+    scroll-behavior: smooth;
 }
 
-body{
-    margin:0;
-    font-family:Arial,Helvetica,sans-serif;
-    background:var(--light);
-    color:#172033;
-    transition:
-        background 2s ease,
-        color 2s ease;
-    overflow-x:hidden;
+body {
+    margin: 0;
+    font-family: Inter, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
-/* =========================
-   HEADER
-========================= */
-
-header{
-    height:70px;
-    background:#fff;
-    border-bottom:1px solid #e5e7eb;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    padding:0 7%;
-
-    position:sticky;
-    top:0;
-    z-index:50;
-
-    transition:
-        background 2s,
-        border-color 2s;
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
-.logo{
-    font-size:24px;
-    font-weight:800;
-    color:#111827;
-    transition:.8s;
+button,
+input {
+    font: inherit;
 }
 
-.logo span{
-    color:var(--blue);
+header {
+    height: 72px;
+    background: rgba(255,255,255,.92);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
 }
 
-nav{
-    display:flex;
-    gap:28px;
+.logo {
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: -1px;
 }
 
-nav a{
-    color:#4b5563;
-    text-decoration:none;
-    font-size:14px;
-    transition:.5s;
+.logo span {
+    color: var(--accent);
 }
 
-nav a:hover{
-    color:var(--blue);
+nav {
+    display: flex;
+    gap: 28px;
+    font-size: 14px;
+    font-weight: 600;
 }
 
-/* =========================
-   MAIN
-========================= */
-
-.container{
-    width:min(1100px,90%);
-    margin:auto;
+nav a {
+    transition: .2s;
 }
 
-.hero{
-    padding:75px 0 50px;
-    text-align:center;
-    transition:2s;
+nav a:hover {
+    color: var(--accent);
 }
 
-.hero h1{
-    font-size:clamp(36px,6vw,64px);
-    margin:0;
-    letter-spacing:-2px;
-    transition:
-        transform 1s,
-        letter-spacing 2s;
+.hero {
+    max-width: 1150px;
+    margin: auto;
+    padding: 90px 25px 60px;
 }
 
-.hero p{
-    color:var(--gray);
-    max-width:620px;
-    margin:20px auto 0;
-    line-height:1.7;
-    transition:
-        color 2s,
-        opacity 1s;
+.hero-inner {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    padding: 60px;
+    position: relative;
+    overflow: hidden;
 }
 
-/* =========================
-   SEARCH
-========================= */
-
-.search{
-    display:flex;
-    width:min(600px,100%);
-    margin:30px auto 0;
-    gap:10px;
+.hero-inner::after {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: linear-gradient(135deg,var(--accent),var(--accent2));
+    opacity: .08;
+    right: -80px;
+    top: -80px;
 }
 
-.search input{
-    flex:1;
-
-    border:1px solid #d1d5db;
-    background:white;
-
-    padding:14px 16px;
-
-    border-radius:10px;
-
-    outline:none;
-
-    font-size:15px;
-
-    transition:.5s;
+.eyebrow {
+    color: var(--accent);
+    font-weight: 800;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
 }
 
-.search input:focus{
-    border-color:var(--blue);
-    box-shadow:0 0 0 3px rgba(37,99,235,.1);
+h1 {
+    font-size: clamp(42px, 7vw, 82px);
+    line-height: .95;
+    letter-spacing: -5px;
+    max-width: 800px;
+    margin: 18px 0;
 }
 
-.search button{
-    border:0;
-    background:var(--blue);
-    color:white;
-
-    padding:0 22px;
-
-    border-radius:10px;
-
-    cursor:pointer;
-    font-weight:bold;
-
-    transition:
-        transform .2s,
-        background 1s;
+.hero p {
+    color: var(--muted);
+    font-size: 18px;
+    max-width: 650px;
+    line-height: 1.7;
 }
 
-.search button:hover{
-    transform:translateY(-2px);
+.search {
+    display: flex;
+    max-width: 650px;
+    margin-top: 35px;
+    gap: 10px;
 }
 
-/* =========================
-   SEARCH RESULTS
-========================= */
-
-#results{
-    max-width:700px;
-    margin:20px auto 0;
-    display:none;
+.search input {
+    flex: 1;
+    min-width: 0;
+    border: 1px solid var(--border);
+    background: #fafafa;
+    border-radius: 12px;
+    padding: 15px 18px;
+    outline: none;
 }
 
-.result{
-    background:white;
-    border:1px solid #e5e7eb;
-    border-radius:12px;
-    padding:17px;
-    margin-bottom:10px;
-    text-align:left;
-    animation:appear .4s ease;
+.search input:focus {
+    border-color: var(--accent);
 }
 
-.result strong{
-    display:block;
-    margin-bottom:6px;
+.search button {
+    border: 0;
+    background: var(--accent);
+    color: white;
+    border-radius: 12px;
+    padding: 0 24px;
+    cursor: pointer;
+    font-weight: 700;
 }
 
-.result span{
-    color:var(--gray);
-    font-size:13px;
-    line-height:1.5;
+section {
+    max-width: 1150px;
+    margin: auto;
+    padding: 45px 25px;
 }
 
-/* =========================
-   CARDS
-========================= */
-
-.section-title{
-    margin:35px 0 18px;
-    font-size:22px;
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 25px;
 }
 
-.cards{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
+.section-title h2 {
+    margin: 0;
+    font-size: 32px;
+    letter-spacing: -1px;
 }
 
-.card{
-    background:white;
-    border:1px solid #e5e7eb;
-    border-radius:14px;
-    overflow:hidden;
-
-    transition:
-        transform 1s ease,
-        box-shadow 1s,
-        border-color 2s,
-        background 2s;
+.section-title p {
+    color: var(--muted);
+    margin: 0;
 }
 
-.card:hover{
-    transform:translateY(-4px);
-    box-shadow:0 10px 30px rgba(0,0,0,.06);
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
 }
 
-.card-image{
-    height:150px;
-    background:linear-gradient(135deg,#dbeafe,#bfdbfe);
-    position:relative;
-    overflow:hidden;
-    transition:3s;
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 25px;
+    min-height: 250px;
+    transition: .25s;
+    position: relative;
+    overflow: hidden;
 }
 
-.card:nth-child(2) .card-image{
-    background:linear-gradient(135deg,#dcfce7,#bbf7d0);
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,.08);
 }
 
-.card:nth-child(3) .card-image{
-    background:linear-gradient(135deg,#fef3c7,#fde68a);
+.card-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: #eef1ff;
+    color: var(--accent);
+    display: grid;
+    place-items: center;
+    font-weight: 900;
+    margin-bottom: 35px;
 }
 
-.card-content{
-    padding:20px;
+.card h3 {
+    font-size: 22px;
+    margin: 0 0 12px;
 }
 
-.card h3{
-    margin:0 0 10px;
-    font-size:18px;
-    transition:2s;
+.card p {
+    color: var(--muted);
+    line-height: 1.6;
 }
 
-.card p{
-    margin:0;
-    color:var(--gray);
-    line-height:1.6;
-    font-size:14px;
-    transition:2s;
+.read {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 14px;
 }
 
-.tag{
-    display:inline-block;
-    margin-top:15px;
-
-    font-size:11px;
-
-    color:var(--blue);
-    background:#eff6ff;
-
-    padding:5px 9px;
-    border-radius:20px;
-
-    transition:1s;
+.info {
+    background: #15171c;
+    color: white;
+    border-radius: 24px;
+    padding: 45px;
 }
 
-/* =========================
-   INFO
-========================= */
-
-.info{
-    margin:50px 0;
-
-    padding:30px;
-
-    background:white;
-
-    border:1px solid #e5e7eb;
-    border-radius:14px;
-
-    text-align:center;
-
-    transition:
-        background 2s,
-        border-color 2s,
-        transform 2s;
+.info p {
+    color: #aeb3bd;
+    line-height: 1.7;
+    max-width: 700px;
 }
 
-.info h2{
-    transition:2s;
+footer {
+    max-width: 1150px;
+    margin: auto;
+    padding: 60px 25px;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
 }
 
-.info p{
-    color:var(--gray);
-    line-height:1.7;
-    transition:2s;
+/* RECHERCHE */
+
+#results {
+    display: none;
+    margin-top: 25px;
+}
+
+.results-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 25px;
+}
+
+.result {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.result:last-child {
+    border-bottom: 0;
+}
+
+.result strong {
+    display: block;
+    margin-bottom: 6px;
+}
+
+.result span {
+    color: var(--muted);
+    font-size: 14px;
 }
 
 /* =========================
-   FOOTER
+   VERSION CHAOS
 ========================= */
 
-footer{
-    border-top:1px solid #e5e7eb;
-
-    background:white;
-
-    padding:30px;
-
-    text-align:center;
-
-    color:#9ca3af;
-
-    font-size:13px;
-
-    margin-top:60px;
-
-    transition:
-        background 2s,
-        color 2s;
+body.chaos {
+    --bg: #0d0d10;
+    --surface: #18181d;
+    --text: #f8f8fa;
+    --muted: #aaaab5;
+    --border: #33333d;
 }
 
-/* =========================
-   STRANGE DOT
-========================= */
-
-#movingDot{
-    position:fixed;
-
-    width:8px;
-    height:8px;
-
-    border-radius:50%;
-
-    background:var(--blue);
-
-    opacity:0;
-
-    pointer-events:none;
-
-    z-index:100;
-
-    transition:
-        left 3s ease,
-        top 3s ease,
-        opacity 2s,
-        background 2s;
+body.chaos header {
+    background: rgba(20,20,25,.9);
 }
 
-/* =========================
-   MESSAGE
-========================= */
-
-#message{
-    position:fixed;
-
-    left:50%;
-    bottom:22px;
-
-    transform:translate(-50%,100px);
-
-    background:#111827;
-    color:white;
-
-    padding:11px 18px;
-
-    border-radius:8px;
-
-    font-size:12px;
-
-    opacity:0;
-
-    pointer-events:none;
-
-    transition:.5s;
-
-    z-index:1000;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.2);
+body.chaos .hero-inner {
+    box-shadow: 0 0 70px rgba(120,70,255,.12);
 }
 
-#message.show{
-    opacity:1;
-    transform:translate(-50%,0);
+body.chaos .card:hover {
+    box-shadow: 0 20px 60px rgba(100,50,255,.2);
 }
 
-/* =========================
-   WEIRD STAGES
-========================= */
-
-body.stage2 .card:nth-child(2){
-    transform:translateY(3px);
+.moved {
+    transform:
+        translate(
+            var(--move-x),
+            var(--move-y)
+        )
+        rotate(var(--rotate))
+        scale(var(--scale));
 }
 
-body.stage3 .card:nth-child(2){
-    transform:translateX(7px) rotate(.3deg);
+.flipped {
+    transform:
+        translate(
+            var(--move-x),
+            var(--move-y)
+        )
+        rotateY(180deg)
+        rotate(var(--rotate))
+        scale(var(--scale));
 }
 
-body.stage4 .card:nth-child(3){
-    transform:rotate(-.7deg);
+.inverted {
+    filter: invert(1) hue-rotate(180deg);
 }
 
-body.stage5 .hero h1{
-    animation:tinyShake 3s infinite;
+.sideways {
+    writing-mode: vertical-rl;
 }
 
-@keyframes tinyShake{
+.big {
+    transform:
+        translate(
+            var(--move-x),
+            var(--move-y)
+        )
+        rotate(var(--rotate))
+        scale(1.25);
+}
 
-    0%,94%,100%{
-        transform:translate(0);
+.tiny {
+    transform:
+        translate(
+            var(--move-x),
+            var(--move-y)
+        )
+        rotate(var(--rotate))
+        scale(.7);
+}
+
+.neon {
+    box-shadow:
+        0 0 20px var(--accent),
+        0 0 50px var(--accent2);
+}
+
+.chaos-border {
+    border-radius: 2px !important;
+}
+
+@media(max-width:800px) {
+    nav {
+        gap: 12px;
     }
 
-    95%{
-        transform:translate(1px,-1px);
+    nav a:nth-child(3),
+    nav a:nth-child(4) {
+        display: none;
     }
 
-    97%{
-        transform:translate(-1px,1px);
-    }
-}
-
-body.stage6 .card:nth-child(1){
-    transform:translateX(9px);
-}
-
-body.stage6 .card:nth-child(2){
-    transform:translateX(-6px);
-}
-
-body.stage6 .card:nth-child(3){
-    transform:translateY(7px);
-}
-
-body.stage7{
-    background:#f4f5f7;
-}
-
-body.stage7 .logo{
-    letter-spacing:3px;
-}
-
-body.stage8 .hero h1{
-    letter-spacing:1px;
-}
-
-body.stage9 .card{
-    border-color:#d1d5db;
-}
-
-body.stage10{
-    background:#f1f1f1;
-}
-
-body.stage10 .hero h1{
-    letter-spacing:3px;
-}
-
-body.stage10 .info{
-    transform:translateY(3px);
-}
-
-/* =========================
-   ANIMATION
-========================= */
-
-@keyframes appear{
-    from{
-        opacity:0;
-        transform:translateY(8px);
+    .hero-inner {
+        padding: 35px 25px;
     }
 
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:800px){
-
-    header{
-        padding:0 5%;
+    .cards {
+        grid-template-columns: 1fr;
     }
 
-    nav{
-        display:none;
+    h1 {
+        letter-spacing: -3px;
     }
 
-    .cards{
-        grid-template-columns:1fr;
+    .search {
+        flex-direction: column;
     }
 
-    .hero{
-        padding-top:50px;
+    .search button {
+        padding: 14px;
     }
 }
 </style>
@@ -524,1049 +412,779 @@ body.stage10 .info{
 
 <body>
 
-<header>
+<header id="header">
+    <a href="#accueil" class="logo" id="logo">Dai<span>ly</span></a>
 
-    <div class="logo">
-        Dai<span>ly</span>
-    </div>
-
-    <nav>
+    <nav id="nav">
         <a href="#accueil">Accueil</a>
         <a href="#decouvrir">Découvrir</a>
         <a href="#tendances">Tendances</a>
         <a href="#apropos">À propos</a>
     </nav>
-
 </header>
 
-
-<main class="container">
+<main>
 
 <section class="hero" id="accueil">
+    <div class="hero-inner" id="hero">
+        <div class="eyebrow" id="eyebrow">Magazine numérique</div>
 
-    <h1>
-        Découvrez quelque chose de nouveau.
-    </h1>
+        <h1 id="title">
+            Les choses intéressantes commencent ici.
+        </h1>
 
-    <p id="heroText">
-        Des articles, des découvertes et des informations
-        intéressantes sélectionnés pour vous chaque jour.
-    </p>
+        <p id="subtitle">
+            Découvrez des idées, des découvertes et des histoires
+            sélectionnées pour vous.
+        </p>
 
-    <div class="search">
+        <div class="search">
+            <input
+                id="searchInput"
+                type="text"
+                placeholder="Rechercher un article..."
+            >
+            <button id="searchButton">Rechercher</button>
+        </div>
 
-        <input
-            id="searchInput"
-            type="text"
-            placeholder="Rechercher quelque chose..."
-        >
+        <div id="results"></div>
+    </div>
+</section>
 
-        <button id="searchButton">
-            Rechercher
-        </button>
 
+<section id="decouvrir">
+
+    <div class="section-title">
+        <div>
+            <h2 id="discoverTitle">À découvrir</h2>
+            <p id="discoverSubtitle">Quelques sujets sélectionnés.</p>
+        </div>
     </div>
 
-    <div id="results"></div>
+    <div class="cards" id="cards">
+
+        <article class="card" data-normal-title="Pourquoi les océans changent">
+            <div class="card-number">01</div>
+            <h3>Pourquoi les océans changent</h3>
+            <p>
+                Les océans évoluent constamment sous l'effet
+                des phénomènes naturels et des activités humaines.
+            </p>
+            <a href="#apropos" class="read">En savoir plus →</a>
+        </article>
+
+        <article class="card" data-normal-title="Les villes du futur">
+            <div class="card-number">02</div>
+            <h3>Les villes du futur</h3>
+            <p>
+                À quoi pourraient ressembler les villes dans
+                quelques décennies ?
+            </p>
+            <a href="#apropos" class="read">En savoir plus →</a>
+        </article>
+
+        <article class="card" data-normal-title="Une technologie étonnante">
+            <div class="card-number">03</div>
+            <h3>Une technologie étonnante</h3>
+            <p>
+                Certaines inventions semblent sortir directement
+                d'un film de science-fiction.
+            </p>
+            <a href="#apropos" class="read">En savoir plus →</a>
+        </article>
+
+    </div>
+</section>
+
+
+<section id="tendances">
+
+    <div class="info" id="info">
+        <h2 id="trendTitle">Ce qui fait parler aujourd'hui</h2>
+
+        <p id="trendText">
+            Les sujets scientifiques, technologiques et culturels
+            occupent une place importante dans l'actualité.
+        </p>
+    </div>
 
 </section>
 
 
-<h2 class="section-title" id="decouvrir">
-    À découvrir aujourd'hui
-</h2>
+<section id="apropos">
 
-
-<section class="cards">
-
-    <article class="card">
-
-        <div class="card-image"></div>
-
-        <div class="card-content">
-
-            <h3>
-                Les endroits les plus étonnants du monde
-            </h3>
-
-            <p>
-                Découvrez des lieux fascinants que peu de
-                personnes connaissent.
-            </p>
-
-            <span class="tag">
-                Découverte
-            </span>
-
+    <div class="section-title">
+        <div>
+            <h2>À propos de Daily</h2>
+            <p>Un magazine indépendant.</p>
         </div>
+    </div>
 
-    </article>
-
-
-    <article class="card">
-
-        <div class="card-image"></div>
-
-        <div class="card-content">
-
-            <h3>
-                Pourquoi notre cerveau aime les habitudes
-            </h3>
-
-            <p>
-                Comprendre comment certaines habitudes
-                influencent notre quotidien.
-            </p>
-
-            <span class="tag">
-                Science
-            </span>
-
-        </div>
-
-    </article>
-
-
-    <article class="card">
-
-        <div class="card-image"></div>
-
-        <div class="card-content">
-
-            <h3>
-                10 choses à faire ce week-end
-            </h3>
-
-            <p>
-                Quelques idées simples pour profiter
-                de votre temps libre.
-            </p>
-
-            <span class="tag">
-                Lifestyle
-            </span>
-
-        </div>
-
-    </article>
-
-</section>
-
-
-<section class="info" id="tendances">
-
-    <h2>
-        Une nouvelle découverte chaque jour
-    </h2>
-
-    <p id="infoText">
-        Nous sélectionnons régulièrement du contenu
-        intéressant pour vous permettre de découvrir
-        de nouvelles choses.
-    </p>
-
-</section>
-
-
-<section class="info" id="apropos">
-
-    <h2>
-        À propos de Daily
-    </h2>
-
-    <p>
-        Daily est un petit site consacré aux découvertes,
-        aux tendances et aux informations intéressantes
-        du quotidien.
+    <p style="color:var(--muted);line-height:1.8;max-width:700px;">
+        Daily rassemble des articles et des découvertes dans
+        différents domaines afin de proposer une lecture simple,
+        rapide et accessible.
     </p>
 
 </section>
 
 </main>
 
-
-<footer>
-    © 2026 Daily — Tous droits réservés
+<footer id="footer">
+    © 2026 Daily — Tous droits réservés.
 </footer>
-
-
-<div id="movingDot"></div>
-<div id="message"></div>
 
 
 <script>
 
 /* =========================================================
-   MORPH V2
-   NORMAL → ÉTRANGE
-   ========================================================= */
-
-
-/* =========================
-   VARIABLES
-========================= */
-
-let activity = 0;
-let stage = 0;
-let searches = 0;
-
-const body = document.body;
-const dot = document.getElementById("movingDot");
-const messageBox = document.getElementById("message");
-
-const cards = document.querySelectorAll(".card");
-
-
-/* =========================
-   RANDOM
-========================= */
-
-function random(min,max){
-    return Math.floor(
-        Math.random()*(max-min+1)
-    )+min;
-}
-
-
-/* =========================
-   MESSAGE
-========================= */
-
-function showMessage(text,time=2500){
-
-    messageBox.textContent=text;
-
-    messageBox.classList.add("show");
-
-    clearTimeout(window.messageTimer);
-
-    window.messageTimer=setTimeout(()=>{
-
-        messageBox.classList.remove("show");
-
-    },time);
-}
-
-
-/* =========================
-   ACTIVITY
-========================= */
-
-function activityDetected(){
-
-    activity++;
-
-    checkStage();
-
-}
-
-
-/* =========================
-   PROGRESSION
-========================= */
-
-function checkStage(){
-
-    if(activity>=5 && stage<1){
-
-        stage=1;
-
-        stage1();
-
-    }
-
-    if(activity>=11 && stage<2){
-
-        stage=2;
-
-        stage2();
-
-    }
-
-    if(activity>=18 && stage<3){
-
-        stage=3;
-
-        stage3();
-
-    }
-
-    if(activity>=27 && stage<4){
-
-        stage=4;
-
-        stage4();
-
-    }
-
-    if(activity>=37 && stage<5){
-
-        stage=5;
-
-        stage5();
-
-    }
-
-    if(activity>=49 && stage<6){
-
-        stage=6;
-
-        stage6();
-
-    }
-
-    if(activity>=62 && stage<7){
-
-        stage=7;
-
-        stage7();
-
-    }
-
-    if(activity>=76 && stage<8){
-
-        stage=8;
-
-        stage8();
-
-    }
-
-    if(activity>=92 && stage<9){
-
-        stage=9;
-
-        stage9();
-
-    }
-
-    if(activity>=110 && stage<10){
-
-        stage=10;
-
-        stage10();
-
-    }
-
-}
-
-
-/* =========================================================
-   STAGE 1
-   Presque totalement normal.
+   CHAQUE ACTUALISATION = NOUVELLE VERSION
 ========================================================= */
 
-function stage1(){
-
-    /*
-       Rien de gros.
-       Juste une carte qui bouge très légèrement.
-    */
-
-    setTimeout(()=>{
-
-        const card=cards[0];
-
-        card.animate(
-            [
-                {
-                    transform:"translateY(0)"
-                },
-
-                {
-                    transform:"translateY(-3px)"
-                },
-
-                {
-                    transform:"translateY(0)"
-                }
-            ],
-            {
-                duration:1400
-            }
-        );
-
-    },1000);
-
-}
-
-
-/* =========================================================
-   STAGE 2
-========================================================= */
-
-function stage2(){
-
-    body.classList.add("stage2");
-
-    setTimeout(()=>{
-
-        cards[1].animate(
-            [
-                {
-                    transform:"translateX(0)"
-                },
-
-                {
-                    transform:"translateX(8px)"
-                },
-
-                {
-                    transform:"translateX(0)"
-                }
-            ],
-            {
-                duration:1800
-            }
-        );
-
-    },1200);
-
-}
-
-
-/* =========================================================
-   STAGE 3
-   Petit objet qui apparaît.
-========================================================= */
-
-function stage3(){
-
-    body.classList.add("stage3");
-
-    dot.style.opacity=".35";
-
-    dot.style.left="48%";
-    dot.style.top="42%";
-
-}
-
-
-/* =========================================================
-   STAGE 4
-========================================================= */
-
-function stage4(){
-
-    body.classList.add("stage4");
-
-    setTimeout(()=>{
-
-        document.querySelector("nav a:nth-child(2)")
-        .animate(
-            [
-                {
-                    transform:"translateY(0)"
-                },
-
-                {
-                    transform:"translateY(7px)"
-                },
-
-                {
-                    transform:"translateY(0)"
-                }
-            ],
-            {
-                duration:2200
-            }
-        );
-
-    },1000);
-
-}
-
-
-/* =========================================================
-   STAGE 5
-   Les textes commencent à changer.
-========================================================= */
-
-function stage5(){
-
-    body.classList.add("stage5");
-
-    setTimeout(()=>{
-
-        document.querySelector(".card:nth-child(2) p")
-        .textContent =
-        "Comprendre comment certaines habitudes influencent notre quotidien.";
-
-    },2500);
-
-}
-
-
-/* =========================================================
-   STAGE 6
-========================================================= */
-
-function stage6(){
-
-    body.classList.add("stage6");
-
-    setTimeout(()=>{
-
-        showMessage(
-            "Tout semble fonctionner normalement."
-        );
-
-    },1800);
-
-}
-
-
-/* =========================================================
-   STAGE 7
-   PREMIER VRAI CHANGEMENT DE TEXTE
-========================================================= */
-
-function stage7(){
-
-    body.classList.add("stage7");
-
-    setTimeout(()=>{
-
-        document.querySelector(".hero h1")
-        .textContent =
-        "Découvrez quelque chose de nouveau.";
-
-    },1000);
-
-
-    setTimeout(()=>{
-
-        document.querySelector(".card:nth-child(1) h3")
-        .textContent =
-        "Les endroits les plus étonnants du monde.";
-
-    },3000);
-
-
-    setTimeout(()=>{
-
-        document.querySelector(".card:nth-child(3) p")
-        .textContent =
-        "Quelques idées simples pour profiter de votre temps libre.";
-
-    },5000);
-
-}
-
-
-/* =========================================================
-   STAGE 8
-   LES TEXTES COMMENCENT À ÊTRE BIZARRES
-========================================================= */
-
-function stage8(){
-
-    body.classList.add("stage8");
-
-    setTimeout(()=>{
-
-        document.querySelector(".hero h1")
-        .textContent =
-        "Découvrez quelque chose qui était déjà là.";
-
-    },1500);
-
-
-    setTimeout(()=>{
-
-        document.querySelector(".hero p")
-        .textContent =
-        "Nous sélectionnons des informations pour vous permettre de découvrir de nouvelles choses.";
-
-    },3500);
-
-
-    setTimeout(()=>{
-
-        document.querySelector(".card:nth-child(1) h3")
-        .textContent =
-        "Certains endroits sont difficiles à oublier.";
-
-    },5500);
-
-}
-
-
-/* =========================================================
-   STAGE 9
-   PLUS BIZARRE
-========================================================= */
-
-function stage9(){
-
-    body.classList.add("stage9");
-
-    setTimeout(()=>{
-
-        document.querySelector(".card:nth-child(2) h3")
-        .textContent =
-        "Votre cerveau aime les habitudes.";
-
-    },1000);
-
-
-    setTimeout(()=>{
-
-        document.querySelector(".card:nth-child(3) h3")
-        .textContent =
-        "10 choses que vous faites probablement sans y penser.";
-
-    },3000);
-
-
-    setTimeout(()=>{
-
-        document.querySelector("#infoText")
-        .textContent =
-        "Nous mettons régulièrement à jour cette page.";
-
-    },5000);
-
-
-    setTimeout(()=>{
-
-        showMessage(
-            "Vous êtes toujours là."
-        );
-
-    },7000);
-
-}
-
-
-/* =========================================================
-   STAGE 10
-   ÉTRANGE
-========================================================= */
-
-function stage10(){
-
-    body.classList.add("stage10");
-
-    setTimeout(()=>{
-
-        document.querySelector(".hero h1")
-        .textContent =
-        "Vous êtes arrivé jusqu'ici.";
-
-    },1000);
-
-
-    setTimeout(()=>{
-
-        document.querySelector(".hero p")
-        .textContent =
-        "C'est intéressant.";
-
-    },3000);
-
-
-    setTimeout(()=>{
-
-        document.querySelector(".card:nth-child(1) h3")
-        .textContent =
-        "Vous n'aviez probablement pas besoin de lire ceci.";
-
-    },5000);
-
-
-    setTimeout(()=>{
-
-        document.querySelector(".card:nth-child(2) h3")
-        .textContent =
-        "Vous avez déjà regardé cette carte.";
-
-    },7000);
-
-
-    setTimeout(()=>{
-
-        document.querySelector(".card:nth-child(3) h3")
-        .textContent =
-        "Continuez.";
-
-    },9000);
-
-
-    setTimeout(()=>{
-
-        document.querySelector("#infoText")
-        .textContent =
-        "La page fonctionne normalement.";
-
-    },11000);
-
-
-    setTimeout(()=>{
-
-        showMessage(
-            "La page fonctionne normalement.",
-            4000
-        );
-
-    },13000);
-
-}
-
-
-/* =========================================================
-   SOURIS
-========================================================= */
-
-document.addEventListener("mousemove",()=>{
-
-    /*
-       On ne fait pas avancer le scénario à chaque pixel.
-       Sinon tout va beaucoup trop vite.
-    */
-
-    if(Math.random()<0.025){
-
-        activityDetected();
-
-    }
-
-});
-
-
-/* =========================================================
-   CLIC
-========================================================= */
-
-document.addEventListener("click",()=>{
-
-    activityDetected();
-
-});
-
-
-/* =========================================================
-   RECHERCHE
-========================================================= */
-
-const searchInput=
-    document.getElementById("searchInput");
-
-const searchButton=
-    document.getElementById("searchButton");
-
-const results=
-    document.getElementById("results");
-
-
-const normalResults={
-
-    minecraft:[
-        [
-            "Minecraft",
-            "Un jeu de construction et d'aventure dans un monde généré automatiquement."
-        ],
-        [
-            "Guide Minecraft",
-            "Découvrez des conseils, des constructions et des astuces."
-        ]
+const random = arr =>
+    arr[Math.floor(Math.random() * arr.length)];
+
+const chance = probability =>
+    Math.random() < probability;
+
+
+/* ---------------------------------------------------------
+   Profil complètement aléatoire à chaque refresh
+--------------------------------------------------------- */
+
+const profiles = [
+    "clean",
+    "dark",
+    "colorful",
+    "editorial",
+    "minimal",
+    "chaotic",
+    "strange"
+];
+
+const profile = random(profiles);
+
+
+/* ---------------------------------------------------------
+   Textes
+--------------------------------------------------------- */
+
+const weirdTitles = [
+    "Les choses intéressantes commencent ici.",
+    "Découvrez ce qui mérite votre attention.",
+    "Une nouvelle façon de regarder le monde.",
+    "Tout ce que vous devez savoir aujourd'hui.",
+    "Quelques idées qui valent le détour.",
+    "Bienvenue dans quelque chose de parfaitement normal."
+];
+
+const weirdSubtitles = [
+    "Découvrez des idées, des découvertes et des histoires sélectionnées pour vous.",
+    "Des informations soigneusement choisies pour votre lecture.",
+    "Quelques sujets intéressants réunis au même endroit.",
+    "Il y a beaucoup de choses à découvrir ici.",
+    "Tout semble normal. Pour le moment.",
+    "Cette page contient exactement ce qu'elle est censée contenir.",
+    "Vous pouvez continuer à lire normalement.",
+    "Ne vous inquiétez pas du titre."
+];
+
+const weirdCardTitles = [
+    [
+        "Une découverte inattendue",
+        "Les choses changent plus vite qu'on ne le pense",
+        "Un phénomène fascinant"
     ],
-
-    espace:[
-        [
-            "L'espace",
-            "Les dernières découvertes concernant l'univers et les objets célestes."
-        ],
-        [
-            "Système solaire",
-            "Découvrez les planètes et les différents objets qui nous entourent."
-        ]
+    [
+        "Pourquoi personne ne remarque cela",
+        "Une histoire particulièrement étrange",
+        "La technologie qui arrive"
     ],
-
-    science:[
-        [
-            "Science",
-            "Des explications simples sur les phénomènes qui nous entourent."
-        ],
-        [
-            "Découvertes",
-            "Les découvertes scientifiques qui ont changé notre compréhension du monde."
-        ]
+    [
+        "Ceci est le premier article",
+        "Ceci est probablement le deuxième",
+        "Le troisième était ici"
     ],
-
-    default:[
-        [
-            "Résultats populaires",
-            "Nous avons trouvé plusieurs informations correspondant à votre recherche."
-        ],
-        [
-            "Découvrir",
-            "Explorez les différents sujets proposés sur Daily."
-        ]
+    [
+        "Les océans",
+        "Les villes",
+        "Quelque chose avec la technologie"
+    ],
+    [
+        "Article intéressant",
+        "Article très intéressant",
+        "Article encore plus intéressant"
     ]
+];
 
-};
+const weirdDescriptions = [
+    "Cette histoire mérite quelques minutes de votre attention.",
+    "Les chercheurs continuent d'étudier ce phénomène.",
+    "Personne ne sait exactement pourquoi cela fonctionne.",
+    "Ce sujet devient de plus en plus intéressant.",
+    "Tout ceci est parfaitement normal.",
+    "Cette information était différente avant l'actualisation.",
+    "Vous avez probablement déjà vu cette carte.",
+    "La position de cette carte est correcte.",
+    "Ne cherchez pas à comprendre cette partie."
+];
 
 
-function doSearch(){
+/* ---------------------------------------------------------
+   Version de base
+--------------------------------------------------------- */
 
-    const query=
-        searchInput.value
+function randomTheme() {
+
+    if(profile === "dark") {
+        document.body.classList.add("chaos");
+    }
+
+    if(profile === "colorful") {
+        document.documentElement.style.setProperty(
+            "--accent",
+            random([
+                "#ff315c",
+                "#8b45ff",
+                "#00a878",
+                "#ff7b00",
+                "#008cff"
+            ])
+        );
+
+        document.documentElement.style.setProperty(
+            "--accent2",
+            random([
+                "#ffb000",
+                "#00d9ff",
+                "#ff45d0",
+                "#6dff45"
+            ])
+        );
+    }
+
+    if(profile === "editorial") {
+        document.documentElement.style.setProperty(
+            "--radius",
+            "2px"
+        );
+
+        document.body.style.fontFamily =
+            "Georgia, Times New Roman, serif";
+    }
+
+    if(profile === "minimal") {
+        document.documentElement.style.setProperty(
+            "--radius",
+            "5px"
+        );
+    }
+}
+
+
+/* ---------------------------------------------------------
+   Textes aléatoires
+--------------------------------------------------------- */
+
+function randomizeTexts() {
+
+    document.getElementById("title").textContent =
+        random(weirdTitles);
+
+    document.getElementById("subtitle").textContent =
+        random(weirdSubtitles);
+
+    document.getElementById("eyebrow").textContent =
+        random([
+            "Magazine numérique",
+            "Actualités",
+            "À découvrir",
+            "Sélection du jour",
+            "Magazine indépendant",
+            "Informations"
+        ]);
+
+    document.getElementById("discoverTitle").textContent =
+        random([
+            "À découvrir",
+            "Articles sélectionnés",
+            "Nos découvertes",
+            "Dernières découvertes",
+            "À lire",
+            "Sujets du moment"
+        ]);
+
+    document.getElementById("discoverSubtitle").textContent =
+        random([
+            "Quelques sujets sélectionnés.",
+            "Des histoires qui méritent votre attention.",
+            "Notre sélection du moment.",
+            "Trois articles à découvrir.",
+            "Une sélection parfaitement normale."
+        ]);
+
+    document.getElementById("trendTitle").textContent =
+        random([
+            "Ce qui fait parler aujourd'hui",
+            "Les tendances du moment",
+            "À la une",
+            "Ce qu'il faut retenir",
+            "Les sujets importants",
+            "Les dernières tendances"
+        ]);
+
+    document.getElementById("trendText").textContent =
+        random([
+            "Les sujets scientifiques, technologiques et culturels occupent une place importante dans l'actualité.",
+            "De nombreuses découvertes continuent de transformer notre quotidien.",
+            "Les nouvelles technologies font évoluer nos habitudes.",
+            "Certains sujets prennent aujourd'hui une place inattendue.",
+            "Tout semble parfaitement normal dans cette section."
+        ]);
+}
+
+
+/* ---------------------------------------------------------
+   Cartes
+--------------------------------------------------------- */
+
+function randomizeCards() {
+
+    const cards = [...document.querySelectorAll(".card")];
+    const titles = random(weirdCardTitles);
+
+    cards.forEach((card,index) => {
+
+        const h3 = card.querySelector("h3");
+        const p = card.querySelector("p");
+
+        h3.textContent = titles[index];
+
+        p.textContent = random(weirdDescriptions);
+
+        card.querySelector(".card-number").textContent =
+            String(index + 1).padStart(2,"0");
+    });
+
+    /* changement d'ordre */
+    if(chance(.65)) {
+
+        const container = document.getElementById("cards");
+
+        const shuffled = [...cards].sort(
+            () => Math.random() - .5
+        );
+
+        shuffled.forEach(card =>
+            container.appendChild(card)
+        );
+    }
+}
+
+
+/* ---------------------------------------------------------
+   Gros déplacements
+--------------------------------------------------------- */
+
+function moveElement(element) {
+
+    const x = Math.round(Math.random() * 260 - 130);
+    const y = Math.round(Math.random() * 180 - 90);
+    const r = Math.round(Math.random() * 20 - 10);
+    const s = (Math.random() * .35 + .9).toFixed(2);
+
+    element.style.setProperty("--move-x", `${x}px`);
+    element.style.setProperty("--move-y", `${y}px`);
+    element.style.setProperty("--rotate", `${r}deg`);
+    element.style.setProperty("--scale", s);
+
+    element.classList.add("moved");
+}
+
+
+/* ---------------------------------------------------------
+   Transformations
+--------------------------------------------------------- */
+
+function mutateElements() {
+
+    const hero = document.getElementById("hero");
+    const info = document.getElementById("info");
+    const logo = document.getElementById("logo");
+    const cards = [...document.querySelectorAll(".card")];
+    const title = document.getElementById("title");
+
+    const all = [
+        hero,
+        info,
+        logo,
+        title,
+        ...cards
+    ];
+
+    /* au moins un gros déplacement */
+    if(chance(.85)) {
+        moveElement(random(all));
+    }
+
+    /* parfois plusieurs */
+    if(chance(.45)) {
+        moveElement(random(all));
+    }
+
+    /* inversion */
+    if(chance(.45)) {
+
+        const el = random([
+            ...cards,
+            info,
+            hero
+        ]);
+
+        el.classList.add("flipped");
+    }
+
+    /* inversion des couleurs */
+    if(chance(.30)) {
+
+        const el = random([
+            ...cards,
+            info,
+            hero
+        ]);
+
+        el.classList.add("inverted");
+    }
+
+    /* très gros */
+    if(chance(.30)) {
+
+        random([
+            ...cards,
+            hero,
+            info
+        ]).classList.add("big");
+    }
+
+    /* très petit */
+    if(chance(.20)) {
+
+        random(cards).classList.add("tiny");
+    }
+
+    /* effet bizarre */
+    if(chance(.35)) {
+
+        random([
+            ...cards,
+            info,
+            hero
+        ]).classList.add("neon");
+    }
+
+    /* bordures */
+    if(chance(.25)) {
+
+        random([
+            ...cards,
+            hero,
+            info
+        ]).classList.add("chaos-border");
+    }
+}
+
+
+/* ---------------------------------------------------------
+   Logo
+--------------------------------------------------------- */
+
+function mutateLogo() {
+
+    const logo = document.getElementById("logo");
+
+    logo.innerHTML = random([
+        "Dai<span>ly</span>",
+        "Daily.",
+        "DAILY",
+        "d a i l y",
+        "Dai<span>ly?</span>",
+        "D A I L Y",
+        "Daily<span>!</span>",
+        "Daily™",
+        "Daily.exe",
+        "Daily..."
+    ]);
+}
+
+
+/* ---------------------------------------------------------
+   Navigation
+--------------------------------------------------------- */
+
+function mutateNavigation() {
+
+    const nav = document.getElementById("nav");
+    const links = [...nav.children];
+
+    if(chance(.7)) {
+
+        links
+            .sort(() => Math.random() - .5)
+            .forEach(link => nav.appendChild(link));
+    }
+
+    if(chance(.4)) {
+
+        random(links).style.transform =
+            `rotate(${Math.round(Math.random()*12-6)}deg)`;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   Couleurs
+--------------------------------------------------------- */
+
+function mutateColors() {
+
+    const colors = [
+        ["#ff315c","#ff8a00"],
+        ["#7c3aed","#ec4899"],
+        ["#00a878","#00c2ff"],
+        ["#ffb000","#ff4d00"],
+        ["#2563eb","#9333ea"],
+        ["#111111","#555555"]
+    ];
+
+    const pair = random(colors);
+
+    document.documentElement.style.setProperty(
+        "--accent",
+        pair[0]
+    );
+
+    document.documentElement.style.setProperty(
+        "--accent2",
+        pair[1]
+    );
+}
+
+
+/* ---------------------------------------------------------
+   Layout complètement différent
+--------------------------------------------------------- */
+
+function mutateLayout() {
+
+    const cards = document.getElementById("cards");
+
+    if(chance(.5)) {
+
+        cards.style.gridTemplateColumns =
+            random([
+                "1fr",
+                "1fr 1fr",
+                "2fr 1fr",
+                "1fr 2fr",
+                "repeat(3, 1fr)"
+            ]);
+    }
+
+    if(chance(.35)) {
+
+        document.getElementById("hero").style.borderRadius =
+            random([
+                "0px",
+                "50px",
+                "100px 0 100px 0",
+                "5px",
+                "40px 5px 40px 5px"
+            ]);
+    }
+}
+
+
+/* ---------------------------------------------------------
+   Mode très bizarre
+--------------------------------------------------------- */
+
+function extremeChaos() {
+
+    document.body.classList.add("chaos");
+
+    document.getElementById("title").style.fontSize =
+        random([
+            "clamp(50px, 10vw, 120px)",
+            "clamp(30px, 5vw, 60px)",
+            "clamp(60px, 12vw, 140px)"
+        ]);
+
+    document.getElementById("title").style.transform =
+        `rotate(${Math.round(Math.random()*10-5)}deg)`;
+
+    if(chance(.5)) {
+
+        document.getElementById("info").style.transform =
+            `translateX(${Math.round(Math.random()*400-200)}px)
+             rotate(${Math.round(Math.random()*16-8)}deg)`;
+    }
+
+    if(chance(.5)) {
+
+        document.getElementById("header").style.transform =
+            `rotate(${Math.round(Math.random()*4-2)}deg)`;
+    }
+
+    if(chance(.4)) {
+
+        document.body.style.letterSpacing =
+            random([
+                "0px",
+                "1px",
+                "2px",
+                "-1px"
+            ]);
+    }
+}
+
+
+/* ---------------------------------------------------------
+   Chaque refresh lance UNE nouvelle combinaison
+--------------------------------------------------------- */
+
+function generateVersion() {
+
+    randomTheme();
+    randomizeTexts();
+    randomizeCards();
+
+    mutateLogo();
+    mutateNavigation();
+    mutateColors();
+    mutateLayout();
+    mutateElements();
+
+    /*
+       Certaines visites sont beaucoup plus folles
+       que d'autres.
+    */
+
+    if(profile === "chaotic") {
+        mutateElements();
+        mutateElements();
+        mutateElements();
+        extremeChaos();
+    }
+
+    if(profile === "strange") {
+        mutateElements();
+        mutateElements();
+        mutateLogo();
+        extremeChaos();
+    }
+
+    if(chance(.30)) {
+        extremeChaos();
+    }
+}
+
+
+/* =========================================================
+   RECHERCHE FONCTIONNELLE
+========================================================= */
+
+const articles = [
+    {
+        title: "Pourquoi les océans changent",
+        text: "Une exploration des phénomènes qui transforment les océans."
+    },
+    {
+        title: "Les villes du futur",
+        text: "Architecture, transports et nouvelles façons de vivre."
+    },
+    {
+        title: "Une technologie étonnante",
+        text: "Des inventions qui pourraient transformer notre quotidien."
+    },
+    {
+        title: "Les découvertes scientifiques",
+        text: "Quelques découvertes récentes à connaître."
+    },
+    {
+        title: "L'avenir du numérique",
+        text: "Comment les technologies évoluent autour de nous."
+    }
+];
+
+function search() {
+
+    const input =
+        document.getElementById("searchInput").value
         .trim()
         .toLowerCase();
 
-    if(!query){
+    const results =
+        document.getElementById("results");
 
-        searchInput.focus();
-
+    if(!input) {
+        results.style.display = "none";
         return;
-
     }
 
-    searches++;
-
-    activityDetected();
-
-    results.innerHTML="";
-
-    let data=normalResults.default;
-
-    if(query.includes("minecraft")){
-        data=normalResults.minecraft;
-    }
-
-    else if(query.includes("espace")){
-        data=normalResults.espace;
-    }
-
-    else if(query.includes("science")){
-        data=normalResults.science;
-    }
-
-    data.forEach(item=>{
-
-        const result=
-            document.createElement("div");
-
-        result.className="result";
-
-        result.innerHTML=`
-            <strong>${item[0]}</strong>
-            <span>${item[1]}</span>
-        `;
-
-        results.appendChild(result);
-
-    });
-
-    results.style.display="block";
-
-
-    /*
-       Après plusieurs recherches,
-       le moteur lui-même commence à changer.
-    */
-
-    if(searches>=3 && stage>=7){
-
-        setTimeout(()=>{
-
-            const last=
-                results.querySelector(".result strong");
-
-            if(last){
-
-                last.textContent=
-                    "Résultat trouvé";
-
-            }
-
-        },1500);
-
-    }
-
-
-    if(searches>=5 && stage>=9){
-
-        setTimeout(()=>{
-
-            const spans=
-                results.querySelectorAll(".result span");
-
-            if(spans.length){
-
-                spans[0].textContent=
-                    "Aucune information supplémentaire.";
-
-            }
-
-        },2000);
-
-    }
-
-}
-
-
-searchButton.addEventListener(
-    "click",
-    doSearch
-);
-
-
-searchInput.addEventListener(
-    "keydown",
-    e=>{
-
-        if(e.key==="Enter"){
-
-            doSearch();
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   POINT
-========================================================= */
-
-setInterval(()=>{
-
-    if(stage>=3){
-
-        dot.style.left=random(15,85)+"%";
-        dot.style.top=random(20,80)+"%";
-
-    }
-
-},5000);
-
-
-/* =========================================================
-   INACTIVITÉ
-========================================================= */
-
-let idle;
-
-function resetIdle(){
-
-    clearTimeout(idle);
-
-    idle=setTimeout(()=>{
-
-        if(stage>=6){
-
-            showMessage(
-                stage>=9
-                ? "Vous êtes encore là."
-                : "Aucune activité détectée."
-            );
-
-        }
-
-    },15000);
-
-}
-
-
-["mousemove","keydown","click","touchstart"]
-.forEach(event=>{
-
-    document.addEventListener(
-        event,
-        resetIdle,
-        {passive:true}
+    const found = articles.filter(article =>
+        article.title.toLowerCase().includes(input) ||
+        article.text.toLowerCase().includes(input)
     );
 
-});
+    results.style.display = "block";
 
+    if(found.length === 0) {
 
-resetIdle();
+        results.innerHTML = `
+            <div class="results-box">
+                <strong>Aucun résultat</strong>
+                <p style="color:var(--muted)">
+                    Aucun article ne correspond à votre recherche.
+                </p>
+            </div>
+        `;
 
-
-/* =========================================================
-   PETITES ANOMALIES ALÉATOIRES
-========================================================= */
-
-/*
-   Elles ne se produisent pas forcément à chaque visite.
-   C'est ce qui rend les visites différentes.
-*/
-
-setTimeout(()=>{
-
-    if(Math.random()<0.35){
-
-        const card=
-            cards[random(0,cards.length-1)];
-
-        card.animate(
-            [
-                {
-                    transform:"translate(0,0)"
-                },
-
-                {
-                    transform:
-                        `translate(${random(-6,6)}px,
-                        ${random(-4,5)}px)`
-                },
-
-                {
-                    transform:"translate(0,0)"
-                }
-            ],
-            {
-                duration:1800
-            }
-        );
-
+        return;
     }
 
-},12000);
+    results.innerHTML = `
+        <div class="results-box">
+            ${found.map(article => `
+                <div class="result">
+                    <strong>${article.title}</strong>
+                    <span>${article.text}</span>
+                </div>
+            `).join("")}
+        </div>
+    `;
+}
 
+document
+    .getElementById("searchButton")
+    .addEventListener("click", search);
 
-setTimeout(()=>{
+document
+    .getElementById("searchInput")
+    .addEventListener("keydown", event => {
 
-    if(Math.random()<0.25 && stage>=3){
-
-        showMessage(
-            "Mise à jour terminée."
-        );
-
-    }
-
-},25000);
-
-
-/* =========================================================
-   TOUCH
-========================================================= */
-
-document.addEventListener(
-    "touchstart",
-    ()=>{
-        activityDetected();
-    },
-    {passive:true}
-);
+        if(event.key === "Enter") {
+            search();
+        }
+    });
 
 
 /* =========================================================
-   CONSOLE
+   LANCEMENT
 ========================================================= */
 
-console.log(
-    "%cDaily",
-    "font-size:24px;font-weight:bold;color:#2563eb"
-);
-
-console.log(
-    "Tout est normal."
-);
+generateVersion();
 
 </script>
 
 </body>
 </html>
-```

@@ -4,47 +4,65 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Daily — Actualités & découvertes</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+    box-sizing:border-box;
+}
 
 :root{
     --blue:#2563eb;
     --dark:#111827;
     --gray:#6b7280;
-    --light:#f3f4f6;
+    --light:#f8fafc;
 }
 
-html,body{
-    margin:0;
-    min-height:100%;
-    font-family:Arial,Helvetica,sans-serif;
-    background:#f8fafc;
-    color:#172033;
-    overflow-x:hidden;
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-    transition:background 2s,color 2s;
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--light);
+    color:#172033;
+    transition:
+        background 2s ease,
+        color 2s ease;
+    overflow-x:hidden;
 }
+
+/* =========================
+   HEADER
+========================= */
 
 header{
     height:70px;
-    background:white;
+    background:#fff;
     border-bottom:1px solid #e5e7eb;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
+
     padding:0 7%;
-    position:relative;
-    z-index:10;
+
+    position:sticky;
+    top:0;
+    z-index:50;
+
+    transition:
+        background 2s,
+        border-color 2s;
 }
 
 .logo{
     font-size:24px;
     font-weight:800;
     color:#111827;
+    transition:.8s;
 }
 
 .logo span{
@@ -60,12 +78,16 @@ nav a{
     color:#4b5563;
     text-decoration:none;
     font-size:14px;
-    transition:.3s;
+    transition:.5s;
 }
 
 nav a:hover{
     color:var(--blue);
 }
+
+/* =========================
+   MAIN
+========================= */
 
 .container{
     width:min(1100px,90%);
@@ -73,22 +95,33 @@ nav a:hover{
 }
 
 .hero{
-    padding:70px 0 45px;
+    padding:75px 0 50px;
     text-align:center;
+    transition:2s;
 }
 
 .hero h1{
     font-size:clamp(36px,6vw,64px);
     margin:0;
     letter-spacing:-2px;
+    transition:
+        transform 1s,
+        letter-spacing 2s;
 }
 
 .hero p{
     color:var(--gray);
-    max-width:600px;
+    max-width:620px;
     margin:20px auto 0;
     line-height:1.7;
+    transition:
+        color 2s,
+        opacity 1s;
 }
+
+/* =========================
+   SEARCH
+========================= */
 
 .search{
     display:flex;
@@ -99,23 +132,81 @@ nav a:hover{
 
 .search input{
     flex:1;
+
     border:1px solid #d1d5db;
     background:white;
+
     padding:14px 16px;
+
     border-radius:10px;
+
     outline:none;
+
     font-size:15px;
+
+    transition:.5s;
+}
+
+.search input:focus{
+    border-color:var(--blue);
+    box-shadow:0 0 0 3px rgba(37,99,235,.1);
 }
 
 .search button{
     border:0;
     background:var(--blue);
     color:white;
+
     padding:0 22px;
+
     border-radius:10px;
+
     cursor:pointer;
     font-weight:bold;
+
+    transition:
+        transform .2s,
+        background 1s;
 }
+
+.search button:hover{
+    transform:translateY(-2px);
+}
+
+/* =========================
+   SEARCH RESULTS
+========================= */
+
+#results{
+    max-width:700px;
+    margin:20px auto 0;
+    display:none;
+}
+
+.result{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:12px;
+    padding:17px;
+    margin-bottom:10px;
+    text-align:left;
+    animation:appear .4s ease;
+}
+
+.result strong{
+    display:block;
+    margin-bottom:6px;
+}
+
+.result span{
+    color:var(--gray);
+    font-size:13px;
+    line-height:1.5;
+}
+
+/* =========================
+   CARDS
+========================= */
 
 .section-title{
     margin:35px 0 18px;
@@ -133,10 +224,17 @@ nav a:hover{
     border:1px solid #e5e7eb;
     border-radius:14px;
     overflow:hidden;
+
     transition:
-        transform .5s,
-        box-shadow .5s,
-        border-color .5s;
+        transform 1s ease,
+        box-shadow 1s,
+        border-color 2s,
+        background 2s;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
 }
 
 .card-image{
@@ -144,6 +242,7 @@ nav a:hover{
     background:linear-gradient(135deg,#dbeafe,#bfdbfe);
     position:relative;
     overflow:hidden;
+    transition:3s;
 }
 
 .card:nth-child(2) .card-image{
@@ -161,6 +260,7 @@ nav a:hover{
 .card h3{
     margin:0 0 10px;
     font-size:18px;
+    transition:2s;
 }
 
 .card p{
@@ -168,118 +268,181 @@ nav a:hover{
     color:var(--gray);
     line-height:1.6;
     font-size:14px;
+    transition:2s;
 }
 
 .tag{
     display:inline-block;
     margin-top:15px;
+
     font-size:11px;
+
     color:var(--blue);
     background:#eff6ff;
+
     padding:5px 9px;
     border-radius:20px;
+
+    transition:1s;
 }
+
+/* =========================
+   INFO
+========================= */
 
 .info{
     margin:50px 0;
+
     padding:30px;
+
     background:white;
+
     border:1px solid #e5e7eb;
     border-radius:14px;
+
     text-align:center;
+
+    transition:
+        background 2s,
+        border-color 2s,
+        transform 2s;
+}
+
+.info h2{
+    transition:2s;
 }
 
 .info p{
     color:var(--gray);
     line-height:1.7;
-}
-
-footer{
-    border-top:1px solid #e5e7eb;
-    background:white;
-    padding:30px;
-    text-align:center;
-    color:#9ca3af;
-    font-size:13px;
-    margin-top:60px;
+    transition:2s;
 }
 
 /* =========================
-   ELEMENTS THAT WILL BECOME WEIRD
-   ========================= */
+   FOOTER
+========================= */
+
+footer{
+    border-top:1px solid #e5e7eb;
+
+    background:white;
+
+    padding:30px;
+
+    text-align:center;
+
+    color:#9ca3af;
+
+    font-size:13px;
+
+    margin-top:60px;
+
+    transition:
+        background 2s,
+        color 2s;
+}
+
+/* =========================
+   STRANGE DOT
+========================= */
 
 #movingDot{
     position:fixed;
-    width:9px;
-    height:9px;
+
+    width:8px;
+    height:8px;
+
     border-radius:50%;
-    background:#2563eb;
+
+    background:var(--blue);
+
     opacity:0;
+
     pointer-events:none;
+
     z-index:100;
-    transition:opacity 1s;
+
+    transition:
+        left 3s ease,
+        top 3s ease,
+        opacity 2s,
+        background 2s;
 }
 
-#strangeMessage{
+/* =========================
+   MESSAGE
+========================= */
+
+#message{
     position:fixed;
-    bottom:18px;
+
     left:50%;
-    transform:translateX(-50%);
+    bottom:22px;
+
+    transform:translate(-50%,100px);
+
     background:#111827;
     color:white;
-    padding:10px 17px;
+
+    padding:11px 18px;
+
     border-radius:8px;
+
     font-size:12px;
+
     opacity:0;
+
     pointer-events:none;
-    transition:opacity .5s;
+
+    transition:.5s;
+
     z-index:1000;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
 }
 
-#strangeMessage.show{
+#message.show{
     opacity:1;
+    transform:translate(-50%,0);
 }
 
-/* bizarre transformations */
-
-body.stage2 .card{
-    transition-duration:2s;
-}
+/* =========================
+   WEIRD STAGES
+========================= */
 
 body.stage2 .card:nth-child(2){
     transform:translateY(3px);
 }
 
 body.stage3 .card:nth-child(2){
-    transform:translateX(7px) rotate(.4deg);
-}
-
-body.stage3 .card:nth-child(2) .card-image{
-    background:linear-gradient(135deg,#dbeafe,#c4b5fd);
-}
-
-body.stage4 nav a:nth-child(2){
-    position:relative;
-    top:4px;
+    transform:translateX(7px) rotate(.3deg);
 }
 
 body.stage4 .card:nth-child(3){
-    transform:rotate(-1deg);
+    transform:rotate(-.7deg);
 }
 
 body.stage5 .hero h1{
-    animation:titleShake 2s infinite;
+    animation:tinyShake 3s infinite;
 }
 
-@keyframes titleShake{
-    0%,90%,100%{transform:translate(0)}
-    92%{transform:translate(1px,-1px)}
-    94%{transform:translate(-1px,1px)}
-    96%{transform:translate(1px,1px)}
+@keyframes tinyShake{
+
+    0%,94%,100%{
+        transform:translate(0);
+    }
+
+    95%{
+        transform:translate(1px,-1px);
+    }
+
+    97%{
+        transform:translate(-1px,1px);
+    }
 }
 
 body.stage6 .card:nth-child(1){
-    transform:translateX(10px);
+    transform:translateX(9px);
 }
 
 body.stage6 .card:nth-child(2){
@@ -287,7 +450,7 @@ body.stage6 .card:nth-child(2){
 }
 
 body.stage6 .card:nth-child(3){
-    transform:translateY(8px);
+    transform:translateY(7px);
 }
 
 body.stage7{
@@ -298,19 +461,48 @@ body.stage7 .logo{
     letter-spacing:3px;
 }
 
-body.stage8 .hero p{
-    color:#59616f;
+body.stage8 .hero h1{
+    letter-spacing:1px;
 }
 
 body.stage9 .card{
-    border-color:#d6d9df;
+    border-color:#d1d5db;
+}
+
+body.stage10{
+    background:#f1f1f1;
 }
 
 body.stage10 .hero h1{
-    letter-spacing:-1px;
+    letter-spacing:3px;
 }
 
+body.stage10 .info{
+    transform:translateY(3px);
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(8px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
 @media(max-width:800px){
+
     header{
         padding:0 5%;
     }
@@ -333,672 +525,917 @@ body.stage10 .hero h1{
 <body>
 
 <header>
-    <div class="logo">Dai<span>ly</span></div>
+
+    <div class="logo">
+        Dai<span>ly</span>
+    </div>
 
     <nav>
-        <a href="#">Accueil</a>
-        <a href="#">Découvrir</a>
-        <a href="#">Tendances</a>
-        <a href="#">À propos</a>
+        <a href="#accueil">Accueil</a>
+        <a href="#decouvrir">Découvrir</a>
+        <a href="#tendances">Tendances</a>
+        <a href="#apropos">À propos</a>
     </nav>
+
 </header>
+
 
 <main class="container">
 
-    <section class="hero">
-        <h1>Découvrez quelque chose de nouveau.</h1>
+<section class="hero" id="accueil">
 
-        <p>
-            Des articles, des découvertes et des informations
-            intéressantes sélectionnés pour vous chaque jour.
-        </p>
+    <h1>
+        Découvrez quelque chose de nouveau.
+    </h1>
 
-        <div class="search">
-            <input id="searchInput" placeholder="Rechercher quelque chose...">
-            <button id="searchButton">Rechercher</button>
+    <p id="heroText">
+        Des articles, des découvertes et des informations
+        intéressantes sélectionnés pour vous chaque jour.
+    </p>
+
+    <div class="search">
+
+        <input
+            id="searchInput"
+            type="text"
+            placeholder="Rechercher quelque chose..."
+        >
+
+        <button id="searchButton">
+            Rechercher
+        </button>
+
+    </div>
+
+    <div id="results"></div>
+
+</section>
+
+
+<h2 class="section-title" id="decouvrir">
+    À découvrir aujourd'hui
+</h2>
+
+
+<section class="cards">
+
+    <article class="card">
+
+        <div class="card-image"></div>
+
+        <div class="card-content">
+
+            <h3>
+                Les endroits les plus étonnants du monde
+            </h3>
+
+            <p>
+                Découvrez des lieux fascinants que peu de
+                personnes connaissent.
+            </p>
+
+            <span class="tag">
+                Découverte
+            </span>
+
         </div>
-    </section>
 
-    <h2 class="section-title">À découvrir aujourd'hui</h2>
+    </article>
 
-    <section class="cards">
 
-        <article class="card">
-            <div class="card-image"></div>
+    <article class="card">
 
-            <div class="card-content">
-                <h3>Les endroits les plus étonnants du monde</h3>
+        <div class="card-image"></div>
 
-                <p>
-                    Découvrez des lieux fascinants que peu de
-                    personnes connaissent.
-                </p>
+        <div class="card-content">
 
-                <span class="tag">Découverte</span>
-            </div>
-        </article>
+            <h3>
+                Pourquoi notre cerveau aime les habitudes
+            </h3>
 
-        <article class="card">
-            <div class="card-image"></div>
+            <p>
+                Comprendre comment certaines habitudes
+                influencent notre quotidien.
+            </p>
 
-            <div class="card-content">
-                <h3>Pourquoi notre cerveau aime les habitudes</h3>
+            <span class="tag">
+                Science
+            </span>
 
-                <p>
-                    Comprendre comment certaines habitudes
-                    influencent notre quotidien.
-                </p>
+        </div>
 
-                <span class="tag">Science</span>
-            </div>
-        </article>
+    </article>
 
-        <article class="card">
-            <div class="card-image"></div>
 
-            <div class="card-content">
-                <h3>10 choses à faire ce week-end</h3>
+    <article class="card">
 
-                <p>
-                    Quelques idées simples pour profiter
-                    de votre temps libre.
-                </p>
+        <div class="card-image"></div>
 
-                <span class="tag">Lifestyle</span>
-            </div>
-        </article>
+        <div class="card-content">
 
-    </section>
+            <h3>
+                10 choses à faire ce week-end
+            </h3>
 
-    <section class="info">
-        <h2>Une nouvelle découverte chaque jour</h2>
+            <p>
+                Quelques idées simples pour profiter
+                de votre temps libre.
+            </p>
 
-        <p>
-            Nous sélectionnons régulièrement du contenu
-            intéressant pour vous permettre de découvrir
-            de nouvelles choses.
-        </p>
-    </section>
+            <span class="tag">
+                Lifestyle
+            </span>
+
+        </div>
+
+    </article>
+
+</section>
+
+
+<section class="info" id="tendances">
+
+    <h2>
+        Une nouvelle découverte chaque jour
+    </h2>
+
+    <p id="infoText">
+        Nous sélectionnons régulièrement du contenu
+        intéressant pour vous permettre de découvrir
+        de nouvelles choses.
+    </p>
+
+</section>
+
+
+<section class="info" id="apropos">
+
+    <h2>
+        À propos de Daily
+    </h2>
+
+    <p>
+        Daily est un petit site consacré aux découvertes,
+        aux tendances et aux informations intéressantes
+        du quotidien.
+    </p>
+
+</section>
 
 </main>
+
 
 <footer>
     © 2026 Daily — Tous droits réservés
 </footer>
 
+
 <div id="movingDot"></div>
-<div id="strangeMessage"></div>
+<div id="message"></div>
 
 
 <script>
 
 /* =========================================================
-   MORPH — LE SITE COMMENCE NORMAL
-   PUIS DEVIENT PROGRESSIVEMENT BIZARRE
+   MORPH V2
+   NORMAL → ÉTRANGE
    ========================================================= */
 
-let stage = 0;
+
+/* =========================
+   VARIABLES
+========================= */
+
 let activity = 0;
-let lastMouse = Date.now();
-let searchCount = 0;
+let stage = 0;
+let searches = 0;
 
 const body = document.body;
 const dot = document.getElementById("movingDot");
-const strangeMessage = document.getElementById("strangeMessage");
+const messageBox = document.getElementById("message");
+
+const cards = document.querySelectorAll(".card");
 
 
 /* =========================
-   OUTILS
-   ========================= */
-
-function message(text,duration=2500){
-
-    strangeMessage.textContent=text;
-    strangeMessage.classList.add("show");
-
-    setTimeout(()=>{
-        strangeMessage.classList.remove("show");
-    },duration);
-}
-
+   RANDOM
+========================= */
 
 function random(min,max){
-    return Math.floor(Math.random()*(max-min+1))+min;
+    return Math.floor(
+        Math.random()*(max-min+1)
+    )+min;
 }
 
 
-function advance(){
+/* =========================
+   MESSAGE
+========================= */
+
+function showMessage(text,time=2500){
+
+    messageBox.textContent=text;
+
+    messageBox.classList.add("show");
+
+    clearTimeout(window.messageTimer);
+
+    window.messageTimer=setTimeout(()=>{
+
+        messageBox.classList.remove("show");
+
+    },time);
+}
+
+
+/* =========================
+   ACTIVITY
+========================= */
+
+function activityDetected(){
 
     activity++;
 
-    /*
-       Les étapes ne se déclenchent pas immédiatement.
-       Plus l'utilisateur reste, plus le site change.
-    */
+    checkStage();
 
-    if(activity >= 5 && stage < 1){
-        stage=1;
-        startStage1();
-    }
-
-    if(activity >= 10 && stage < 2){
-        stage=2;
-        startStage2();
-    }
-
-    if(activity >= 16 && stage < 3){
-        stage=3;
-        startStage3();
-    }
-
-    if(activity >= 23 && stage < 4){
-        stage=4;
-        startStage4();
-    }
-
-    if(activity >= 30 && stage < 5){
-        stage=5;
-        startStage5();
-    }
-
-    if(activity >= 38 && stage < 6){
-        stage=6;
-        startStage6();
-    }
-
-    if(activity >= 47 && stage < 7){
-        stage=7;
-        startStage7();
-    }
-
-    if(activity >= 58 && stage < 8){
-        stage=8;
-        startStage8();
-    }
-
-    if(activity >= 70 && stage < 9){
-        stage=9;
-        startStage9();
-    }
-
-    if(activity >= 85 && stage < 10){
-        stage=10;
-        startStage10();
-    }
 }
 
 
 /* =========================
+   PROGRESSION
+========================= */
+
+function checkStage(){
+
+    if(activity>=5 && stage<1){
+
+        stage=1;
+
+        stage1();
+
+    }
+
+    if(activity>=11 && stage<2){
+
+        stage=2;
+
+        stage2();
+
+    }
+
+    if(activity>=18 && stage<3){
+
+        stage=3;
+
+        stage3();
+
+    }
+
+    if(activity>=27 && stage<4){
+
+        stage=4;
+
+        stage4();
+
+    }
+
+    if(activity>=37 && stage<5){
+
+        stage=5;
+
+        stage5();
+
+    }
+
+    if(activity>=49 && stage<6){
+
+        stage=6;
+
+        stage6();
+
+    }
+
+    if(activity>=62 && stage<7){
+
+        stage=7;
+
+        stage7();
+
+    }
+
+    if(activity>=76 && stage<8){
+
+        stage=8;
+
+        stage8();
+
+    }
+
+    if(activity>=92 && stage<9){
+
+        stage=9;
+
+        stage9();
+
+    }
+
+    if(activity>=110 && stage<10){
+
+        stage=10;
+
+        stage10();
+
+    }
+
+}
+
+
+/* =========================================================
    STAGE 1
-   =========================
-   Presque rien ne change.
-*/
+   Presque totalement normal.
+========================================================= */
 
-function startStage1(){
+function stage1(){
 
-    body.classList.add("stage1");
+    /*
+       Rien de gros.
+       Juste une carte qui bouge très légèrement.
+    */
 
     setTimeout(()=>{
 
-        if(Math.random()<.5){
+        const card=cards[0];
 
-            const cards=document.querySelectorAll(".card");
+        card.animate(
+            [
+                {
+                    transform:"translateY(0)"
+                },
 
-            cards[0].style.transform="translateY(2px)";
+                {
+                    transform:"translateY(-3px)"
+                },
 
-            setTimeout(()=>{
-                cards[0].style.transform="";
-            },1200);
+                {
+                    transform:"translateY(0)"
+                }
+            ],
+            {
+                duration:1400
+            }
+        );
 
-        }
+    },1000);
 
-    },random(1000,3000));
 }
 
 
-/* =========================
+/* =========================================================
    STAGE 2
-   =========================
-   Une carte bouge légèrement.
-*/
+========================================================= */
 
-function startStage2(){
+function stage2(){
 
     body.classList.add("stage2");
 
     setTimeout(()=>{
 
-        message("");
-
-
-        const card=document.querySelector(".card:nth-child(2)");
-
-        if(card){
-
-            card.animate(
-                [
-                    {transform:"translateX(0)"},
-                    {transform:"translateX(6px)"},
-                    {transform:"translateX(-2px)"},
-                    {transform:"translateX(0)"}
-                ],
+        cards[1].animate(
+            [
                 {
-                    duration:1400,
-                    easing:"ease-in-out"
+                    transform:"translateX(0)"
+                },
+
+                {
+                    transform:"translateX(8px)"
+                },
+
+                {
+                    transform:"translateX(0)"
                 }
-            );
+            ],
+            {
+                duration:1800
+            }
+        );
 
-        }
+    },1200);
 
-    },1800);
 }
 
 
-/* =========================
+/* =========================================================
    STAGE 3
-   =========================
-   Le premier élément vraiment bizarre.
-*/
+   Petit objet qui apparaît.
+========================================================= */
 
-function startStage3(){
+function stage3(){
 
     body.classList.add("stage3");
 
-    setTimeout(()=>{
+    dot.style.opacity=".35";
 
-        const dot=document.getElementById("movingDot");
+    dot.style.left="48%";
+    dot.style.top="42%";
 
-        dot.style.left="50%";
-        dot.style.top="50%";
-        dot.style.opacity=".35";
-
-        setTimeout(()=>{
-
-            dot.style.left="53%";
-
-        },1000);
-
-    },2000);
 }
 
 
-/* =========================
+/* =========================================================
    STAGE 4
-   =========================
-   Un élément ne reste plus exactement
-   à sa place.
-*/
+========================================================= */
 
-function startStage4(){
+function stage4(){
 
     body.classList.add("stage4");
 
     setTimeout(()=>{
 
-        const links=document.querySelectorAll("nav a");
-
-        if(links[1]){
-
-            links[1].animate(
-                [
-                    {transform:"translateY(0)"},
-                    {transform:"translateY(8px)"},
-                    {transform:"translateY(-3px)"},
-                    {transform:"translateY(4px)"},
-                    {transform:"translateY(0)"}
-                ],
+        document.querySelector("nav a:nth-child(2)")
+        .animate(
+            [
                 {
-                    duration:2400,
-                    easing:"ease-in-out"
+                    transform:"translateY(0)"
+                },
+
+                {
+                    transform:"translateY(7px)"
+                },
+
+                {
+                    transform:"translateY(0)"
                 }
-            );
+            ],
+            {
+                duration:2200
+            }
+        );
 
-        }
+    },1000);
 
-    },1200);
 }
 
 
-/* =========================
+/* =========================================================
    STAGE 5
-   =========================
-   Le titre commence à trembler.
-*/
+   Les textes commencent à changer.
+========================================================= */
 
-function startStage5(){
+function stage5(){
 
     body.classList.add("stage5");
 
     setTimeout(()=>{
 
-        message("");
+        document.querySelector(".card:nth-child(2) p")
+        .textContent =
+        "Comprendre comment certaines habitudes influencent notre quotidien.";
 
-    },1500);
+    },2500);
+
 }
 
 
-/* =========================
+/* =========================================================
    STAGE 6
-   =========================
-   Les cartes commencent à
-   légèrement se désynchroniser.
-*/
+========================================================= */
 
-function startStage6(){
+function stage6(){
 
     body.classList.add("stage6");
 
-    const cards=document.querySelectorAll(".card");
+    setTimeout(()=>{
 
-    cards.forEach((card,index)=>{
+        showMessage(
+            "Tout semble fonctionner normalement."
+        );
 
-        setTimeout(()=>{
+    },1800);
 
-            card.animate(
-                [
-                    {transform:"translate(0,0)"},
-                    {
-                        transform:
-                            `translate(${random(-12,12)}px,${random(-5,8)}px)`
-                    },
-                    {transform:"translate(0,0)"}
-                ],
-                {
-                    duration:1800,
-                    easing:"ease-in-out"
-                }
-            );
-
-        },index*500);
-
-    });
 }
 
 
-/* =========================
+/* =========================================================
    STAGE 7
-   =========================
-   Un petit détail change.
-*/
+   PREMIER VRAI CHANGEMENT DE TEXTE
+========================================================= */
 
-function startStage7(){
+function stage7(){
 
     body.classList.add("stage7");
 
     setTimeout(()=>{
 
-        const logo=document.querySelector(".logo");
+        document.querySelector(".hero h1")
+        .textContent =
+        "Découvrez quelque chose de nouveau.";
 
-        if(logo){
+    },1000);
 
-            logo.textContent="Dai.ly";
 
-        }
+    setTimeout(()=>{
 
-    },2500);
+        document.querySelector(".card:nth-child(1) h3")
+        .textContent =
+        "Les endroits les plus étonnants du monde.";
+
+    },3000);
+
+
+    setTimeout(()=>{
+
+        document.querySelector(".card:nth-child(3) p")
+        .textContent =
+        "Quelques idées simples pour profiter de votre temps libre.";
+
+    },5000);
+
 }
 
 
-/* =========================
+/* =========================================================
    STAGE 8
-   =========================
-   Le texte change.
-*/
+   LES TEXTES COMMENCENT À ÊTRE BIZARRES
+========================================================= */
 
-function startStage8(){
+function stage8(){
 
-    const heroText=document.querySelector(".hero p");
+    body.classList.add("stage8");
 
-    if(heroText){
+    setTimeout(()=>{
 
-        setTimeout(()=>{
+        document.querySelector(".hero h1")
+        .textContent =
+        "Découvrez quelque chose qui était déjà là.";
 
-            heroText.textContent =
-                "Des articles, des découvertes et des informations sélectionnés pour vous.";
+    },1500);
 
-        },2000);
 
-    }
+    setTimeout(()=>{
+
+        document.querySelector(".hero p")
+        .textContent =
+        "Nous sélectionnons des informations pour vous permettre de découvrir de nouvelles choses.";
+
+    },3500);
+
+
+    setTimeout(()=>{
+
+        document.querySelector(".card:nth-child(1) h3")
+        .textContent =
+        "Certains endroits sont difficiles à oublier.";
+
+    },5500);
+
 }
 
 
-/* =========================
+/* =========================================================
    STAGE 9
-   =========================
-   Certains éléments commencent
-   à avoir leur propre mouvement.
-*/
+   PLUS BIZARRE
+========================================================= */
 
-function startStage9(){
+function stage9(){
 
     body.classList.add("stage9");
 
-    const cards=document.querySelectorAll(".card");
+    setTimeout(()=>{
 
-    cards.forEach((card,index)=>{
+        document.querySelector(".card:nth-child(2) h3")
+        .textContent =
+        "Votre cerveau aime les habitudes.";
 
-        setInterval(()=>{
+    },1000);
 
-            if(Math.random()<.35){
 
-                card.animate(
-                    [
-                        {transform:"translate(0,0)"},
-                        {
-                            transform:
-                            `translate(${random(-5,5)}px,${random(-3,3)}px)`
-                        },
-                        {transform:"translate(0,0)"}
-                    ],
-                    {
-                        duration:800
-                    }
-                );
+    setTimeout(()=>{
 
-            }
+        document.querySelector(".card:nth-child(3) h3")
+        .textContent =
+        "10 choses que vous faites probablement sans y penser.";
 
-        },random(3000,6000));
+    },3000);
 
-    });
+
+    setTimeout(()=>{
+
+        document.querySelector("#infoText")
+        .textContent =
+        "Nous mettons régulièrement à jour cette page.";
+
+    },5000);
+
+
+    setTimeout(()=>{
+
+        showMessage(
+            "Vous êtes toujours là."
+        );
+
+    },7000);
+
 }
 
 
-/* =========================
+/* =========================================================
    STAGE 10
-   =========================
-   Le site commence franchement
-   à perdre son comportement normal.
-*/
+   ÉTRANGE
+========================================================= */
 
-function startStage10(){
+function stage10(){
 
     body.classList.add("stage10");
 
     setTimeout(()=>{
 
-        message(
-            "Tout fonctionne normalement.",
-            3500
-        );
+        document.querySelector(".hero h1")
+        .textContent =
+        "Vous êtes arrivé jusqu'ici.";
 
-    },2000);
+    },1000);
+
 
     setTimeout(()=>{
 
-        const buttons=document.querySelectorAll("button");
-
-        buttons.forEach(button=>{
-
-            button.addEventListener("mouseenter",()=>{
-
-                if(Math.random()<.35){
-
-                    button.animate(
-                        [
-                            {transform:"translateX(0)"},
-                            {transform:"translateX(12px)"},
-                            {transform:"translateX(-7px)"},
-                            {transform:"translateX(0)"}
-                        ],
-                        {
-                            duration:500
-                        }
-                    );
-
-                }
-
-            });
-
-        });
+        document.querySelector(".hero p")
+        .textContent =
+        "C'est intéressant.";
 
     },3000);
+
+
+    setTimeout(()=>{
+
+        document.querySelector(".card:nth-child(1) h3")
+        .textContent =
+        "Vous n'aviez probablement pas besoin de lire ceci.";
+
+    },5000);
+
+
+    setTimeout(()=>{
+
+        document.querySelector(".card:nth-child(2) h3")
+        .textContent =
+        "Vous avez déjà regardé cette carte.";
+
+    },7000);
+
+
+    setTimeout(()=>{
+
+        document.querySelector(".card:nth-child(3) h3")
+        .textContent =
+        "Continuez.";
+
+    },9000);
+
+
+    setTimeout(()=>{
+
+        document.querySelector("#infoText")
+        .textContent =
+        "La page fonctionne normalement.";
+
+    },11000);
+
+
+    setTimeout(()=>{
+
+        showMessage(
+            "La page fonctionne normalement.",
+            4000
+        );
+
+    },13000);
+
 }
 
 
 /* =========================================================
    SOURIS
-   ========================================================= */
+========================================================= */
 
-document.addEventListener("mousemove",e=>{
-
-    lastMouse=Date.now();
+document.addEventListener("mousemove",()=>{
 
     /*
-       Beaucoup de mouvements normaux ne déclenchent rien.
-       Quelques-uns font avancer le système.
+       On ne fait pas avancer le scénario à chaque pixel.
+       Sinon tout va beaucoup trop vite.
     */
 
-    if(Math.random()<0.035){
-        advance();
+    if(Math.random()<0.025){
+
+        activityDetected();
+
     }
 
 });
 
 
 /* =========================================================
-   CLICS
-   ========================================================= */
+   CLIC
+========================================================= */
 
-document.addEventListener("click",e=>{
+document.addEventListener("click",()=>{
 
-    advance();
-
-    /*
-       Après un certain temps,
-       quelques clics déclenchent des réactions.
-    */
-
-    if(stage>=5 && Math.random()<.08){
-
-        const element=e.target;
-
-        element.animate(
-            [
-                {transform:"scale(1)"},
-                {transform:"scale(1.025)"},
-                {transform:"scale(1)"}
-            ],
-            {
-                duration:350
-            }
-        );
-
-    }
+    activityDetected();
 
 });
 
 
 /* =========================================================
    RECHERCHE
-   ========================================================= */
+========================================================= */
 
-const searchInput=document.getElementById("searchInput");
-const searchButton=document.getElementById("searchButton");
+const searchInput=
+    document.getElementById("searchInput");
 
-searchButton.addEventListener("click",()=>{
+const searchButton=
+    document.getElementById("searchButton");
 
-    searchCount++;
+const results=
+    document.getElementById("results");
 
-    advance();
 
-    const value=searchInput.value.trim();
+const normalResults={
 
-    if(!value){
+    minecraft:[
+        [
+            "Minecraft",
+            "Un jeu de construction et d'aventure dans un monde généré automatiquement."
+        ],
+        [
+            "Guide Minecraft",
+            "Découvrez des conseils, des constructions et des astuces."
+        ]
+    ],
+
+    espace:[
+        [
+            "L'espace",
+            "Les dernières découvertes concernant l'univers et les objets célestes."
+        ],
+        [
+            "Système solaire",
+            "Découvrez les planètes et les différents objets qui nous entourent."
+        ]
+    ],
+
+    science:[
+        [
+            "Science",
+            "Des explications simples sur les phénomènes qui nous entourent."
+        ],
+        [
+            "Découvertes",
+            "Les découvertes scientifiques qui ont changé notre compréhension du monde."
+        ]
+    ],
+
+    default:[
+        [
+            "Résultats populaires",
+            "Nous avons trouvé plusieurs informations correspondant à votre recherche."
+        ],
+        [
+            "Découvrir",
+            "Explorez les différents sujets proposés sur Daily."
+        ]
+    ]
+
+};
+
+
+function doSearch(){
+
+    const query=
+        searchInput.value
+        .trim()
+        .toLowerCase();
+
+    if(!query){
 
         searchInput.focus();
+
         return;
 
     }
 
-    if(searchCount===1){
+    searches++;
 
-        message("Recherche effectuée.");
+    activityDetected();
 
-    }
-    else if(searchCount===2){
+    results.innerHTML="";
 
-        message("Encore une recherche.");
+    let data=normalResults.default;
 
-    }
-    else if(searchCount===3){
-
-        message("Tu cherches quelque chose en particulier ?");
-
-    }
-    else if(searchCount>=4 && stage>=6){
-
-        message("Tu continues vraiment.");
-
+    if(query.includes("minecraft")){
+        data=normalResults.minecraft;
     }
 
-});
+    else if(query.includes("espace")){
+        data=normalResults.espace;
+    }
+
+    else if(query.includes("science")){
+        data=normalResults.science;
+    }
+
+    data.forEach(item=>{
+
+        const result=
+            document.createElement("div");
+
+        result.className="result";
+
+        result.innerHTML=`
+            <strong>${item[0]}</strong>
+            <span>${item[1]}</span>
+        `;
+
+        results.appendChild(result);
+
+    });
+
+    results.style.display="block";
 
 
-/* =========================================================
-   INACTIVITÉ
-   ========================================================= */
+    /*
+       Après plusieurs recherches,
+       le moteur lui-même commence à changer.
+    */
 
-let idleTimer;
+    if(searches>=3 && stage>=7){
 
-function resetIdle(){
+        setTimeout(()=>{
 
-    clearTimeout(idleTimer);
+            const last=
+                results.querySelector(".result strong");
 
-    idleTimer=setTimeout(()=>{
+            if(last){
 
-        if(stage>=3){
+                last.textContent=
+                    "Résultat trouvé";
 
-            message(
-                "Aucune activité détectée.",
-                2500
-            );
+            }
 
-        }
+        },1500);
 
-    },12000);
+    }
+
+
+    if(searches>=5 && stage>=9){
+
+        setTimeout(()=>{
+
+            const spans=
+                results.querySelectorAll(".result span");
+
+            if(spans.length){
+
+                spans[0].textContent=
+                    "Aucune information supplémentaire.";
+
+            }
+
+        },2000);
+
+    }
 
 }
 
-["mousemove","keydown","click","touchstart"]
-.forEach(event=>{
-    document.addEventListener(event,resetIdle);
-});
 
-resetIdle();
+searchButton.addEventListener(
+    "click",
+    doSearch
+);
+
+
+searchInput.addEventListener(
+    "keydown",
+    e=>{
+
+        if(e.key==="Enter"){
+
+            doSearch();
+
+        }
+
+    }
+);
 
 
 /* =========================================================
-   LE POINT COMMENCE À BOUGER
-   ========================================================= */
+   POINT
+========================================================= */
 
 setInterval(()=>{
 
     if(stage>=3){
 
-        const dot=document.getElementById("movingDot");
-
-        dot.style.left=random(10,90)+"%";
-        dot.style.top=random(15,85)+"%";
+        dot.style.left=random(15,85)+"%";
+        dot.style.top=random(20,80)+"%";
 
     }
 
@@ -1006,127 +1443,126 @@ setInterval(()=>{
 
 
 /* =========================================================
-   ÉVÉNEMENT RARE
-   ========================================================= */
+   INACTIVITÉ
+========================================================= */
 
-setTimeout(()=>{
+let idle;
 
-    /*
-       Seulement 8% des visites voient cet événement.
-    */
+function resetIdle(){
 
-    if(Math.random()<0.08){
+    clearTimeout(idle);
 
-        const cards=document.querySelectorAll(".card");
+    idle=setTimeout(()=>{
 
-        if(cards.length){
+        if(stage>=6){
 
-            const card=cards[random(0,cards.length-1)];
-
-            card.animate(
-                [
-                    {transform:"translateX(0)"},
-                    {transform:"translateX(20px)"},
-                    {transform:"translateX(-12px)"},
-                    {transform:"translateX(0)"}
-                ],
-                {
-                    duration:1800
-                }
+            showMessage(
+                stage>=9
+                ? "Vous êtes encore là."
+                : "Aucune activité détectée."
             );
 
         }
 
-    }
+    },15000);
 
-},15000);
+}
+
+
+["mousemove","keydown","click","touchstart"]
+.forEach(event=>{
+
+    document.addEventListener(
+        event,
+        resetIdle,
+        {passive:true}
+    );
+
+});
+
+
+resetIdle();
 
 
 /* =========================================================
-   CLAVIER
-   ========================================================= */
+   PETITES ANOMALIES ALÉATOIRES
+========================================================= */
 
-document.addEventListener("keydown",e=>{
+/*
+   Elles ne se produisent pas forcément à chaque visite.
+   C'est ce qui rend les visites différentes.
+*/
 
-    advance();
+setTimeout(()=>{
 
-    /*
-       Si quelqu'un appuie beaucoup sur Espace,
-       le site réagit après un certain temps.
-    */
+    if(Math.random()<0.35){
 
-    if(e.code==="Space" && stage>=7 && Math.random()<.2){
+        const card=
+            cards[random(0,cards.length-1)];
 
-        document.body.animate(
+        card.animate(
             [
-                {transform:"translateX(0)"},
-                {transform:"translateX(2px)"},
-                {transform:"translateX(-2px)"},
-                {transform:"translateX(0)"}
+                {
+                    transform:"translate(0,0)"
+                },
+
+                {
+                    transform:
+                        `translate(${random(-6,6)}px,
+                        ${random(-4,5)}px)`
+                },
+
+                {
+                    transform:"translate(0,0)"
+                }
             ],
             {
-                duration:300
+                duration:1800
             }
         );
 
     }
 
-});
+},12000);
 
-
-/* =========================================================
-   MOBILE / TABLETTE
-   ========================================================= */
-
-document.addEventListener("touchstart",()=>{
-
-    advance();
-
-}, {passive:true});
-
-
-/* =========================================================
-   APRÈS 30 SECONDES :
-   petit changement automatique
-   ========================================================= */
 
 setTimeout(()=>{
 
-    if(stage>=2){
+    if(Math.random()<0.25 && stage>=3){
 
-        const tag=document.querySelector(".tag");
-
-        if(tag && Math.random()<.5){
-
-            tag.animate(
-                [
-                    {transform:"translateX(0)"},
-                    {transform:"translateX(4px)"},
-                    {transform:"translateX(0)"}
-                ],
-                {
-                    duration:1000
-                }
-            );
-
-        }
+        showMessage(
+            "Mise à jour terminée."
+        );
 
     }
 
-},30000);
+},25000);
+
+
+/* =========================================================
+   TOUCH
+========================================================= */
+
+document.addEventListener(
+    "touchstart",
+    ()=>{
+        activityDetected();
+    },
+    {passive:true}
+);
 
 
 /* =========================================================
    CONSOLE
-   ========================================================= */
+========================================================= */
 
 console.log(
     "%cDaily",
-    "font-size:25px;font-weight:bold;color:#2563eb"
+    "font-size:24px;font-weight:bold;color:#2563eb"
 );
 
 console.log(
-    "Rien d'intéressant ici."
+    "Tout est normal."
 );
 
 </script>
